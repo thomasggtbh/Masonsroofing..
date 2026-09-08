@@ -183,6 +183,72 @@ footer ul{margin:0;padding:0}
 }
 </style>
 <style>
+
+/* ---------- motion layer ---------- */
+.rv{opacity:1;transform:none}
+html.js .rv{opacity:0;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+html.js .rv-up{transform:translateY(26px)}
+html.js .rv-left{transform:translateX(-24px)}
+html.js .rv-right{transform:translateX(24px)}
+html.js .rv-scale{transform:scale(.965)}
+html.js .rv-blur{filter:blur(7px)}
+html.js .rv.in{opacity:1;transform:none;filter:none}
+html.js .s1{transition-delay:.07s}html.js .s2{transition-delay:.14s}
+html.js .s3{transition-delay:.21s}html.js .s4{transition-delay:.28s}
+
+/* rule that draws itself under each heading */
+.uline{display:block;width:132px;height:8px;margin-top:14px;overflow:visible}
+.uline path{fill:none;stroke:var(--brand);stroke-width:2.5;stroke-linecap:round;
+  stroke-dasharray:140;stroke-dashoffset:140;transition:stroke-dashoffset 1.1s cubic-bezier(.2,.7,.2,1) .12s}
+.uline.in path{stroke-dashoffset:0}
+html:not(.js) .uline path{stroke-dashoffset:0}
+
+/* dust at whisper level over the hero */
+#dust{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.5}
+
+/* soft glow on the key line */
+.cap h1{text-shadow:0 0 42px rgba(226,87,13,.28),0 2px 26px rgba(0,0,0,.55)}
+/* per-band scrim so captions stay legible over the worst frame */
+.cap::before{content:"";position:absolute;left:-6vw;right:-6vw;top:-14vh;bottom:-14vh;z-index:-1;
+  background:radial-gradient(58% 60% at 32% 50%,rgba(6,10,13,.86) 0%,rgba(6,10,13,.55) 46%,transparent 78%);
+  opacity:0;transition:opacity .5s}
+.cap.on::before{opacity:1}
+
+/* counters */
+.stats{background:var(--deep);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  padding-top:44px;padding-bottom:44px;text-align:center}
+.stat b{display:block;font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;text-shadow:0 0 34px rgba(226,87,13,.25)}
+.stat span{font-size:.84rem;color:#94a6b3;letter-spacing:.02em}
+
+/* the interactive moment: drag between framing and finished */
+.ba{position:relative;border-radius:var(--r);overflow:hidden;height:min(58vw,520px);
+  cursor:ew-resize;user-select:none;touch-action:pan-y;border:1px solid var(--line)}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .after{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .handle{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;
+  box-shadow:0 0 0 1px rgba(0,0,0,.25),0 0 26px rgba(255,255,255,.5);z-index:3}
+.ba .knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;
+  color:var(--ink);font-size:.9rem;font-weight:700;box-shadow:0 6px 22px rgba(0,0,0,.35)}
+.ba .tag{position:absolute;bottom:16px;z-index:4;font-size:.72rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(10,15,18,.6);
+  padding:7px 12px;border-radius:6px;backdrop-filter:blur(6px)}
+.ba .tag.l{left:16px}.ba .tag.r{right:16px}
+
+/* parallax on section imagery */
+html.js .plx{will-change:transform}
+
+@media(max-width:980px){.stats .wrap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.stats .wrap{grid-template-columns:1fr;gap:26px}}
+@media(prefers-reduced-motion:reduce){
+  html.js .rv{opacity:1;transform:none;filter:none}
+  .uline path{stroke-dashoffset:0}
+  #dust{display:none}
+  html.js .plx{transform:none!important}
+}
+
 /* scroll engine */
 html{scroll-behavior:smooth}
 .reveal{opacity:1;transform:none;transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
@@ -361,6 +427,7 @@ html:not(.js) .cap{position:relative;opacity:1;transform:none;margin-bottom:40px
     <video id="scrub" muted playsinline preload="auto" crossorigin="anonymous" aria-hidden="true"></video>
   </div>
   <div class="loading" id="loading" hidden><i></i></div>
+  <canvas id="dust"></canvas>
   <div class="veil"></div>
   <div class="caps"><div class="capwrap">
     <div class="cap on" data-cap="0">
@@ -391,25 +458,34 @@ html:not(.js) .cap{position:relative;opacity:1;transform:none;margin-bottom:40px
   <div><span class="tick">&#10003;</span>38 years, one family</div>
 </div></div>
 
+<div class="stats"><div class="wrap">
+  <div class="stat rv rv-up"><b data-count="38">0</b><span>Years in business</span></div>
+  <div class="stat rv rv-up s1"><b data-count="2400" data-suffix="+">0</b><span>Jobs completed</span></div>
+  <div class="stat rv rv-up s2"><b data-count="3">0</b><span>Generations on site</span></div>
+  <div class="stat rv rv-up s3"><b data-count="100" data-suffix="%">0</b><span>Written warranties</span></div>
+</div></div>
+
 <section id="services"><div class="wrap">
-  <div class="head reveal"><div class="eyebrow">What we do</div><h2>Six trades, one crew</h2>
+  <div class="head rv rv-up"><div class="eyebrow">What we do</div><h2>Six trades, one crew</h2>
+    <svg class="uline" viewBox="0 0 132 8" aria-hidden="true"><path d="M1 5 C 34 1, 62 7, 96 3 S 128 5, 131 4"/></svg>
     <p class="lede">Most contractors hand you off to subcontractors. We self-perform the work below, which is why our schedules hold.</p></div>
   <div class="grid3">
-    <a class="card reveal" href="#estimate"><div class="photo"><svg><use href="#ph-roof"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_799f0302-650f-44ad-9f0e-fc0579a45a6e.png" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Roofing</h3><p>Shingle and standing-seam metal, full tear-offs, leak repair, and storm or insurance claims handled start to finish.</p><div class="more">Get a roof quote &rarr;</div></div></a>
-    <a class="card reveal d1" href="#estimate"><div class="photo"><svg><use href="#ph-kitchen"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_d36142f7-c849-4c9d-b911-c883f84b3eaa.png" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Kitchens &amp; baths</h3><p>Full gut remodels with custom cabinetry, stone counters and tile. One crew, one schedule, one point of contact.</p><div class="more">Plan a remodel &rarr;</div></div></a>
-    <a class="card reveal d2" href="#estimate"><div class="photo"><svg><use href="#ph-house"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_d00afeb4-4356-4def-8c93-2bc33ffc014c.png" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Additions</h3><p>Sunrooms, garages, second stories and in-law suites. We handle permits, engineering and inspections.</p><div class="more">Discuss an addition &rarr;</div></div></a>
-    <a class="card reveal" href="#estimate"><div class="photo"><svg><use href="#ph-excavator"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_640f182d-7762-43d7-8c13-309bfbb4df34.png" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Excavation &amp; site work</h3><p>Grading, drainage, hauling and septic. Our own machines, so site prep never waits on someone else's calendar.</p><div class="more">Book site work &rarr;</div></div></a>
-    <a class="card reveal d1" href="#estimate"><div class="photo"><svg><use href="#ph-house"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_b35806a6-89bb-4d63-afb5-86b08ede1575.png" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Decks &amp; porches</h3><p>Pressure-treated and composite decking, railings, screen rooms and covered porches built to last outdoors.</p><div class="more">Design a deck &rarr;</div></div></a>
-    <a class="card reveal d2" href="#estimate"><div class="photo"><svg><use href="#ph-handshake"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_123546_c496e481-9c44-47e5-8fe2-15d28f09629d.png" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Repairs &amp; maintenance</h3><p>Drywall, siding, concrete, windows, doors and gutters. Small jobs still get a real estimate and a real date.</p><div class="more">Ask about a repair &rarr;</div></div></a>
+    <a class="card rv rv-up" href="#estimate"><div class="photo"><svg><use href="#ph-roof"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_799f0302-650f-44ad-9f0e-fc0579a45a6e.png" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Roofing</h3><p>Shingle and standing-seam metal, full tear-offs, leak repair, and storm or insurance claims handled start to finish.</p><div class="more">Get a roof quote &rarr;</div></div></a>
+    <a class="card rv rv-up s1" href="#estimate"><div class="photo"><svg><use href="#ph-kitchen"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_d36142f7-c849-4c9d-b911-c883f84b3eaa.png" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Kitchens &amp; baths</h3><p>Full gut remodels with custom cabinetry, stone counters and tile. One crew, one schedule, one point of contact.</p><div class="more">Plan a remodel &rarr;</div></div></a>
+    <a class="card rv rv-up s2" href="#estimate"><div class="photo"><svg><use href="#ph-house"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_d00afeb4-4356-4def-8c93-2bc33ffc014c.png" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Additions</h3><p>Sunrooms, garages, second stories and in-law suites. We handle permits, engineering and inspections.</p><div class="more">Discuss an addition &rarr;</div></div></a>
+    <a class="card rv rv-up" href="#estimate"><div class="photo"><svg><use href="#ph-excavator"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_640f182d-7762-43d7-8c13-309bfbb4df34.png" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Excavation &amp; site work</h3><p>Grading, drainage, hauling and septic. Our own machines, so site prep never waits on someone else's calendar.</p><div class="more">Book site work &rarr;</div></div></a>
+    <a class="card rv rv-up s1" href="#estimate"><div class="photo"><svg><use href="#ph-house"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_b35806a6-89bb-4d63-afb5-86b08ede1575.png" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Decks &amp; porches</h3><p>Pressure-treated and composite decking, railings, screen rooms and covered porches built to last outdoors.</p><div class="more">Design a deck &rarr;</div></div></a>
+    <a class="card rv rv-up s2" href="#estimate"><div class="photo"><svg><use href="#ph-handshake"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_123546_c496e481-9c44-47e5-8fe2-15d28f09629d.png" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Repairs &amp; maintenance</h3><p>Drywall, siding, concrete, windows, doors and gutters. Small jobs still get a real estimate and a real date.</p><div class="more">Ask about a repair &rarr;</div></div></a>
   </div>
 </div></section>
 
 <section id="why" style="background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
   <div class="split">
-    <div class="reveal"><div class="photo"><svg><use href="#ph-handshake"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124838_4e8e10fc-4272-4f7f-b2fd-7a6c57fba55f.png" alt="" onerror="this.style.display='none'"></div></div>
-    <div class="reveal d1">
+    <div class="rv rv-left plx" data-plx="0.05"><div class="photo"><svg><use href="#ph-handshake"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124838_4e8e10fc-4272-4f7f-b2fd-7a6c57fba55f.png" alt="" onerror="this.style.display='none'"></div></div>
+    <div class="rv rv-scale s1">
       <div class="eyebrow">Why Built-Rite</div>
       <h2 style="margin-top:12px">The boring things other contractors get wrong</h2>
+    <svg class="uline" viewBox="0 0 132 8" aria-hidden="true"><path d="M1 5 C 34 1, 62 7, 96 3 S 128 5, 131 4"/></svg>
       <ul class="checks">
         <li><span class="tick">&#10003;</span><span><b>We show up on the day we said.</b>Scheduling is the number one complaint about contractors. It is the thing we protect hardest.</span></li>
         <li><span class="tick">&#10003;</span><span><b>Fixed written price before work starts.</b>Change orders only happen when you ask for a change, and you approve them in writing first.</span></li>
@@ -421,45 +497,60 @@ html:not(.js) .cap{position:relative;opacity:1;transform:none;margin-bottom:40px
 </div></section>
 
 <section id="work"><div class="wrap">
-  <div class="head reveal"><div class="eyebrow">Recent work</div><h2>Jobs from this year</h2>
+  <div class="head rv rv-up"><div class="eyebrow">Recent work</div><h2>Jobs from this year</h2>
+    <svg class="uline" viewBox="0 0 132 8" aria-hidden="true"><path d="M1 5 C 34 1, 62 7, 96 3 S 128 5, 131 4"/></svg>
     <p class="lede">Every photo below is a job our own crew completed in the tri-county area.</p></div>
   <div class="gal">
-    <a href="#" class="reveal"><div class="photo"><svg><use href="#ph-house"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124838_4e8e10fc-4272-4f7f-b2fd-7a6c57fba55f.png" alt="" onerror="this.style.display='none'"></div></a>
-    <a href="#" class="reveal d1"><div class="photo"><svg><use href="#ph-kitchen"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_d36142f7-c849-4c9d-b911-c883f84b3eaa.png" alt="" onerror="this.style.display='none'"></div></a>
-    <a href="#" class="reveal d2"><div class="photo"><svg><use href="#ph-roof"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_799f0302-650f-44ad-9f0e-fc0579a45a6e.png" alt="" onerror="this.style.display='none'"></div></a>
-    <a href="#" class="reveal d1"><div class="photo"><svg><use href="#ph-excavator"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_640f182d-7762-43d7-8c13-309bfbb4df34.png" alt="" onerror="this.style.display='none'"></div></a>
-    <a href="#" class="reveal d2"><div class="photo"><svg><use href="#ph-worker"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_b35806a6-89bb-4d63-afb5-86b08ede1575.png" alt="" onerror="this.style.display='none'"></div></a>
+    <a href="#" class="rv rv-up"><div class="photo"><svg><use href="#ph-house"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124838_4e8e10fc-4272-4f7f-b2fd-7a6c57fba55f.png" alt="" onerror="this.style.display='none'"></div></a>
+    <a href="#" class="rv rv-scale s1"><div class="photo"><svg><use href="#ph-kitchen"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_d36142f7-c849-4c9d-b911-c883f84b3eaa.png" alt="" onerror="this.style.display='none'"></div></a>
+    <a href="#" class="rv rv-scale s2"><div class="photo"><svg><use href="#ph-roof"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_799f0302-650f-44ad-9f0e-fc0579a45a6e.png" alt="" onerror="this.style.display='none'"></div></a>
+    <a href="#" class="rv rv-scale s1"><div class="photo"><svg><use href="#ph-excavator"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_640f182d-7762-43d7-8c13-309bfbb4df34.png" alt="" onerror="this.style.display='none'"></div></a>
+    <a href="#" class="rv rv-scale s2"><div class="photo"><svg><use href="#ph-worker"/></svg><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_b35806a6-89bb-4d63-afb5-86b08ede1575.png" alt="" onerror="this.style.display='none'"></div></a>
+  </div>
+</div></section>
+
+<section id="transform" style="background:var(--soft);border-top:1px solid var(--line)"><div class="wrap">
+  <div class="head rv rv-up"><div class="eyebrow">Framing to finished</div><h2>Drag to see the difference</h2>
+    <p class="lede">The same room, opened up and rebuilt. Pull the handle across.</p></div>
+  <div class="ba rv rv-scale" id="ba">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_d00afeb4-4356-4def-8c93-2bc33ffc014c.png" alt="The room during framing">
+    <img class="after" src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_124839_d36142f7-c849-4c9d-b911-c883f84b3eaa.png" alt="The finished room">
+    <span class="tag l">During</span><span class="tag r">Finished</span>
+    <div class="handle"><div class="knob">&#8596;</div></div>
   </div>
 </div></section>
 
 <section id="reviews" style="background:var(--soft);border-top:1px solid var(--line)"><div class="wrap">
-  <div class="head reveal"><div class="eyebrow">Reviews</div><h2>What neighbors say</h2></div>
+  <div class="head rv rv-up"><div class="eyebrow">Reviews</div><h2>What neighbors say</h2>
+    <svg class="uline" viewBox="0 0 132 8" aria-hidden="true"><path d="M1 5 C 34 1, 62 7, 96 3 S 128 5, 131 4"/></svg></div>
   <div class="quotes">
-    <div class="q reveal"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Dave and his crew tore off and replaced our roof in three days, cleaned up every night, and the price matched the estimate exactly. No games.</p><div class="by"><b>Karen T.</b>Roof replacement &middot; Millfield</div></div>
-    <div class="q reveal d1"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>I called four contractors. Built-Rite was the only one who called back, and the only one who showed up with a written scope instead of a napkin number.</p><div class="by"><b>Bob &amp; Linda S.</b>Kitchen remodel &middot; Ashford</div></div>
-    <div class="q reveal d2"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>They built our back deck two summers ago. Went back after the first winter to re-check the footings without us even asking. That is rare.</p><div class="by"><b>Marcus D.</b>Composite deck &middot; Millfield</div></div>
+    <div class="q rv rv-blur"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Dave and his crew tore off and replaced our roof in three days, cleaned up every night, and the price matched the estimate exactly. No games.</p><div class="by"><b>Karen T.</b>Roof replacement &middot; Millfield</div></div>
+    <div class="q rv rv-blur s1"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>I called four contractors. Built-Rite was the only one who called back, and the only one who showed up with a written scope instead of a napkin number.</p><div class="by"><b>Bob &amp; Linda S.</b>Kitchen remodel &middot; Ashford</div></div>
+    <div class="q rv rv-blur s2"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>They built our back deck two summers ago. Went back after the first winter to re-check the footings without us even asking. That is rare.</p><div class="by"><b>Marcus D.</b>Composite deck &middot; Millfield</div></div>
   </div>
 </div></section>
 
 <section id="process"><div class="wrap">
-  <div class="head reveal"><div class="eyebrow">How it works</div><h2>Four steps, no mystery</h2></div>
+  <div class="head rv rv-up"><div class="eyebrow">How it works</div><h2>Four steps, no mystery</h2>
+    <svg class="uline" viewBox="0 0 132 8" aria-hidden="true"><path d="M1 5 C 34 1, 62 7, 96 3 S 128 5, 131 4"/></svg></div>
   <div class="steps">
-    <div class="step reveal"><h3>We walk the job</h3><p>Usually within 48 hours. We measure, photograph and talk through what you actually want.</p></div>
-    <div class="step reveal d1"><h3>You get it in writing</h3><p>A line-item scope and a fixed price. Nothing verbal, nothing vague.</p></div>
-    <div class="step reveal d2"><h3>We build it</h3><p>A start date you can plan around, daily cleanup, and one number to call with questions.</p></div>
-    <div class="step reveal d3"><h3>We walk it again</h3><p>A punch list you sign off on, then the written warranty. We come back if anything moves.</p></div>
+    <div class="step rv rv-up"><h3>We walk the job</h3><p>Usually within 48 hours. We measure, photograph and talk through what you actually want.</p></div>
+    <div class="step rv rv-up s1"><h3>You get it in writing</h3><p>A line-item scope and a fixed price. Nothing verbal, nothing vague.</p></div>
+    <div class="step rv rv-up s2"><h3>We build it</h3><p>A start date you can plan around, daily cleanup, and one number to call with questions.</p></div>
+    <div class="step rv rv-up s3"><h3>We walk it again</h3><p>A punch list you sign off on, then the written warranty. We come back if anything moves.</p></div>
   </div>
 </div></section>
 
 <div class="band" id="estimate"><div class="wrap">
-  <div class="reveal">
+  <div class="rv rv-up">
     <div class="eyebrow">Free estimate</div>
     <h2 style="color:#fff;margin-top:12px">Tell us about the job</h2>
+    <svg class="uline" viewBox="0 0 132 8" aria-hidden="true"><path d="M1 5 C 34 1, 62 7, 96 3 S 128 5, 131 4"/></svg>
     <p>We answer every request within one business day. If we are not the right crew for your project, we will tell you that too, and point you at someone who is.</p>
     <p style="margin-top:26px;font-size:1.5rem;color:#fff;font-weight:700;letter-spacing:-.02em">(555) 018-4400</p>
     <p style="margin-top:4px;font-size:.94rem">4417 Old Mill Road, Suite B, Millfield &middot; Mon&ndash;Fri 7:00am&ndash;4:30pm</p>
   </div>
-  <form class="form reveal d1" onsubmit="this.querySelector('.btn').textContent='Thanks — we will call you';return false">
+  <form class="form rv rv-right s1" onsubmit="this.querySelector('.btn').textContent='Thanks, we will call you';return false">
     <div class="row"><div><label for="n">Name</label><input id="n" required></div><div><label for="p">Phone</label><input id="p" type="tel" required></div></div>
     <div><label for="e">Email</label><input id="e" type="email"></div>
     <div><label for="t">Type of work</label><select id="t"><option>Roofing</option><option>Kitchen or bath</option><option>Addition</option><option>Deck or porch</option><option>Excavation</option><option>Repair</option></select></div>
@@ -492,13 +583,107 @@ html:not(.js) .cap{position:relative;opacity:1;transform:none;margin-bottom:40px
 <script>
 document.documentElement.classList.add('js');
 var R=matchMedia('(prefers-reduced-motion:reduce)').matches;
-var els=[].slice.call(document.querySelectorAll('.reveal'));
+var els=[].slice.call(document.querySelectorAll('.rv, .uline'));
 function showAll(){els.forEach(function(e){e.classList.add('in')})}
 if(R||!('IntersectionObserver'in window)){showAll()}else{
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
   els.forEach(function(e){io.observe(e)});
   setTimeout(showAll,2500); /* safety: never leave content hidden */
 }
+
+/* ---- counters ---- */
+function runCount(el){
+  var to=+el.dataset.count, sfx=el.dataset.suffix||'', t0=0, dur=1400;
+  if(R){el.textContent=to.toLocaleString()+sfx;return;}
+  function step(ts){
+    if(!t0)t0=ts;
+    var k=Math.min(1,(ts-t0)/dur), e=1-Math.pow(1-k,3);
+    el.textContent=Math.round(to*e).toLocaleString()+sfx;
+    if(k<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+[].forEach.call(document.querySelectorAll('[data-count]'),function(el){
+  if(R||!('IntersectionObserver'in window)){runCount(el);return;}
+  var o=new IntersectionObserver(function(en){
+    en.forEach(function(x){if(x.isIntersecting){runCount(el);o.disconnect()}})
+  },{threshold:.5});
+  o.observe(el);
+});
+
+/* ---- dust over the hero, whisper level ---- */
+(function(){
+  var c=document.getElementById('dust');
+  if(!c||R)return;
+  var x=c.getContext('2d'), w=0,h=0,mot=[],run=true;
+  function size(){
+    w=c.width=c.offsetWidth*devicePixelRatio; h=c.height=c.offsetHeight*devicePixelRatio;
+    mot=[];
+    var n=Math.min(46,Math.round(w*h/95000));
+    for(var i=0;i<n;i++)mot.push({
+      x:Math.random()*w, y:Math.random()*h,
+      r:(Math.random()*1.6+.5)*devicePixelRatio,
+      vx:(Math.random()-.5)*.14*devicePixelRatio,
+      vy:(Math.random()*.16+.04)*devicePixelRatio,
+      a:Math.random()*.32+.06
+    });
+  }
+  function draw(){
+    if(!run)return;
+    x.clearRect(0,0,w,h);
+    for(var i=0;i<mot.length;i++){
+      var m=mot[i];
+      m.x+=m.vx; m.y+=m.vy;
+      if(m.y>h){m.y=-4;m.x=Math.random()*w}
+      if(m.x<-4)m.x=w; if(m.x>w+4)m.x=0;
+      x.beginPath(); x.arc(m.x,m.y,m.r,0,6.284);
+      x.fillStyle='rgba(255,226,190,'+m.a+')'; x.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  size(); addEventListener('resize',size); draw();
+  /* stop the loop once the hero has scrolled away */
+  var st=document.getElementById('stage');
+  if(st&&'IntersectionObserver'in window){
+    new IntersectionObserver(function(en){
+      en.forEach(function(e){ if(e.isIntersecting&&!run){run=true;draw()} else if(!e.isIntersecting){run=false} });
+    },{threshold:0}).observe(st);
+  }
+})();
+
+/* ---- gentle parallax on flagged imagery ---- */
+var plx=[].slice.call(document.querySelectorAll('.plx'));
+function moveP(){
+  if(R)return;
+  for(var i=0;i<plx.length;i++){
+    var el=plx[i], r=el.getBoundingClientRect();
+    if(r.bottom<0||r.top>innerHeight)continue;
+    var k=(r.top+r.height/2-innerHeight/2)/innerHeight;
+    el.style.transform='translate3d(0,'+(k*(+el.dataset.plx||.05)*100).toFixed(2)+'px,0)';
+  }
+}
+
+/* ---- the interactive moment: drag between framing and finished ---- */
+(function(){
+  var ba=document.getElementById('ba');
+  if(!ba)return;
+  var down=false;
+  function set(cx){
+    var r=ba.getBoundingClientRect();
+    var pct=Math.min(97,Math.max(3,((cx-r.left)/r.width)*100));
+    ba.style.setProperty('--x',pct.toFixed(2)+'%');
+  }
+  ba.addEventListener('pointerdown',function(e){down=true;ba.setPointerCapture(e.pointerId);set(e.clientX)});
+  ba.addEventListener('pointermove',function(e){if(down)set(e.clientX)});
+  addEventListener('pointerup',function(){down=false});
+  ba.addEventListener('keydown',function(e){
+    var cur=parseFloat(getComputedStyle(ba).getPropertyValue('--x'))||50;
+    if(e.key==='ArrowLeft'){ba.style.setProperty('--x',Math.max(3,cur-4)+'%');e.preventDefault()}
+    if(e.key==='ArrowRight'){ba.style.setProperty('--x',Math.min(97,cur+4)+'%');e.preventDefault()}
+  });
+  ba.tabIndex=0; ba.setAttribute('role','slider'); ba.setAttribute('aria-label','Compare during and finished');
+})();
+
 var stage=document.getElementById('stage'),film=document.getElementById('film'),
     caps=[].slice.call(document.querySelectorAll('.cap')),rail=document.getElementById('rail').children,
     prog=document.getElementById('prog'),tick=0;
@@ -551,7 +736,9 @@ if(v&&VID.indexOf('http')===0&&!R&&!small){
     .catch(function(){v.src=VID});
 }
 addEventListener('scroll',function(){if(!tick)tick=requestAnimationFrame(frame);if(vready&&!raf)raf=requestAnimationFrame(seek)},{passive:true});
-addEventListener('resize',frame);frame();
+addEventListener('resize',frame);
+addEventListener('scroll',moveP,{passive:true});
+frame();moveP();
 </script>
 </body>
 </html>
