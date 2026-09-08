@@ -2,296 +2,1552 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Built-Rite Construction &amp; Sons LLC | General Contractor | Roofing, Remodeling, Additions</title>
-<meta name="keywords" content="construction, general contractor, roofing, remodeling, additions, decks, excavation, licensed contractor">
-<meta name="description" content="Built-Rite Construction & Sons LLC - family owned general contractor serving the tri-county area since 1987. Licensed, bonded and insured. Free estimates.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KMI Construction | Commercial Masonry, Restoration &amp; Panel Wall Systems | New Berlin, WI</title>
+<meta name="description" content="Family owned commercial masonry contractor in New Berlin, Wisconsin since 1992. Brick, block and stone, historic restoration and panelized wall systems across southeastern Wisconsin. Call (262) 548-0632.">
+<meta name="theme-color" content="#14171a">
+<meta property="og:title" content="KMI Construction | Commercial Masonry &amp; Restoration">
+<meta property="og:description" content="Commercial masonry, historic restoration and panel wall systems, built so water never finds a way in. New Berlin, Wisconsin.">
+<meta property="og:type" content="website">
+<!-- DEPLOY STEP: patch og:url and og:image with the live absolute URL before zipping -->
+<meta property="og:url" content="https://example.com/">
+<meta property="og:image" content="https://example.com/assets/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314171a'/%3E%3Crect x='3' y='6' width='12' height='7' fill='%23b8452c'/%3E%3Crect x='17' y='6' width='12' height='7' fill='%238c3a2a'/%3E%3Crect x='3' y='16' width='26' height='3' fill='%23c9bda6'/%3E%3Crect x='3' y='22' width='12' height='7' fill='%238c3a2a'/%3E%3Crect x='17' y='22' width='12' height='7' fill='%23b8452c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- fonts load without blocking render or the page script: a slow or blocked
+     font host must never freeze the site, it just falls back to the stack -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=IBM+Plex+Mono:wght@500&family=Public+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=IBM+Plex+Mono:wght@500&family=Public+Sans:wght@400;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=IBM+Plex+Mono:wght@500&family=Public+Sans:wght@400;600&display=swap"></noscript>
 <style>
-body{background:#4c5a68;background-image:linear-gradient(180deg,#3d4956 0,#4c5a68 260px);margin:0;padding:14px 0 30px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;text-align:center}
-table.wrap{width:780px;margin:0 auto;background:#fff;border:1px solid #24384f;border-collapse:collapse;box-shadow:0 3px 10px rgba(0,0,0,.5);text-align:left}
-td{padding:0;vertical-align:top}
-a{color:#1b4f8a}
+/* ============================================================
+   KMI Construction
+   Tokens sampled from masonry's own materials: fired clay,
+   charcoal mortar, limestone. See DESIGN-PACKAGE.md.
+   ============================================================ */
+:root{
+  --canvas:#14171a;
+  --canvas-2:#1b1f23;
+  --panel:#21262b;
+  --panel-2:#272d33;
+  --line:#2e353c;
+  --line-str:#3d464f;
+  --accent:#b8452c;
+  --accent-hover:#d4573a;
+  --brick-lt:#e8785c;
+  --accent-muted:rgba(184,69,44,.18);
+  --stone:#c9bda6;
+  --text-secondary:#9aa4ad;
+  --text-primary:#eceae6;
 
-/* header */
-.hdr{background:#25446e;background-image:linear-gradient(180deg,#2d5382 0,#1d3557 100%);padding:12px 16px;border-bottom:3px solid #f0b429;position:relative}
-.logo{font-family:"Arial Black",Arial,sans-serif;font-size:27px;color:#fff;letter-spacing:-.5px;text-shadow:1px 1px 2px rgba(0,0,0,.6);margin:0}
-.logo span{color:#f0b429}
-.sub{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:13px;color:#c3d4e8;margin-top:3px}
-.hdrphone{position:absolute;right:16px;top:14px;text-align:right;color:#fff;font-size:11px;line-height:1.5}
-.hdrphone b{display:block;font-family:"Arial Black",Arial,sans-serif;font-size:21px;color:#f0b429;letter-spacing:-1px}
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI","Liberation Sans",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 
-/* nav */
-.nav{background:#1d3557;border-bottom:1px solid #12243c}
-.nav a{display:inline-block;padding:7px 13px;font-size:11px;font-weight:bold;color:#dbe6f3;text-decoration:none;border-right:1px solid #2d5382}
-.nav a:hover{background:#2d5382;color:#fff}
-.nav a.on{background:#f0b429;color:#1d3557}
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --tshadow:0 1px 2px rgba(5,7,9,.95),0 3px 12px rgba(5,7,9,.78),0 10px 44px rgba(5,7,9,.8);
+  --wrap:1200px;
 
-/* hero */
-.hero{padding:10px 10px 4px}
-.strip{background:#eef1f4;border-top:1px solid #d3dae1;border-bottom:1px solid #d3dae1;padding:6px 12px;font-size:11px;color:#4a5a68}
-.strip b{color:#8a1c1c}
+  /* the running bond tile: 4 courses, 18 bricks, varied fired clay */
+  --brick:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='176'%3E%3Crect width='480' height='176' fill='%23241a17'/%3E%3Crect x='0' y='0' width='112' height='36' fill='%238c3a2a'/%3E%3Crect x='120' y='0' width='112' height='36' fill='%237d3225'/%3E%3Crect x='240' y='0' width='112' height='36' fill='%239a4430'/%3E%3Crect x='360' y='0' width='112' height='36' fill='%236f2c21'/%3E%3Crect x='-60' y='44' width='112' height='36' fill='%23a34c35'/%3E%3Crect x='60' y='44' width='112' height='36' fill='%23713024'/%3E%3Crect x='180' y='44' width='112' height='36' fill='%2385372a'/%3E%3Crect x='300' y='44' width='112' height='36' fill='%2394402d'/%3E%3Crect x='420' y='44' width='112' height='36' fill='%237a3427'/%3E%3Crect x='0' y='88' width='112' height='36' fill='%23683026'/%3E%3Crect x='120' y='88' width='112' height='36' fill='%238e3d2c'/%3E%3Crect x='240' y='88' width='112' height='36' fill='%23763327'/%3E%3Crect x='360' y='88' width='112' height='36' fill='%23a04a33'/%3E%3Crect x='-60' y='132' width='112' height='36' fill='%23823629'/%3E%3Crect x='60' y='132' width='112' height='36' fill='%236c2f23'/%3E%3Crect x='180' y='132' width='112' height='36' fill='%239b4531'/%3E%3Crect x='300' y='132' width='112' height='36' fill='%23743126'/%3E%3Crect x='420' y='132' width='112' height='36' fill='%238a3b2c'/%3E%3C/svg%3E");
+}
 
-/* columns */
-.main{padding:12px 14px;width:498px}
-.side{padding:12px 12px 12px 0;width:226px}
-h2{font-family:Georgia,serif;font-size:17px;color:#1d3557;margin:0 0 6px;padding-bottom:4px;border-bottom:2px solid #f0b429;font-weight:normal}
-h3{font-size:12px;color:#8a1c1c;margin:12px 0 4px}
-p{margin:0 0 9px;line-height:1.45;font-size:12px;color:#3d3d3d}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden;overflow-x:clip}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--canvas);color:var(--text-primary);
+  font-family:var(--body);font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:900;line-height:1.04;letter-spacing:-.022em}
+button,input,select,textarea{font:inherit;color:inherit}
 
-/* sidebar boxes */
-.box{background:#f6f4ee;border:1px solid #cfc7b2;margin-bottom:10px}
-.box .bt{background:#e6e0cf;border-bottom:1px solid #cfc7b2;padding:5px 8px;font-size:11px;font-weight:bold;color:#5c4a1e;text-transform:uppercase;letter-spacing:.5px}
-.box .bb{padding:8px}
-.quote{font-family:Georgia,serif;font-style:italic;font-size:11px;color:#4a4a4a;line-height:1.4;margin:0 0 4px}
-.who{font-size:10px;color:#777;margin:0 0 9px}
-.stars{color:#e8a317;letter-spacing:1px}
-.est{background:#8a1c1c;background-image:linear-gradient(180deg,#a52626 0,#7a1414 100%);color:#fff;text-align:center;padding:9px 6px;border:1px solid #5e0f0f}
-.est b{display:block;font-family:"Arial Black",Arial,sans-serif;font-size:15px;letter-spacing:-.5px}
-.est span{font-size:10px;color:#f3c9c9}
+:focus-visible{outline:2px solid var(--brick-lt);outline-offset:3px;border-radius:2px}
 
-/* services */
-.svc{width:100%;border-collapse:collapse;margin-top:4px}
-.svc td{border:1px solid #dcdcdc;padding:7px;font-size:11px;vertical-align:top;width:50%}
-.svc tr:nth-child(odd) td{background:#f7f7f7}
-.svc b{color:#1d3557;font-size:12px}
-.svc .li{color:#555;line-height:1.4}
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--accent);color:#fff;
+  padding:12px 20px;font-weight:600;border-radius:0 0 8px 0}
+.skip:focus{left:0}
 
-/* photos */
-.photo{position:relative;display:inline-block;overflow:hidden;border:1px solid #b9c2cb;background:#c8d4de;vertical-align:top}
-.photo svg,.photo img{display:block;width:100%;height:100%}
-.photo img{position:absolute;left:0;top:0}
-.ph-hero{width:756px;height:196px}
-.ph-thumb{width:118px;height:88px;margin:0 4px 4px 0}
-.ph-side{width:206px;height:104px;margin-bottom:8px}
-.ph-in{width:150px;height:96px;float:right;margin:2px 0 8px 10px}
-.cap{font-size:10px;color:#8a8a8a;margin:2px 0 8px}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 28px}
+.kicker{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--stone);margin:0 0 18px}
+.lede{color:var(--text-secondary);font-size:1.07rem;max-width:62ch}
 
-/* footer */
-.ftr{background:#eef1f4;border-top:1px solid #d3dae1;padding:9px 14px;font-size:10px;color:#6a7684;line-height:1.6}
-.ftr a{color:#3a6ea5}
-.ftrbar{background:#1d3557;color:#96abc4;padding:7px 14px;font-size:10px}
-.counter{font-family:"Courier New",monospace;font-size:12px;background:#333;color:#7dd87d;padding:1px 4px;letter-spacing:2px;border:1px solid #000}
-.new{background:#c0392b;color:#fff;font-size:9px;padding:1px 4px;font-weight:bold;vertical-align:middle}
-.disc{width:780px;margin:8px auto 0;font-size:10px;color:#8a97a5;text-align:center}
+/* ---------- the environment layer (one place, not stacked sections) ---------- */
+.env{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.env::before{content:"";position:absolute;inset:-20%;
+  background:radial-gradient(ellipse 70% 55% at 22% 12%,rgba(122,142,158,.11),transparent 62%),
+             radial-gradient(ellipse 60% 50% at 84% 78%,rgba(184,69,44,.075),transparent 64%);
+  animation:drift 90s var(--ease) -22s infinite alternate}
+@keyframes drift{from{transform:translate3d(-2.5%,-1.5%,0) scale(1)}to{transform:translate3d(2.5%,2%,0) scale(1.09)}}
+.env::after{content:"";position:absolute;inset:0;opacity:.32;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.36'/%3E%3C/svg%3E")}
+.page{position:relative;z-index:1}
+
+/* ---------- signature: the mortar line ---------- */
+.joint-rule{display:block;width:100%;height:9px;overflow:visible}
+.joint-rule line{stroke:var(--line-str);stroke-width:1.5;
+  stroke-dasharray:1400;stroke-dashoffset:1400;
+  transition:stroke-dashoffset 1.5s var(--ease-out)}
+.joint-rule .tick{stroke:var(--accent);stroke-width:3;opacity:0;
+  transition:opacity .6s var(--ease) .55s}
+.in .joint-rule line{stroke-dashoffset:0}
+.in .joint-rule .tick{opacity:.85}
+
+/* ---------- header ---------- */
+.hdr{position:sticky;top:0;z-index:70;transition:background .45s var(--ease),border-color .45s var(--ease),backdrop-filter .45s var(--ease);
+  border-bottom:1px solid transparent}
+.hdr.solid{background:rgba(20,23,26,.86);backdrop-filter:blur(14px) saturate(1.2);border-bottom-color:var(--line)}
+.hdr .wrap{display:flex;align-items:center;gap:30px;padding-top:15px;padding-bottom:15px}
+.brand{display:flex;align-items:center;gap:12px;flex:none}
+.mark{width:34px;height:34px;flex:none}
+.mark rect{transition:transform .55s var(--ease-out)}
+.brand:hover .mark .b1{transform:translateX(2.5px)}
+.brand:hover .mark .b2{transform:translateX(-2.5px)}
+.brand .nm{font-family:var(--display);font-weight:900;font-size:1.14rem;letter-spacing:-.03em;line-height:1.05}
+.brand .nm small{display:block;font-family:var(--mono);font-weight:500;font-size:.55rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--text-secondary);margin-top:4px}
+.nav{margin-left:auto;display:flex;gap:30px;font-size:.93rem;color:var(--text-secondary)}
+.nav a{position:relative;padding:4px 0;transition:color .3s var(--ease)}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;
+  background:var(--accent);transition:right .4s var(--ease-out)}
+.nav a:hover{color:var(--text-primary)}
+.nav a:hover::after{right:0}
+.hdr .tel{font-family:var(--mono);font-size:.86rem;color:var(--text-primary);white-space:nowrap}
+.hdr .btn{padding:10px 18px;font-size:.88rem}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 27px;font-family:var(--body);font-weight:600;font-size:.98rem;
+  border:1.5px solid transparent;cursor:pointer;border-radius:3px;
+  transition:background .3s var(--ease),border-color .3s var(--ease),color .3s var(--ease),transform .3s var(--ease-out);
+  text-shadow:none}
+.btn-p{background:var(--accent);color:#fff}
+.btn-p:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--text-primary);border-color:var(--line-str)}
+.btn-o:hover{border-color:var(--stone);color:#fff;transform:translateY(-2px)}
+@media (pointer:coarse){.btn{min-height:44px}}
+
+/* ============================================================
+   HERO: the descent
+   ============================================================ */
+.hero{position:relative;height:700vh}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#0f1214;
+  perspective:1000px;perspective-origin:24% 46%;
+  --p:0;
+  --pz:clamp(0,(var(--p) - .66)*2.95,1);
+  --pj:clamp(0,(var(--p) - .78)*7.15,1)}
+/* the camera pushes in, then hands the frame to the close-up at rest.
+   Nothing here may name opacity or filter: either one flattens preserve-3d
+   and the facade collapses back into a flat brick texture. */
+.camera{position:absolute;inset:0;transform-style:preserve-3d;
+  transform:scale(calc(1 + var(--pz)*.85));transform-origin:64% 60%;
+  will-change:transform}
+/* the wide shot receding at the end, done with an overlay so the 3D survives */
+.dim{position:absolute;inset:0;pointer-events:none;background:#0d1013;
+  opacity:calc(var(--pj)*.82)}
+/* grain over the facade so the brick reads as material, not vector */
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)' opacity='.5'/%3E%3C/svg%3E")}
+
+/* The backdrop needs real depth. Inside a preserve-3d camera, paint order is
+   3D position, not DOM order, so a sky left at z:0 sits in FRONT of the
+   receding wall and hides it entirely. Push each layer back and scale to
+   compensate: scale = (perspective + depth) / perspective. */
+.sky{position:absolute;inset:0;transform:translateZ(-1400px) scale(2.4);
+  background:linear-gradient(172deg,#414a55 0%,#353d46 20%,#262d34 50%,#181c20 100%)}
+
+/* the city, far below and behind, on the open side of the frame */
+.skyline{position:absolute;left:-10%;right:64%;bottom:-4vh;height:52vh;opacity:.5;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='200'%3E%3Cpath d='M0 200 L0 124 L40 124 L40 98 L88 98 L88 134 L140 134 L140 76 L188 76 L188 112 L236 112 L236 142 L300 142 L300 86 L352 86 L352 120 L404 120 L404 64 L452 64 L452 128 L520 128 L520 100 L570 100 L570 136 L600 136 L600 200 Z' fill='%231e242a'/%3E%3C/svg%3E") repeat-x bottom/auto 100%;
+  transform:translate3d(0,calc(var(--p) * -10vh),0) translateZ(-1000px) scale(2);
+  will-change:transform}
+.haze{position:absolute;left:-10%;right:-10%;top:-10%;height:160vh;
+  background:radial-gradient(ellipse 56% 44% at 20% 34%,rgba(184,200,214,.22),transparent 68%);
+  transform:translate3d(0,calc(var(--p) * -22vh),0) translateZ(-700px) scale(1.7);
+  will-change:transform}
+
+/* the facade: a real plane, hinged at its near edge and receding in 3D.
+   This is what makes it read as a building instead of a brick texture. */
+/* Near edge hinged at the right of frame, running away to a corner on the
+   left, so the caption lane sits over the dark receding end and the sky. */
+.wall{position:absolute;top:-90vh;right:0;width:80%;height:580vh;
+  transform-origin:right center;backface-visibility:hidden;
+  transform:translate3d(0,calc(var(--p) * -208vh),0) rotateY(-31deg);
+  will-change:transform}
+.wall .face{position:absolute;inset:0;background-image:var(--brick);
+  background-repeat:repeat;background-size:150px 55px}
+.wall .bands{position:absolute;inset:0}
+.wall .bands i{position:absolute;left:0;right:0;height:12px;display:block;
+  background:linear-gradient(180deg,#d2c6ad 0%,#ab9f88 52%,#7d7462 100%);
+  box-shadow:0 4px 9px rgba(0,0,0,.6)}
+/* the raking light: bright on the near end, dying off as the wall runs away */
+.wall .shade{position:absolute;inset:0;
+  background:linear-gradient(270deg,rgba(255,238,210,.24) 0%,rgba(255,234,202,.07) 16%,
+    rgba(12,14,18,.32) 46%,rgba(9,11,14,.68) 74%,rgba(7,9,12,.88) 100%)}
+
+/* scaffold shadows sweeping past, nearer the lens so they run faster */
+.scaff{position:absolute;left:-10%;right:-10%;top:0;height:420vh;
+  transform:translate3d(0,calc(var(--p) * -330vh),0);will-change:transform}
+.scaff i{position:absolute;left:24%;right:0;height:13px;display:block;
+  background:rgba(6,8,10,.46);filter:blur(3px)}
+
+/* the raking light sweep */
+.rake{position:absolute;left:-30%;right:-30%;top:-40vh;height:230vh;pointer-events:none;
+  background:linear-gradient(100deg,transparent 30%,rgba(255,231,196,.15) 45%,rgba(255,231,196,.04) 52%,transparent 64%);
+  transform:translate3d(0,calc(var(--p) * -150vh),0);will-change:transform;
+  opacity:calc(1 - var(--pz)*.6)}
+
+/* dust */
+.dust{position:absolute;inset:0;pointer-events:none;opacity:calc(.85 - var(--pz)*.45)}
+.dust b{position:absolute;display:block;border-radius:50%;background:rgba(255,240,220,.62);
+  animation:mote linear infinite}
+@keyframes mote{
+  0%{transform:translate3d(0,0,0);opacity:0}
+  12%{opacity:.85}
+  88%{opacity:.7}
+  100%{transform:translate3d(26px,-190px,0);opacity:0}}
+
+/* the ending: one tooled joint, at rest. Sits OUTSIDE the camera so the
+   push-in never magnifies it, which is what makes the focus rack read. */
+.joint-end{position:absolute;inset:0;pointer-events:none;overflow:hidden;
+  opacity:var(--pj);transform:scale(calc(1.09 - var(--pj)*.09));
+  will-change:transform,opacity}
+.joint-end .course{position:absolute;left:-6%;right:-6%;
+  /* course shading over the bond, so brick at arm's length reads as fired
+     clay with a lit top arris and a shadowed bed, not as flat tiles */
+  background-image:
+    repeating-linear-gradient(180deg,rgba(255,236,208,.075) 0 3px,rgba(0,0,0,0) 3px 88px,rgba(0,0,0,.3) 92px 105px),
+    var(--brick);
+  background-size:auto,1150px 420px}
+.joint-end .course.up{top:-6vh;height:68vh;box-shadow:inset 0 -34px 52px rgba(0,0,0,.55)}
+.joint-end .course.dn{top:72vh;height:38vh;box-shadow:inset 0 34px 46px rgba(0,0,0,.5)}
+/* matte lime mortar, struck concave. Nothing here should look polished. */
+.joint-end .mortar{position:absolute;left:-6%;right:-6%;top:62vh;height:10vh;
+  background:linear-gradient(180deg,#191a16 0%,#2e2f28 15%,#43443b 44%,#3b3c34 64%,#26271f 87%,#141510 100%);
+  box-shadow:inset 0 7px 16px rgba(0,0,0,.72),inset 0 -6px 13px rgba(0,0,0,.58)}
+.joint-end .glint{position:absolute;left:-6%;right:-6%;top:63.2vh;height:1.1vh;
+  background:linear-gradient(180deg,rgba(255,240,214,.17),transparent)}
+.joint-end .tex{position:absolute;inset:0;pointer-events:none;opacity:.42;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23t)' opacity='.55'/%3E%3C/svg%3E")}
+
+/* legibility layer 1: the global base scrim */
+.scrim{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 122% 92% at 50% 45%,rgba(9,11,14,0) 33%,rgba(9,11,14,.6) 100%)}
+.scrim-2{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(9,11,14,.5) 0%,transparent 20%,transparent 70%,rgba(9,11,14,.66) 100%)}
+
+/* ---------- caption bands ---------- */
+.bands-layer{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.band{position:absolute;left:0;right:0;top:0;bottom:0;display:grid;align-content:center;
+  padding:0 28px;opacity:0;text-shadow:var(--tshadow);--k:0}
+.band::before{content:"";position:absolute;inset:-5%;pointer-events:none;
+  opacity:calc(.25 + .75*var(--k));
+  background:radial-gradient(ellipse 76% 60% at 34% 50%,rgba(5,6,9,.68) 0%,rgba(5,6,9,.46) 46%,rgba(5,6,9,0) 76%)}
+.band .inner{position:relative;width:100%;max-width:var(--wrap);margin:0 auto}
+.band .line{font-family:var(--display);font-weight:900;font-size:clamp(2.2rem,5.6vw,4.6rem);
+  line-height:1.02;letter-spacing:-.03em;max-width:17ch;margin:0}
+.band .line .w{display:inline-block;white-space:pre}
+.band .line .c{display:inline-block}
+.band .btn{pointer-events:auto}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* entrance (f): drift-down, the words fall as the camera falls */
+.fx-drift .w{--kc:clamp(0,(var(--k) - var(--th,0))*2.8,1);opacity:var(--kc);
+  transform:translate3d(0,calc((1 - var(--kc))*-30px),0)}
+/* entrance (d): word-punch with overshoot */
+.fx-punch .w{--kc:clamp(0,(var(--k) - var(--th,0))*3,1);
+  --ks:clamp(0,(var(--k) - var(--th,0) - var(--sd,.1))*var(--ss,3.2),1);
+  opacity:var(--kc);
+  transform:scale(calc(0.62 + (0.38 + var(--ov,.12))*var(--kc) - var(--ov,.12)*var(--ks)))}
+.fx-punch .w.em{--ov:.26;--sd:.16;--ss:2.6;color:var(--brick-lt)}
+/* entrance (a): scatter, characters break apart like a spalled face */
+.fx-scatter .c{--kc:clamp(0,(var(--k) - var(--th,0))*2.6,1);opacity:var(--kc);
+  transform:translate3d(calc((1 - var(--kc))*var(--jx,0px)),calc((1 - var(--kc))*var(--jy,0px)),0)
+            rotate(calc((1 - var(--kc))*var(--jr,0deg)))}
+/* entrance (c): blur-to-sharp, echoing the focus rack */
+.fx-blur .line{position:relative}
+.fx-blur .soft{position:absolute;inset:0;filter:blur(11px);opacity:calc(1 - var(--k));
+  color:var(--text-primary)}
+.fx-blur .sharp{opacity:var(--k)}
+/* entrance (e): word-by-word rise into a staged settle */
+.fx-settle .w{--kc:clamp(0,(var(--k) - var(--th,0))*2.9,1);opacity:var(--kc);
+  transform:translate3d(0,calc((1 - var(--kc))*34px),0)}
+.fx-settle .sub{--ks:clamp(0,(var(--k) - .60)*4,1);opacity:var(--ks);
+  transform:translate3d(0,calc((1 - var(--ks))*20px),0)}
+.fx-settle .row{--kb:clamp(0,(var(--k) - .74)*5,1);opacity:var(--kb);
+  transform:translate3d(0,calc((1 - var(--kb))*20px),0)}
+.band .sub{color:var(--text-secondary);font-size:1.05rem;max-width:46ch;margin:22px 0 0}
+.band .row{display:flex;gap:13px;margin-top:32px;flex-wrap:wrap}
+.band .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--stone);margin:0 0 16px;opacity:clamp(0,(var(--k) - .10)*3,1)}
+
+/* the scroll cue */
+.cue{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:5;
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--text-secondary);display:flex;flex-direction:column;align-items:center;gap:9px;
+  transition:opacity .5s var(--ease);text-shadow:var(--tshadow)}
+.cue i{display:block;width:1px;height:34px;background:linear-gradient(180deg,var(--stone),transparent);
+  animation:cuedrop 2.6s var(--ease) -.4s infinite}
+@keyframes cuedrop{0%{transform:scaleY(0);transform-origin:top}
+  45%{transform:scaleY(1);transform-origin:top}
+  46%{transform:scaleY(1);transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}}
+.stage.moved .cue{opacity:0}
+
+/* ---------- the static hero (phones, reduced motion) ---------- */
+.static-hero{display:none;position:relative;min-height:92vh;align-items:center;overflow:hidden;
+  background:#0f1214;padding:96px 0 72px}
+.static-hero .bgwall{position:absolute;inset:0;background-image:var(--brick);background-size:320px 118px;
+  filter:brightness(.5)}
+.static-hero .bgwall::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(178deg,rgba(12,15,17,.72) 0%,rgba(12,15,17,.9) 62%,#14171a 100%)}
+/* the stone course sits above the headline, never behind it */
+.static-hero .stone-band{position:absolute;left:0;right:0;top:13%;height:20px;
+  background:linear-gradient(180deg,#d8cdb4,#9d917a);opacity:.38}
+.static-hero .wrap{position:relative;z-index:2}
+.static-hero h1{font-size:clamp(2.4rem,9vw,4rem);max-width:14ch;margin:0;text-shadow:var(--tshadow)}
+.static-hero .sub{color:var(--text-secondary);max-width:44ch;margin:22px 0 0;text-shadow:var(--tshadow)}
+.static-hero .row{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+section{position:relative;padding:clamp(84px,11vw,148px) 0}
+.sec-head{max-width:70ch}
+.sec-head h2{font-size:clamp(1.9rem,4.4vw,3.15rem);max-width:19ch}
+.sec-head .lede{margin-top:22px}
+
+/* entrances */
+.rev{opacity:0;transform:translate3d(0,26px,0);
+  transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}
+.in .rev{opacity:1;transform:none}
+.in .rev:nth-child(1){transition-delay:.03s}
+.in .rev:nth-child(2){transition-delay:.12s}
+.in .rev:nth-child(3){transition-delay:.21s}
+.in .rev:nth-child(4){transition-delay:.30s}
+.in .rev:nth-child(5){transition-delay:.39s}
+.in .rev:nth-child(6){transition-delay:.48s}
+/* retire the stagger so later hovers do not inherit the delay.
+   Specificity must match the nth-child rules above. */
+.in.done-stagger .rev:nth-child(1),.in.done-stagger .rev:nth-child(2),
+.in.done-stagger .rev:nth-child(3),.in.done-stagger .rev:nth-child(4),
+.in.done-stagger .rev:nth-child(5),.in.done-stagger .rev:nth-child(6){transition-delay:0s !important}
+
+/* --- 1. premise: asymmetric, statement + drawn wall section --- */
+.premise{background:var(--canvas)}
+.premise .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(38px,6vw,86px);align-items:start}
+.premise h2{font-size:clamp(2rem,4.9vw,3.5rem);max-width:15ch}
+.premise .body{margin-top:26px;color:var(--text-secondary);font-size:1.09rem;max-width:52ch}
+.premise .body b{color:var(--text-primary);font-weight:600}
+.section-fig{background:var(--canvas-2);border:1px solid var(--line);border-radius:4px;padding:26px}
+.section-fig figcaption{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--text-secondary);margin-top:20px;line-height:1.9}
+.section-fig figcaption span{color:var(--stone)}
+.wallsec .lbl{font-family:var(--mono);font-size:9px;letter-spacing:.1em;fill:#9aa4ad}
+.wallsec .water{stroke:var(--brick-lt);stroke-width:2;fill:none;stroke-dasharray:260;
+  stroke-dashoffset:260;transition:stroke-dashoffset 1.9s var(--ease-out) .4s}
+.in .wallsec .water{stroke-dashoffset:0}
+.wallsec .drop{opacity:0;transition:opacity .5s var(--ease) 1.6s}
+.in .wallsec .drop{opacity:1;animation:seep 4.5s var(--ease) -1s infinite}
+@keyframes seep{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(7px);opacity:1}}
+
+/* --- 2. services: offset like running bond --- */
+.services{background:var(--canvas-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.bond{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:58px;
+  padding-bottom:70px}
+.bond .card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:4px;
+  padding:30px 28px 34px;overflow:hidden;
+  transition:border-color .45s var(--ease),transform .45s var(--ease-out)}
+.bond .card:nth-child(2){transform:translateY(30px)}
+.bond .card:nth-child(3){transform:translateY(60px)}
+.bond .card:hover{border-color:var(--line-str)}
+.bond .card:nth-child(1):hover{transform:translateY(-6px)}
+.bond .card:nth-child(2):hover{transform:translateY(24px)}
+.bond .card:nth-child(3):hover{transform:translateY(54px)}
+.bond .card::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;
+  transition:transform .6s var(--ease-out)}
+.bond .card:hover::after{transform:scaleX(1)}
+.bond .num{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;color:var(--brick-lt)}
+.bond h3{font-family:var(--display);font-weight:700;font-size:1.5rem;margin:16px 0 12px;letter-spacing:-.02em}
+.bond p{color:var(--text-secondary);font-size:.98rem}
+.bond .art{margin:0 0 4px;height:118px}
+.bond .art *{transition:transform .7s var(--ease-out),opacity .7s var(--ease)}
+.bond .card:hover .art .mv{transform:translateY(-6px)}
+
+/* --- 3. the interactive moment: centered, full band --- */
+.strike{background:var(--canvas);text-align:center;overflow:hidden}
+.strike .wrap{max-width:820px}
+.strike h2{font-size:clamp(1.9rem,4.6vw,3rem);margin:0 auto}
+.strike .lede{margin:24px auto 0;text-align:center}
+.rig{position:relative;margin:52px auto 0;max-width:640px;--h:0}
+.rig svg{width:100%;height:auto;overflow:visible}
+.rig .fill{transform-origin:left center;transform:scaleX(var(--h))}
+.rig .tool{transform:translateX(calc(var(--h) * 470px));opacity:clamp(0,var(--h)*8,1)}
+.rig .tooled{opacity:clamp(0,(var(--h) - .70)*3.6,1)}
+.rig .shine{opacity:clamp(0,(var(--h) - .84)*6,1)}
+.hold{margin:34px auto 0;display:inline-flex;align-items:center;gap:14px;
+  padding:14px 26px;border:1.5px solid var(--line-str);border-radius:3px;background:transparent;
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text-secondary);cursor:pointer;touch-action:none;user-select:none;
+  -webkit-user-select:none;
+  transition:border-color .35s var(--ease),color .35s var(--ease)}
+.hold:hover{border-color:var(--stone);color:var(--text-primary)}
+.hold .meter{width:74px;height:3px;background:var(--line);position:relative;overflow:hidden}
+.hold .meter i{position:absolute;inset:0;background:var(--accent);transform-origin:left;
+  transform:scaleX(var(--h,0))}
+.strike .payoff{margin:34px auto 0;max-width:52ch;font-family:var(--display);font-weight:700;
+  font-size:1.32rem;line-height:1.32;color:var(--text-primary);
+  opacity:0;transform:translateY(14px);
+  transition:opacity .8s var(--ease-out) .15s,transform .8s var(--ease-out) .15s}
+.rig.done + .hold{border-color:var(--accent);color:var(--brick-lt)}
+.strike.solved .payoff{opacity:1;transform:none}
+
+/* --- 4. the spec sheet: rows, not cards --- */
+.spec{background:var(--canvas-2);border-top:1px solid var(--line)}
+.spec .rows{margin-top:52px;border-top:1px solid var(--line)}
+.spec .r{display:grid;grid-template-columns:230px 1fr;gap:34px;
+  padding:28px 0;border-bottom:1px solid var(--line);align-items:baseline;
+  transition:background .4s var(--ease)}
+.spec .r:hover{background:rgba(184,69,44,.045)}
+.spec dt{font-family:var(--mono);font-size:.73rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--stone)}
+.spec dd{margin:0;color:var(--text-secondary);font-size:1.02rem;max-width:62ch}
+
+/* --- 5. selected work: asymmetric grid --- */
+.work{background:var(--canvas)}
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:56px}
+.tile{position:relative;border:1px solid var(--line);border-radius:4px;overflow:hidden;
+  background:var(--panel);transition:border-color .45s var(--ease)}
+.tile:hover{border-color:var(--line-str)}
+.tile:nth-child(1){grid-column:span 4}
+.tile:nth-child(2){grid-column:span 2}
+.tile:nth-child(3){grid-column:span 2}
+.tile:nth-child(4){grid-column:span 2}
+.tile:nth-child(5){grid-column:span 2}
+.tile:nth-child(6){grid-column:span 6}
+.tile .elev{width:100%;height:190px;background:#161a1e;display:block}
+.tile:nth-child(1) .elev,.tile:nth-child(6) .elev{height:230px}
+.tile .elev .grade{stroke:#3d464f;stroke-width:1.4}
+.tile .elev .scaf{stroke:#49535d;stroke-width:1.6}
+.tile .elev .mark{stroke:#e8785c;stroke-width:1.6;fill:none;stroke-dasharray:7 5}
+.tile .elev *{transition:transform .8s var(--ease-out),opacity .8s var(--ease)}
+.tile:hover .elev .lift{transform:translateY(-5px)}
+.tile .cap{padding:20px 22px 24px;border-top:1px solid var(--line)}
+.tile h3{font-family:var(--display);font-weight:700;font-size:1.14rem;letter-spacing:-.015em}
+.tile p{margin-top:9px;color:var(--text-secondary);font-size:.92rem}
+
+/* --- 6. FAQ: narrow single column --- */
+.faq{background:var(--canvas-2);border-top:1px solid var(--line)}
+.faq .wrap{max-width:820px}
+.faq .list{margin-top:46px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 44px 24px 0;position:relative;
+  font-family:var(--display);font-weight:700;font-size:1.17rem;letter-spacing:-.015em;
+  transition:color .3s var(--ease)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--brick-lt)}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:13px;height:1.5px;
+  background:var(--stone)}
+.faq summary::before{content:"";position:absolute;right:6px;top:50%;width:13px;height:1.5px;
+  background:var(--stone);transform:rotate(90deg);transition:transform .4s var(--ease)}
+.faq details[open] summary::before{transform:rotate(0deg)}
+.faq details p{padding:0 8px 26px 0;color:var(--text-secondary);max-width:62ch}
+
+/* --- 7. contact: split, phone set large --- */
+.contact{background:var(--canvas)}
+.contact .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(38px,6vw,80px)}
+.tel-big{display:inline-block;font-family:var(--display);font-weight:900;
+  font-size:clamp(2rem,4.6vw,3.1rem);letter-spacing:-.03em;margin:26px 0 0;
+  transition:color .35s var(--ease)}
+.tel-big:hover{color:var(--brick-lt)}
+.addr{margin-top:26px;color:var(--text-secondary);font-size:.99rem;line-height:1.85}
+.addr b{display:block;color:var(--text-primary);font-weight:600;margin-bottom:5px}
+form{background:var(--canvas-2);border:1px solid var(--line);border-radius:4px;padding:30px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--text-secondary);margin:0 0 8px}
+.field{margin-bottom:16px}
+input,select,textarea{width:100%;background:var(--panel);border:1px solid var(--line);
+  border-radius:3px;padding:13px 14px;font-size:.97rem;color:var(--text-primary);
+  transition:border-color .3s var(--ease),background .3s var(--ease)}
+input:hover,select:hover,textarea:hover{border-color:var(--line-str)}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);background:var(--panel-2);outline:none}
+textarea{resize:vertical;min-height:104px}
+select{appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239aa4ad' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center}
+form .btn{width:100%;margin-top:6px}
+.sent{margin-top:16px;padding:14px 16px;border:1px solid var(--accent);
+  background:var(--accent-muted);border-radius:3px;font-size:.93rem;color:var(--text-primary)}
+
+/* --- footer --- */
+footer{background:var(--canvas-2);border-top:1px solid var(--line);padding:52px 0 60px}
+footer .row{display:flex;gap:26px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}
+footer p{color:var(--text-secondary);font-size:.89rem;max-width:44ch}
+footer .fnav{display:flex;gap:22px;flex-wrap:wrap;font-size:.89rem;color:var(--text-secondary)}
+footer .fnav a:hover{color:var(--brick-lt)}
+footer .legal{margin-top:34px;padding-top:24px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.11em;color:var(--text-secondary);
+  display:flex;gap:20px;justify-content:space-between;flex-wrap:wrap}
+
+/* ---------- responsive ---------- */
+@media (max-width:1024px){
+  .premise .grid,.contact .grid{grid-template-columns:1fr}
+  .bond{grid-template-columns:1fr;gap:18px;padding-bottom:0}
+  .bond .card:nth-child(2),.bond .card:nth-child(3){transform:none}
+  .bond .card:nth-child(1):hover,.bond .card:nth-child(2):hover,.bond .card:nth-child(3):hover{transform:translateY(-6px)}
+  .tile:nth-child(1),.tile:nth-child(2),.tile:nth-child(3),
+  .tile:nth-child(4),.tile:nth-child(5),.tile:nth-child(6){grid-column:span 3}
+  .spec .r{grid-template-columns:1fr;gap:10px}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  .nav{display:none}
+  /* on a phone the useful header action is the phone number, not a form link.
+     The brand gives up its subline so the number always fits on one line. */
+  .hdr .btn{display:none}
+  .hdr .wrap{gap:12px}
+  .brand{gap:9px}
+  .mark{width:30px;height:30px}
+  .brand .nm{font-size:1rem}
+  .brand .nm small{display:none}
+  .hdr .tel{margin-left:auto;background:var(--accent);color:#fff;border-radius:3px;
+    padding:0 12px;min-height:44px;display:inline-flex;align-items:center;
+    font-size:.78rem;white-space:nowrap;flex:none}
+  .tiles{grid-template-columns:1fr;gap:16px}
+  .tile:nth-child(1),.tile:nth-child(2),.tile:nth-child(3),
+  .tile:nth-child(4),.tile:nth-child(5),.tile:nth-child(6){grid-column:span 1}
+  .f2{grid-template-columns:1fr}
+  footer .row{flex-direction:column}
+}
+/* below about 380px the wordmark and the number cannot both fit the bar.
+   The number wins: the hero carries the name two lines further down. */
+@media (max-width:380px){
+  .brand .nm{display:none}
+}
+@media (max-height:560px){.cue{display:none}}
+
+/* ---------- the five static-hero gates (must match the JS strings exactly) ---------- */
+@media (max-width: 720px),
+       (orientation: portrait) and (max-width: 1024px),
+       (orientation: portrait) and (pointer: coarse),
+       (orientation: landscape) and (pointer: coarse) and (max-height: 560px),
+       (prefers-reduced-motion: reduce){
+  .hero{display:none}
+  .static-hero{display:flex}
+}
+
+/* ---------- reduced motion, honored completely ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important;transition-delay:0s !important}
+  .rev{opacity:1;transform:none}
+  .joint-rule line{stroke-dashoffset:0}
+  .joint-rule .tick{opacity:.85}
+  .wallsec .water{stroke-dashoffset:0}
+  .wallsec .drop{opacity:1}
+  .rig{--h:1}
+  .strike .payoff{opacity:1;transform:none}
+  /* re-apply positional transforms rather than wiping them */
+  .bond .card:nth-child(2){transform:translateY(30px)}
+  .bond .card:nth-child(3){transform:translateY(60px)}
+}
+@media (prefers-reduced-motion: reduce) and (max-width:1024px){
+  .bond .card:nth-child(2),.bond .card:nth-child(3){transform:none}
+}
+/* pinned final states, applied when reduced motion flips on mid-session */
+body.pinned *,body.pinned *::before,body.pinned *::after{animation:none !important;transition:none !important;transition-delay:0s !important}
+body.pinned .rev{opacity:1;transform:none}
+body.pinned .joint-rule line{stroke-dashoffset:0}
+body.pinned .joint-rule .tick{opacity:.85}
+body.pinned .wallsec .water{stroke-dashoffset:0}
+body.pinned .wallsec .drop{opacity:1}
+body.pinned .rig{--h:1}
+body.pinned .strike .payoff{opacity:1;transform:none}
+
+/* pause every loop on a hidden tab */
+body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused !important}
 </style>
 </head>
 <body>
-<!-- fallback artwork so the photos still show if the picture links stop working -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<a class="skip" href="#main">Skip to content</a>
+<div class="env" aria-hidden="true"></div>
 
-  <symbol id="ph-worker" viewBox="0 0 400 260" preserveAspectRatio="none">
-    <rect width="400" height="260" fill="#8fc4e8"/>
-    <rect y="180" width="400" height="80" fill="#c8a97a"/>
-    <rect y="176" width="400" height="8" fill="#a98b60"/>
-    <g stroke="#5c6570" stroke-width="5" fill="none"><path d="M320 175V45h60"/><path d="M330 60l40-14"/><path d="M378 46v30"/></g>
-    <rect x="300" y="96" width="70" height="80" fill="#b9c2cc"/>
-    <g fill="#9aa5b1"><rect x="308" y="104" width="22" height="22"/><rect x="340" y="104" width="22" height="22"/><rect x="308" y="136" width="22" height="22"/><rect x="340" y="136" width="22" height="22"/></g>
-    <ellipse cx="150" cy="238" rx="70" ry="12" fill="#00000022"/>
-    <rect x="120" y="130" width="62" height="105" rx="6" fill="#f57c00"/>
-    <rect x="132" y="130" width="38" height="70" fill="#ffd54f"/>
-    <g fill="#e0e0e0"><rect x="120" y="152" width="62" height="9"/><rect x="120" y="176" width="62" height="9"/></g>
-    <rect x="88" y="140" width="34" height="16" rx="8" fill="#f57c00"/>
-    <rect x="180" y="120" width="16" height="42" rx="8" fill="#f57c00"/>
-    <circle cx="188" cy="112" r="15" fill="#e8b98d"/>
-    <rect x="182" y="98" width="12" height="18" rx="5" fill="#e8b98d"/>
-    <circle cx="151" cy="98" r="27" fill="#e8b98d"/>
-    <path d="M120 96a31 31 0 0 1 62 0z" fill="#ffc107"/>
-    <rect x="112" y="94" width="78" height="9" rx="4" fill="#ffca28"/>
-    <g fill="#3e2723"><circle cx="142" cy="102" r="3"/><circle cx="160" cy="102" r="3"/></g>
-    <path d="M141 114q10 8 20 0" stroke="#3e2723" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <rect x="126" y="232" width="26" height="12" rx="4" fill="#4e342e"/>
-    <rect x="152" y="232" width="26" height="12" rx="4" fill="#4e342e"/>
-  </symbol>
+<!-- shared drawing vocabulary: one bond, one ashlar, used by every elevation -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <pattern id="pbrick" width="46" height="15" patternUnits="userSpaceOnUse">
+      <rect width="46" height="15" fill="#241a17"/>
+      <rect x="0" y="0" width="21" height="6.4" fill="#8c3a2a"/>
+      <rect x="23" y="0" width="21" height="6.4" fill="#7d3225"/>
+      <rect x="-11" y="8" width="21" height="6.4" fill="#9a4430"/>
+      <rect x="12" y="8" width="21" height="6.4" fill="#85372a"/>
+      <rect x="35" y="8" width="21" height="6.4" fill="#94402d"/>
+    </pattern>
+    <pattern id="pold" width="46" height="15" patternUnits="userSpaceOnUse">
+      <rect width="46" height="15" fill="#1d1715"/>
+      <rect x="0" y="0" width="21" height="6.4" fill="#5d3f38"/>
+      <rect x="23" y="0" width="21" height="6.4" fill="#63443c"/>
+      <rect x="-11" y="8" width="21" height="6.4" fill="#593b34"/>
+      <rect x="12" y="8" width="21" height="6.4" fill="#5d3f38"/>
+      <rect x="35" y="8" width="21" height="6.4" fill="#63443c"/>
+    </pattern>
+    <pattern id="pstone" width="72" height="22" patternUnits="userSpaceOnUse">
+      <rect width="72" height="22" fill="#3a382f"/>
+      <rect x="0" y="0" width="34" height="9.4" fill="#b9ad95"/>
+      <rect x="36" y="0" width="34" height="9.4" fill="#aa9e86"/>
+      <rect x="-17" y="11" width="34" height="9.4" fill="#c2b69d"/>
+      <rect x="19" y="11" width="34" height="9.4" fill="#b0a48c"/>
+      <rect x="55" y="11" width="34" height="9.4" fill="#b9ad95"/>
+    </pattern>
+  </defs>
+</svg>
 
-  <symbol id="ph-excavator" viewBox="0 0 400 260" preserveAspectRatio="none">
-    <rect width="400" height="260" fill="#a8d4ef"/>
-    <path d="M0 190h400v70H0z" fill="#b08d5f"/>
-    <path d="M0 190q60-40 120-18t150-30 130 22v36H0z" fill="#c9a877"/>
-    <rect x="60" y="196" width="150" height="34" rx="17" fill="#37474f"/>
-    <g fill="#78909c"><circle cx="82" cy="213" r="11"/><circle cx="135" cy="213" r="13"/><circle cx="188" cy="213" r="11"/></g>
-    <rect x="70" y="150" width="120" height="50" rx="8" fill="#fdd835"/>
-    <rect x="86" y="112" width="66" height="44" rx="7" fill="#fdd835"/>
-    <rect x="94" y="120" width="50" height="26" rx="3" fill="#81d4fa"/>
-    <g stroke="#fbc02d" stroke-width="16" fill="none" stroke-linecap="round"><path d="M180 160l58-62"/><path d="M238 98l52 54"/></g>
-    <path d="M282 146l34 10-8 34-40-20z" fill="#546e7a"/>
-    <g fill="#37474f"><path d="M272 174l6 12M286 180l5 12M300 186l4 12"/></g>
-    <rect x="152" y="152" width="12" height="14" fill="#f9a825"/>
-  </symbol>
+<div class="page">
 
-  <symbol id="ph-house" viewBox="0 0 400 260" preserveAspectRatio="none">
-    <rect width="400" height="260" fill="#9fd0ee"/>
-    <circle cx="330" cy="48" r="24" fill="#fff59d"/>
-    <rect y="212" width="400" height="48" fill="#7cb342"/>
-    <path d="M60 108l110-64 110 64z" fill="#a52a2a"/>
-    <path d="M60 108l110-64 110 64" fill="none" stroke="#7f1d1d" stroke-width="5"/>
-    <rect x="82" y="108" width="176" height="106" fill="#f5f0e1"/>
-    <rect x="82" y="108" width="176" height="106" fill="none" stroke="#bdb59a" stroke-width="3"/>
-    <rect x="152" y="150" width="36" height="64" fill="#6d4c41"/>
-    <circle cx="181" cy="184" r="3" fill="#ffd54f"/>
-    <g fill="#81d4fa" stroke="#fff" stroke-width="4"><rect x="102" y="132" width="38" height="38"/><rect x="204" y="132" width="38" height="38"/></g>
-    <g stroke="#cfa15a" stroke-width="6" fill="none"><path d="M266 214V96h74v118"/><path d="M266 140h74M266 178h74"/><path d="M266 96l74 44M340 96l-74 44"/></g>
-    <rect x="196" y="60" width="14" height="14" fill="#ff5252"/>
-  </symbol>
-
-  <symbol id="ph-handshake" viewBox="0 0 400 260" preserveAspectRatio="none">
-    <rect width="400" height="260" fill="#eceff1"/>
-    <rect y="0" width="400" height="96" fill="#cfd8dc"/>
-    <g fill="#b0bec5"><rect x="24" y="20" width="60" height="58"/><rect x="312" y="20" width="60" height="58"/></g>
-    <rect y="200" width="400" height="60" fill="#d7ccc8"/>
-    <rect x="10" y="150" width="130" height="42" rx="10" fill="#1565c0"/>
-    <rect x="260" y="150" width="130" height="42" rx="10" fill="#37474f"/>
-    <rect x="124" y="152" width="34" height="38" rx="6" fill="#fff"/>
-    <rect x="244" y="152" width="34" height="38" rx="6" fill="#fff"/>
-    <path d="M150 158h110v30H150z" fill="#e8b98d"/>
-    <g fill="#d9a877"><rect x="168" y="150" width="66" height="10" rx="5"/><rect x="168" y="188" width="66" height="10" rx="5"/></g>
-    <circle cx="152" cy="173" r="16" fill="#e8b98d"/>
-    <circle cx="258" cy="173" r="16" fill="#e8b98d"/>
-    <path d="M186 148l14 12-14 12" fill="none" stroke="#c99a6b" stroke-width="3"/>
-  </symbol>
-
-  <symbol id="ph-roof" viewBox="0 0 400 260" preserveAspectRatio="none">
-    <rect width="400" height="260" fill="#87ceeb"/>
-    <g fill="#cfd8dc" opacity=".85"><ellipse cx="70" cy="44" rx="42" ry="18"/><ellipse cx="300" cy="34" rx="52" ry="20"/></g>
-    <path d="M0 260L200 76l200 184z" fill="#6d4c41"/>
-    <g fill="#4e342e">
-      <path d="M200 76l-26 24h52zM148 124h104l-14-14H162zM122 152h156l-14-14H136zM96 180h208l-14-14H110zM70 208h260l-14-14H84zM44 236h312l-14-14H58z"/>
-    </g>
-    <rect x="252" y="104" width="42" height="60" fill="#b71c1c"/>
-    <rect x="246" y="96" width="54" height="12" fill="#8d6e63"/>
-    <rect x="120" y="150" width="60" height="8" fill="#ffd54f"/>
-  </symbol>
-
-  <symbol id="ph-kitchen" viewBox="0 0 400 260" preserveAspectRatio="none">
-    <rect width="400" height="260" fill="#efebe9"/>
-    <rect y="150" width="400" height="110" fill="#d7ccc8"/>
-    <rect x="0" y="140" width="400" height="16" fill="#455a64"/>
-    <g fill="#8d6e63" stroke="#5d4037" stroke-width="3">
-      <rect x="8" y="156" width="86" height="94"/><rect x="98" y="156" width="86" height="94"/>
-      <rect x="216" y="156" width="86" height="94"/><rect x="306" y="156" width="86" height="94"/>
-    </g>
-    <g fill="#cfd8dc"><rect x="40" y="176" width="22" height="6" rx="3"/><rect x="130" y="176" width="22" height="6" rx="3"/><rect x="248" y="176" width="22" height="6" rx="3"/><rect x="338" y="176" width="22" height="6" rx="3"/></g>
-    <rect x="188" y="150" width="26" height="100" fill="#b0bec5"/>
-    <g fill="#8d6e63" stroke="#5d4037" stroke-width="3"><rect x="8" y="26" width="104" height="76"/><rect x="288" y="26" width="104" height="76"/></g>
-    <rect x="150" y="30" width="110" height="76" fill="#81d4fa" stroke="#fff" stroke-width="6"/>
-    <path d="M150 68h110M205 30v76" stroke="#fff" stroke-width="6"/>
-    <path d="M196 108v32" stroke="#90a4ae" stroke-width="7" fill="none"/>
-    <path d="M196 108q0-18 18-18" stroke="#90a4ae" stroke-width="7" fill="none"/>
-  </symbol>
-
-</defs></svg>
-
-<table class="wrap"><tr><td>
-
-<div class="hdr">
-  <div class="hdrphone">Call for a Free Estimate<b>(555) 018-4400</b>Mon&ndash;Fri 7:00am &ndash; 4:30pm</div>
-  <h1 class="logo">BUILT-RITE <span>CONSTRUCTION</span> &amp; SONS</h1>
-  <div class="sub">&ldquo;We Build It Right The First Time&rdquo; &nbsp;&middot;&nbsp; Family Owned &amp; Operated Since 1987</div>
-</div>
-
-<div class="nav">
-  <a href="#" class="on">Home</a><a href="#">About Us</a><a href="#">Services</a><a href="#">Photo Gallery</a><a href="#">Testimonials</a><a href="#">Free Estimate</a><a href="#">Financing</a><a href="#">Contact Us</a>
-</div>
-
-<div class="hero">
-  <div class="photo ph-hero"><svg><use href="#ph-worker"/></svg><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900" alt="Built-Rite Construction crew" onerror="this.style.display='none'"></div>
-</div>
-
-<div class="strip">
-  <b>LICENSED &middot; BONDED &middot; INSURED</b> &nbsp;|&nbsp; Lic. #CGC-0041872 &nbsp;|&nbsp; Serving the Tri-County Area &nbsp;|&nbsp; Free Written Estimates &nbsp;|&nbsp; Se Habla Espa&ntilde;ol
-</div>
-
-<table width="100%" cellpadding="0" cellspacing="0"><tr>
-<td class="main">
-
-  <h2>Welcome to Built-Rite Construction</h2>
-  <div class="photo ph-in"><svg><use href="#ph-house"/></svg><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400" alt="" onerror="this.style.display='none'"></div>
-  <p>Built-Rite Construction &amp; Sons LLC is a family owned and operated general contracting
-  company serving the tri-county area for over twenty years. Dave Mason started the company in
-  1987 out of the back of his pickup truck, and today he works alongside his sons Dave Jr. and
-  Mike on every job we take on.</p>
-  <p>From small repairs to complete custom homes, we handle it all &mdash; and we show up when we
-  say we will. We are fully licensed, bonded and insured, and all of our work is guaranteed in
-  writing. Take a look around, and give us a call when you're ready. We look forward to earning
-  your buisness.</p>
-
-  <h2 style="margin-top:14px">Our Services</h2>
-  <table class="svc">
-    <tr>
-      <td><b>Roofing</b><div class="li">Shingle &amp; metal roofing, tear-offs, repairs, storm and insurance work.</div></td>
-      <td><b>Kitchens &amp; Baths</b><div class="li">Complete remodels, custom cabinets, countertops, tile.</div></td>
-    </tr>
-    <tr>
-      <td><b>Additions</b><div class="li">Sunrooms, garages, second stories, in-law suites.</div></td>
-      <td><b>Decks &amp; Porches</b><div class="li">Pressure treated and composite decking, railings, screen rooms.</div></td>
-    </tr>
-    <tr>
-      <td><b>Excavation</b><div class="li">Site prep, grading, hauling, septic systems, drainage.</div></td>
-      <td><b>General Repairs</b><div class="li">Drywall, siding, concrete, windows, doors, gutters.</div></td>
-    </tr>
-  </table>
-
-  <h2 style="margin-top:14px">Recent Projects</h2>
-  <div>
-    <div class="photo ph-thumb"><svg><use href="#ph-house"/></svg><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400" alt="" onerror="this.style.display='none'"></div><div class="photo ph-thumb"><svg><use href="#ph-kitchen"/></svg><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400" alt="" onerror="this.style.display='none'"></div><div class="photo ph-thumb"><svg><use href="#ph-roof"/></svg><img src="https://images.unsplash.com/photo-1635424710928-0544e8512eae?w=400" alt="" onerror="this.style.display='none'"></div><div class="photo ph-thumb"><svg><use href="#ph-excavator"/></svg><img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=400" alt="" onerror="this.style.display='none'"></div>
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="KMI Construction, home">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" fill="#1b1f23"/>
+        <rect class="b1" x="3" y="6" width="12" height="7" fill="#b8452c"/>
+        <rect class="b2" x="17" y="6" width="12" height="7" fill="#8c3a2a"/>
+        <rect x="3" y="16" width="26" height="3" fill="#c9bda6"/>
+        <rect class="b2" x="3" y="22" width="12" height="7" fill="#8c3a2a"/>
+        <rect class="b1" x="17" y="22" width="12" height="7" fill="#b8452c"/>
+      </svg>
+      <span class="nm">KMI Construction<small>New Berlin, Wisconsin</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#premise">The joint</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#faq">FAQ</a>
+      <a href="#bid">Contact</a>
+    </nav>
+    <a class="tel" href="tel:+12625480632">(262) 548-0632</a>
+    <a class="btn btn-p" href="#bid">Request a bid</a>
   </div>
-  <div class="cap">A few of our recent jobs. More photos in our <a href="#">Photo Gallery</a>.</div>
+</header>
 
-</td>
-<td class="side">
+<main id="main" tabindex="-1">
+<span id="top"></span>
 
-  <div class="photo ph-side"><svg><use href="#ph-handshake"/></svg><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400" alt="" onerror="this.style.display='none'"></div>
+<!-- ============ HERO: THE DESCENT ============ -->
+<section class="hero" id="hero" aria-label="KMI Construction">
+  <div class="stage" id="stage">
+    <div class="camera" aria-hidden="true">
+      <div class="sky"></div>
+      <div class="skyline"></div>
+      <div class="haze"></div>
 
-  <div class="est">
-    <b>FREE ESTIMATES</b>
-    <span>No obligation &middot; Usually within 48 hours</span>
+      <div class="wall">
+        <div class="face"></div>
+        <div class="bands">
+          <i style="top:5%"></i><i style="top:16%"></i><i style="top:27%"></i>
+          <i style="top:38%"></i><i style="top:49%"></i><i style="top:60%"></i>
+          <i style="top:71%"></i><i style="top:82%"></i><i style="top:93%"></i>
+        </div>
+        <div class="shade"></div>
+      </div>
+
+      <div class="scaff">
+        <i style="top:14%"></i><i style="top:38%"></i><i style="top:61%"></i><i style="top:86%"></i>
+      </div>
+
+      <div class="rake"></div>
+      <div class="dust" id="dust"></div>
+    </div>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="dim" aria-hidden="true"></div>
+
+    <div class="joint-end" aria-hidden="true">
+      <div class="course up"></div>
+      <div class="mortar"></div>
+      <div class="glint"></div>
+      <div class="course dn"></div>
+      <div class="tex"></div>
+    </div>
+
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="scrim-2" aria-hidden="true"></div>
+
+    <div class="bands-layer">
+      <div class="band fx-drift" data-a="0" data-b="0.17">
+        <div class="inner"><p class="line" data-split="word">Every wall fails in the same place.</p></div>
+      </div>
+
+      <div class="band fx-punch" data-a="0.19" data-b="0.37" data-em="joint.">
+        <div class="inner"><p class="line" data-split="word">Not the brick. The joint.</p></div>
+      </div>
+
+      <div class="band fx-scatter" data-a="0.40" data-b="0.58" data-spread="0.42">
+        <div class="inner"><p class="line" data-split="char">Water gets in. Wisconsin does the rest.</p></div>
+      </div>
+
+      <div class="band fx-blur" data-a="0.61" data-b="0.79" data-ramp="0.036">
+        <div class="inner"><p class="line" data-split="blur">We build them so it doesn&rsquo;t. We fix them when it does.</p></div>
+      </div>
+
+      <div class="band fx-settle" data-a="0.82" data-b="1" data-ramp="0.05">
+        <div class="inner">
+          <p class="eyebrow">Family owned since 1992</p>
+          <p class="line" data-split="word">KMI Construction</p>
+          <p class="sub">Commercial masonry, historic restoration and panel wall systems. Family owned in New Berlin, Wisconsin since 1992.</p>
+          <div class="row">
+            <a class="btn btn-p" href="tel:+12625480632">Call (262) 548-0632</a>
+            <a class="btn btn-o" href="#bid">Request a bid</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cue" aria-hidden="true"><span>Scroll</span><i></i></div>
   </div>
+</section>
 
-  <div class="box">
-    <div class="bt">What Our Customers Say</div>
-    <div class="bb">
-      <p class="quote">&ldquo;Dave and his crew did a great job on our roof and finished in three days. Would use them again.&rdquo;</p>
-      <div class="who">&mdash; Karen T., Millfield &nbsp;<span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-      <p class="quote">&ldquo;Very reasonable pricing. I called four other contractors and Built-Rite was the only one who called me back.&rdquo;</p>
-      <div class="who">&mdash; Bob &amp; Linda S. &nbsp;<span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-      <div style="font-size:10px"><a href="#">Read more testimonials &raquo;</a></div>
+<!-- ============ STATIC HERO (phones, reduced motion) ============ -->
+<section class="static-hero" aria-label="KMI Construction">
+  <div class="bgwall" aria-hidden="true"></div>
+  <div class="stone-band" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="kicker">New Berlin, Wisconsin &middot; Family owned since 1992</p>
+    <h1>Every wall fails at the joint.</h1>
+    <p class="sub">Commercial masonry, historic restoration and panel wall systems, built so water never finds a way in.</p>
+    <div class="row">
+      <a class="btn btn-p" href="tel:+12625480632">Call (262) 548-0632</a>
+      <a class="btn btn-o" href="#bid">Request a bid</a>
     </div>
   </div>
+</section>
 
-  <div class="box">
-    <div class="bt">Contact Us</div>
-    <div class="bb" style="font-size:11px;line-height:1.6;color:#4a4a4a">
-      Built-Rite Construction &amp; Sons LLC<br>
-      4417 Old Mill Road, Suite B<br>
-      Millfield<br><br>
-      Phone: (555) 018-4400<br>
-      Fax: (555) 018-4401<br>
-      <a href="mailto:info@builtriteconstruction.com">info@builtriteconstruction.com</a>
+<!-- ============ 1. THE PREMISE ============ -->
+<section class="premise obs" id="premise">
+  <div class="wrap">
+    <svg class="joint-rule rev" viewBox="0 0 1400 9" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="0" y1="4.5" x2="1400" y2="4.5"/>
+      <line class="tick" x1="0" y1="1" x2="0" y2="8"/>
+    </svg>
+    <div class="grid" style="margin-top:44px">
+      <div>
+        <p class="kicker rev">The one thing</p>
+        <h2 class="rev">A wall almost never fails at the brick.</h2>
+        <p class="body rev">It fails at the joint. Water finds the mortar first, gets behind the face, and waits for a Wisconsin winter to freeze and expand. Do that a few hundred times and the brick face lets go. <b>Every job we take, new or two hundred years old, is really about closing the path water uses to get in.</b></p>
+      </div>
+      <figure class="section-fig rev" style="margin:0">
+        <svg class="wallsec" viewBox="0 0 300 220" role="img" aria-label="Diagram of a masonry wall section showing the brick face, the mortar joint, the backup wall, and the path water takes through a failed joint.">
+          <rect width="300" height="220" fill="#191d21"/>
+          <rect x="176" y="24" width="58" height="172" fill="#2b3137"/>
+          <rect x="176" y="24" width="58" height="172" fill="none" stroke="#3d464f"/>
+          <rect x="160" y="24" width="16" height="172" fill="#12161a"/>
+          <g>
+            <rect x="86" y="24" width="74" height="26" fill="#8c3a2a"/>
+            <rect x="86" y="54" width="74" height="26" fill="#7d3225"/>
+            <rect x="86" y="84" width="74" height="26" fill="#9a4430"/>
+            <rect x="86" y="114" width="74" height="26" fill="#6f2c21"/>
+            <rect x="86" y="144" width="74" height="26" fill="#85372a"/>
+            <rect x="86" y="174" width="74" height="22" fill="#94402d"/>
+          </g>
+          <rect x="86" y="80" width="74" height="4" fill="#3a3a34"/>
+          <rect x="86" y="80" width="74" height="4" fill="none" stroke="#e8785c" stroke-width="1.4"/>
+          <path class="water" d="M120 8 L120 74 Q120 82 132 82 L168 82 Q176 82 176 94 L176 190"/>
+          <circle class="drop" cx="176" cy="196" r="3.4" fill="#e8785c"/>
+          <text class="lbl" x="8" y="40">FACE</text>
+          <text class="lbl" x="8" y="88">JOINT</text>
+          <text class="lbl" x="240" y="18">BACKUP</text>
+          <text class="lbl" x="240" y="212">WATER</text>
+          <line x1="46" y1="36" x2="82" y2="36" stroke="#3d464f"/>
+          <line x1="46" y1="83" x2="82" y2="83" stroke="#3d464f"/>
+        </svg>
+        <figcaption>
+          <span>Face</span> the brick you see<br>
+          <span>Joint</span> where every failure starts<br>
+          <span>Water</span> the path we are paid to close
+        </figcaption>
+      </figure>
     </div>
   </div>
+</section>
 
-  <div class="box">
-    <div class="bt">Financing Available <span class="new">NEW</span></div>
-    <div class="bb" style="font-size:11px;line-height:1.5;color:#4a4a4a">
-      Ask about our payment plans on projects over $5,000. <a href="#">Learn more &raquo;</a>
+<!-- ============ 2. SERVICES ============ -->
+<section class="services obs" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker rev">What we self perform</p>
+      <h2 class="rev">Three lines of work. One standard.</h2>
+    </div>
+    <div class="bond">
+      <article class="card rev">
+        <svg class="art" viewBox="0 0 240 118" aria-hidden="true">
+          <line x1="8" y1="100" x2="232" y2="100" stroke="#e8785c" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <g class="mv">
+            <rect x="8" y="82" width="52" height="15" fill="#8c3a2a"/>
+            <rect x="63" y="82" width="52" height="15" fill="#7d3225"/>
+            <rect x="118" y="82" width="52" height="15" fill="#9a4430"/>
+            <rect x="173" y="82" width="52" height="15" fill="#6f2c21"/>
+            <rect x="8" y="64" width="25" height="15" fill="#85372a"/>
+            <rect x="36" y="64" width="52" height="15" fill="#94402d"/>
+            <rect x="91" y="64" width="52" height="15" fill="#7a3427"/>
+            <rect x="146" y="64" width="52" height="15" fill="#a04a33"/>
+            <rect x="201" y="64" width="24" height="15" fill="#713024"/>
+            <rect x="8" y="46" width="52" height="15" fill="#8c3a2a"/>
+            <rect x="63" y="46" width="52" height="15" fill="#9a4430"/>
+            <rect x="118" y="46" width="52" height="15" fill="#7d3225" opacity=".5"/>
+          </g>
+          <rect x="86" y="20" width="64" height="11" rx="1.5" fill="none" stroke="#c9bda6" stroke-width="1.4"/>
+          <rect x="113" y="23.5" width="10" height="4" rx="2" fill="#e8785c"/>
+          <line x1="118" y1="31" x2="118" y2="46" stroke="#c9bda6" stroke-width="1.2" stroke-dasharray="3 3"/>
+        </svg>
+        <p class="num">01</p>
+        <h3>Masonry</h3>
+        <p>New commercial brick, block and stone, from small repairs to full corporate builds. Our own crews, our own layout, coursing that lines up floor to floor.</p>
+      </article>
+
+      <article class="card rev">
+        <svg class="art" viewBox="0 0 240 118" aria-hidden="true">
+          <line x1="8" y1="100" x2="232" y2="100" stroke="#c9bda6" stroke-width="1.3" stroke-dasharray="6 4" opacity=".5"/>
+          <g>
+            <rect x="8" y="82" width="52" height="15" fill="#5d3f38"/>
+            <rect x="63" y="82" width="52" height="15" fill="#63443c"/>
+            <rect x="118" y="82" width="52" height="15" fill="#593b34"/>
+            <rect x="173" y="82" width="52" height="15" fill="#5d3f38"/>
+            <rect x="8" y="64" width="25" height="15" fill="#63443c"/>
+            <rect x="91" y="64" width="52" height="15" fill="#593b34"/>
+            <rect x="146" y="64" width="52" height="15" fill="#5d3f38"/>
+            <rect x="201" y="64" width="24" height="15" fill="#63443c"/>
+            <rect x="8" y="46" width="52" height="15" fill="#5d3f38"/>
+            <rect x="63" y="46" width="52" height="15" fill="#593b34"/>
+            <rect x="118" y="46" width="52" height="15" fill="#63443c"/>
+            <rect x="173" y="46" width="52" height="15" fill="#5d3f38"/>
+          </g>
+          <rect x="36" y="64" width="52" height="15" fill="#15100e"/>
+          <rect class="mv" x="36" y="26" width="52" height="15" fill="#9a4430"/>
+          <path d="M57 47 L67 47 L62 56 Z" fill="#e8785c"/>
+        </svg>
+        <p class="num">02</p>
+        <h3>Restoration</h3>
+        <p>Historic and existing buildings brought back without the patch job look. We match the mortar to the original for color, sand and strength, then tool the profile to match what was there.</p>
+      </article>
+
+      <article class="card rev">
+        <svg class="art" viewBox="0 0 240 118" aria-hidden="true">
+          <line x1="8" y1="100" x2="232" y2="100" stroke="#e8785c" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <line x1="26" y1="18" x2="26" y2="100" stroke="#3d464f" stroke-width="2"/>
+          <line x1="214" y1="18" x2="214" y2="100" stroke="#3d464f" stroke-width="2"/>
+          <line x1="120" y1="4" x2="120" y2="22" stroke="#c9bda6" stroke-width="1.4"/>
+          <line x1="120" y1="22" x2="76" y2="40" stroke="#c9bda6" stroke-width="1.2"/>
+          <line x1="120" y1="22" x2="164" y2="40" stroke="#c9bda6" stroke-width="1.2"/>
+          <circle cx="120" cy="22" r="3" fill="#c9bda6"/>
+          <g class="mv">
+            <rect x="76" y="40" width="88" height="50" fill="#2f363d" stroke="#4a545e"/>
+            <line x1="76" y1="57" x2="164" y2="57" stroke="#4a545e"/>
+            <line x1="76" y1="74" x2="164" y2="74" stroke="#4a545e"/>
+            <line x1="120" y1="40" x2="120" y2="90" stroke="#4a545e"/>
+          </g>
+        </svg>
+        <p class="num">03</p>
+        <h3>Panel wall systems</h3>
+        <p>Prefabricated and panelized wall systems, terra cotta, stone facing and cladding, set on the line and sealed. Panels land the day the schedule says they land.</p>
+      </article>
     </div>
   </div>
+</section>
 
-</td>
-</tr></table>
+<!-- ============ 3. THE INTERACTIVE MOMENT ============ -->
+<section class="strike obs" id="strike">
+  <div class="wrap">
+    <p class="kicker rev">Try it</p>
+    <h2 class="rev">Press and hold to strike a joint.</h2>
+    <p class="lede rev">This is the whole trade in one motion. Rake the old mortar out, pack the new mortar in, then tool it concave so it sheds water instead of holding it.</p>
 
-<div class="ftr">
-  <b>Built-Rite Construction &amp; Sons LLC</b> &nbsp;&middot;&nbsp; 4417 Old Mill Road, Suite B, Millfield &nbsp;&middot;&nbsp; (555) 018-4400 &nbsp;&middot;&nbsp;
-  <a href="mailto:info@builtriteconstruction.com">info@builtriteconstruction.com</a><br>
-  <a href="#">Home</a> | <a href="#">About Us</a> | <a href="#">Services</a> | <a href="#">Photo Gallery</a> | <a href="#">Testimonials</a> | <a href="#">Free Estimate</a> | <a href="#">Site Map</a> | <a href="#">Sign Our Guestbook</a><br>
-  Visitors: <span class="counter">0042137</span> &nbsp;&nbsp; Last updated: March 3, 2011 &nbsp;&nbsp; Best viewed at 1024 x 768.
-</div>
+    <div class="rig rev" id="rig">
+      <svg viewBox="0 0 520 168" role="img" aria-label="A cross section of two brick courses with the mortar joint between them being filled and tooled concave.">
+        <rect width="520" height="168" fill="#191d21"/>
+        <rect x="10" y="24" width="150" height="42" fill="#8c3a2a"/>
+        <rect x="166" y="24" width="150" height="42" fill="#7d3225"/>
+        <rect x="322" y="24" width="150" height="42" fill="#9a4430"/>
+        <rect x="478" y="24" width="32" height="42" fill="#6f2c21"/>
+        <rect x="10" y="72" width="500" height="22" fill="#0e1114"/>
+        <rect class="fill" x="10" y="72" width="500" height="22" fill="#5f5c52"/>
+        <path class="tooled" d="M10 72 Q260 100 510 72 L510 94 L10 94 Z" fill="#4a4842"/>
+        <path class="shine" d="M10 76 Q260 100 510 76" stroke="rgba(255,240,214,.42)" stroke-width="2.5" fill="none"/>
+        <rect x="10" y="100" width="150" height="42" fill="#85372a"/>
+        <rect x="166" y="100" width="150" height="42" fill="#94402d"/>
+        <rect x="322" y="100" width="150" height="42" fill="#7a3427"/>
+        <rect x="478" y="100" width="32" height="42" fill="#a04a33"/>
+        <g class="tool">
+          <rect x="14" y="46" width="14" height="30" rx="3" fill="#c9bda6"/>
+          <rect x="17" y="76" width="8" height="14" rx="4" fill="#e8785c"/>
+        </g>
+      </svg>
+    </div>
 
-<div class="ftrbar">
-  Copyright &copy; 2009 Built-Rite Construction &amp; Sons LLC. All rights reserved. &nbsp;|&nbsp; Site design by Millfield Web Services.
-</div>
+    <button class="hold" id="hold" type="button" aria-describedby="holdhint">
+      <span id="holdhint">Press and hold</span>
+      <span class="meter" aria-hidden="true"><i></i></span>
+    </button>
 
-</td></tr></table>
+    <p class="payoff">That is the difference between a wall that lasts eighty years and a wall that lasts eight.</p>
+  </div>
+</section>
 
-<div class="disc">Built-Rite Construction &amp; Sons LLC is a fictional company created for design demonstration purposes.</div>
+<!-- ============ 4. THE SPEC SHEET ============ -->
+<section class="spec obs" id="spec">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker rev">Before you put us on the list</p>
+      <h2 class="rev">The boring things that decide the bid.</h2>
+    </div>
+    <dl class="rows rev">
+      <div class="r"><dt>Schedule</dt><dd>We plan the manpower before we sign, not after. If the wall is on the critical path, that is our problem, not yours.</dd></div>
+      <div class="r"><dt>Safety</dt><dd>Safety is a gate for most GCs, not a tiebreaker. Ask us for our EMR and our OSHA history and you get them the same day.</dd></div>
+      <div class="r"><dt>Communication</dt><dd>You get a person on the phone. The most common complaint about masons in this trade is not craft, it is a call that never comes back.</dd></div>
+      <div class="r"><dt>Preconstruction</dt><dd>Masonry design assistance and layout help before the bid, so the detail that does not work gets found on paper.</dd></div>
+      <div class="r"><dt>Coverage</dt><dd>Licensed and insured, working commercial projects across southeastern Wisconsin from New Berlin.</dd></div>
+    </dl>
+  </div>
+</section>
 
+<!-- ============ 5. SELECTED WORK ============ -->
+<section class="work obs" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker rev">Selected work</p>
+      <h2 class="rev">Walls we would drive you past.</h2>
+    </div>
+    <div class="tiles">
+      <article class="tile rev">
+        <svg class="elev" viewBox="0 0 760 230" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <g class="lift">
+            <rect x="60" y="26" width="640" height="184" fill="url(#pold)"/>
+            <rect x="46" y="16" width="668" height="14" fill="url(#pstone)"/>
+            <rect x="52" y="30" width="656" height="5" fill="#2a2820"/>
+            <rect x="60" y="140" width="640" height="15" fill="url(#pstone)"/>
+            <rect x="60" y="186" width="640" height="24" fill="url(#pstone)"/>
+            <g fill="#0e1215">
+              <rect x="113" y="56" width="64" height="72"/><rect x="230" y="56" width="64" height="72"/>
+              <rect x="348" y="56" width="64" height="72"/><rect x="465" y="56" width="64" height="72"/>
+              <rect x="583" y="56" width="64" height="72"/>
+            </g>
+            <g fill="none" stroke="#6d6250" stroke-width="1.2">
+              <rect x="113" y="56" width="64" height="72"/><rect x="230" y="56" width="64" height="72"/>
+              <rect x="348" y="56" width="64" height="72"/><rect x="465" y="56" width="64" height="72"/>
+              <rect x="583" y="56" width="64" height="72"/>
+            </g>
+          </g>
+          <g class="scaf" fill="none">
+            <line x1="440" y1="20" x2="440" y2="212"/><line x1="556" y1="20" x2="556" y2="212"/>
+            <line x1="432" y1="52" x2="564" y2="52"/><line x1="432" y1="110" x2="564" y2="110"/>
+            <line x1="432" y1="168" x2="564" y2="168"/>
+          </g>
+          <rect class="mark" x="448" y="34" width="100" height="164"/>
+          <line class="grade" x1="0" y1="210" x2="760" y2="210"/>
+        </svg>
+        <div class="cap"><h3>Historic facade restoration</h3><p>Full repoint, brick replacement and terra cotta repair on an early century masonry facade.</p></div>
+      </article>
+
+      <article class="tile rev">
+        <svg class="elev" viewBox="0 0 370 190" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <g class="scaf" fill="none">
+            <line x1="34" y1="18" x2="34" y2="166"/><line x1="336" y1="18" x2="336" y2="166"/>
+            <line x1="34" y1="60" x2="336" y2="60"/><line x1="34" y1="112" x2="336" y2="112"/>
+          </g>
+          <g fill="#2f363d" stroke="#4a545e">
+            <rect x="46" y="66" width="86" height="94"/><rect x="140" y="66" width="86" height="94"/>
+          </g>
+          <g stroke="#454f59" fill="none">
+            <line x1="46" y1="97" x2="132" y2="97"/><line x1="140" y1="97" x2="226" y2="97"/>
+            <line x1="46" y1="128" x2="132" y2="128"/><line x1="140" y1="128" x2="226" y2="128"/>
+            <line x1="89" y1="66" x2="89" y2="160"/><line x1="183" y1="66" x2="183" y2="160"/>
+          </g>
+          <line x1="277" y1="4" x2="277" y2="22" stroke="#c9bda6" stroke-width="1.4"/>
+          <line x1="277" y1="22" x2="240" y2="38" stroke="#c9bda6" stroke-width="1.2"/>
+          <line x1="277" y1="22" x2="314" y2="38" stroke="#c9bda6" stroke-width="1.2"/>
+          <circle cx="277" cy="22" r="3.2" fill="#c9bda6"/>
+          <g class="lift" fill="#333a41" stroke="#4a545e">
+            <rect x="234" y="38" width="86" height="94"/>
+          </g>
+          <g stroke="#454f59" fill="none">
+            <line x1="234" y1="69" x2="320" y2="69"/><line x1="234" y1="100" x2="320" y2="100"/>
+            <line x1="277" y1="38" x2="277" y2="132"/>
+          </g>
+          <line class="mark" x1="10" y1="160" x2="360" y2="160"/>
+        </svg>
+        <div class="cap"><h3>Panelized wall system</h3><p>Prefabricated panels set and sealed on a commercial shell.</p></div>
+      </article>
+
+      <article class="tile rev">
+        <svg class="elev" viewBox="0 0 370 190" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <g class="lift">
+            <rect x="30" y="70" width="230" height="92" fill="url(#pbrick)"/>
+            <rect x="260" y="46" width="80" height="116" fill="#2b3137"/>
+            <g stroke="#3d454d" fill="none">
+              <line x1="260" y1="70" x2="340" y2="70"/><line x1="260" y1="94" x2="340" y2="94"/>
+              <line x1="260" y1="118" x2="340" y2="118"/><line x1="260" y1="142" x2="340" y2="142"/>
+              <line x1="300" y1="46" x2="300" y2="162"/>
+            </g>
+            <rect x="30" y="56" width="230" height="14" fill="url(#pbrick)" opacity=".5"/>
+            <rect x="30" y="126" width="310" height="9" fill="url(#pstone)"/>
+          </g>
+          <line class="mark" x1="14" y1="56" x2="356" y2="56"/>
+          <line class="grade" x1="0" y1="162" x2="370" y2="162"/>
+        </svg>
+        <div class="cap"><h3>Commercial new build</h3><p>Structural block and brick veneer, coursed floor to floor.</p></div>
+      </article>
+
+      <article class="tile rev">
+        <svg class="elev" viewBox="0 0 370 190" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <rect x="30" y="30" width="310" height="132" fill="#2a2820"/>
+          <g class="lift" fill="url(#pstone)">
+            <rect x="34" y="34" width="98" height="40"/><rect x="136" y="34" width="98" height="40"/>
+            <rect x="238" y="34" width="98" height="40"/>
+            <rect x="34" y="78" width="150" height="40"/><rect x="188" y="78" width="148" height="40"/>
+            <rect x="34" y="122" width="98" height="36"/><rect x="136" y="122" width="200" height="36"/>
+          </g>
+          <g stroke="#151812" stroke-width="1.2" fill="none" opacity=".8">
+            <line x1="34" y1="76" x2="336" y2="76"/><line x1="34" y1="120" x2="336" y2="120"/>
+          </g>
+          <line class="mark" x1="184" y1="34" x2="184" y2="158"/>
+          <line class="grade" x1="0" y1="162" x2="370" y2="162"/>
+        </svg>
+        <div class="cap"><h3>Stone cladding</h3><p>Granite and cut stone facing on a corporate exterior.</p></div>
+      </article>
+
+      <article class="tile rev">
+        <svg class="elev" viewBox="0 0 370 190" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <path d="M0 158 L150 92 L300 158 L370 158 L370 190 L0 190 Z" fill="#232a30"/>
+          <path d="M0 158 L150 92 L300 158" fill="none" stroke="#3d464f" stroke-width="1.6"/>
+          <g class="lift">
+            <rect x="176" y="34" width="66" height="94" fill="url(#pbrick)"/>
+            <rect x="168" y="24" width="82" height="12" fill="url(#pstone)"/>
+            <rect x="170" y="120" width="78" height="7" fill="#8d9299"/>
+          </g>
+          <rect class="mark" x="176" y="34" width="66" height="52"/>
+          <rect x="196" y="8" width="26" height="18" fill="#2b3137" stroke="#4a545e"/>
+        </svg>
+        <div class="cap"><h3>Chimney and parapet rebuild</h3><p>Rebuilt above the roof line with new flashing and caps.</p></div>
+      </article>
+
+      <article class="tile rev">
+        <svg class="elev" viewBox="0 0 1140 230" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <g class="lift">
+            <rect x="40" y="40" width="1060" height="170" fill="url(#pbrick)"/>
+            <rect x="30" y="30" width="1080" height="13" fill="url(#pstone)"/>
+            <rect x="40" y="144" width="1060" height="12" fill="url(#pstone)"/>
+            <rect x="52" y="160" width="1036" height="50" fill="#0f1418"/>
+            <g stroke="#39424a" fill="none">
+              <line x1="200" y1="160" x2="200" y2="210"/><line x1="348" y1="160" x2="348" y2="210"/>
+              <line x1="496" y1="160" x2="496" y2="210"/><line x1="644" y1="160" x2="644" y2="210"/>
+              <line x1="792" y1="160" x2="792" y2="210"/><line x1="940" y1="160" x2="940" y2="210"/>
+            </g>
+            <g fill="#0e1215">
+              <rect x="92" y="66" width="72" height="62"/><rect x="222" y="66" width="72" height="62"/>
+              <rect x="352" y="66" width="72" height="62"/><rect x="482" y="66" width="72" height="62"/>
+              <rect x="612" y="66" width="72" height="62"/><rect x="742" y="66" width="72" height="62"/>
+              <rect x="872" y="66" width="72" height="62"/><rect x="1002" y="66" width="72" height="62"/>
+            </g>
+            <g fill="none" stroke="#6b6250" stroke-width="1.2">
+              <rect x="92" y="66" width="72" height="62"/><rect x="222" y="66" width="72" height="62"/>
+              <rect x="352" y="66" width="72" height="62"/><rect x="482" y="66" width="72" height="62"/>
+              <rect x="612" y="66" width="72" height="62"/><rect x="742" y="66" width="72" height="62"/>
+              <rect x="872" y="66" width="72" height="62"/><rect x="1002" y="66" width="72" height="62"/>
+            </g>
+          </g>
+          <g class="scaf" fill="none">
+            <line x1="712" y1="34" x2="712" y2="212"/><line x1="848" y1="34" x2="848" y2="212"/>
+            <line x1="704" y1="62" x2="856" y2="62"/><line x1="704" y1="124" x2="856" y2="124"/>
+          </g>
+          <rect class="mark" x="722" y="46" width="116" height="156"/>
+          <line class="grade" x1="0" y1="210" x2="1140" y2="210"/>
+        </svg>
+        <div class="cap"><h3>Maintenance and repair</h3><p>Ongoing masonry maintenance for commercial property groups, scheduled around the building staying open.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. FAQ ============ -->
+<section class="faq obs" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker rev">Straight answers</p>
+      <h2 class="rev">What project managers ask us first.</h2>
+    </div>
+    <div class="list rev">
+      <details>
+        <summary>What happens if you fall behind?</summary>
+        <p>You hear it from us before you see it on the schedule. We plan manpower against your dates before we sign, and if something moves we bring the crew size to it. The delay that hurts a GC is the one nobody mentioned until the wall was supposed to be done.</p>
+      </details>
+      <details>
+        <summary>Can you match mortar on an old building?</summary>
+        <p>Yes, and it is the part of restoration we care most about. We match color, sand and strength to the original and tool the joint to the profile that is already there. A repair that reads as a patch is a repair we did wrong.</p>
+      </details>
+      <details>
+        <summary>Do you work through a Wisconsin winter?</summary>
+        <p>Yes, with cold weather protection: heated enclosures, blankets and mortar admixtures appropriate to the mix. There are days the wall should not go up, and we will tell you which ones they are.</p>
+      </details>
+      <details>
+        <summary>Will you send safety and insurance paperwork for prequalification?</summary>
+        <p>Same day. EMR, OSHA log history, certificates of insurance and references. Most GCs will not let a mason bid without them, so we keep the packet current.</p>
+      </details>
+      <details>
+        <summary>How early do you want to be involved?</summary>
+        <p>Before the bid if you will have us. We offer masonry design assistance and layout review, and the detail that does not work is a lot cheaper to find on paper than at the wall.</p>
+      </details>
+      <details>
+        <summary>How big a project can you take?</summary>
+        <p>From a small commercial repair to a full corporate exterior. Call with the scope and the dates and you will get a straight answer about whether we are the right crew for it.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. CONTACT ============ -->
+<section class="contact obs" id="bid">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p class="kicker rev">Request a bid</p>
+        <h2 class="rev" style="font-size:clamp(1.9rem,4.4vw,3rem)">Send us the drawings and the dates.</h2>
+        <a class="tel-big rev" href="tel:+12625480632">(262) 548-0632</a>
+        <div class="addr rev">
+          <b>KMI Construction</b>
+          2880 S 171st St<br>
+          New Berlin, WI 53151<br>
+          Commercial work across southeastern Wisconsin
+        </div>
+        <svg class="joint-rule rev" viewBox="0 0 1400 9" preserveAspectRatio="none" aria-hidden="true" style="margin-top:32px">
+          <line x1="0" y1="4.5" x2="1400" y2="4.5"/>
+          <line class="tick" x1="0" y1="1" x2="0" y2="8"/>
+        </svg>
+      </div>
+
+      <form class="rev" id="bidform" novalidate>
+        <div class="f2">
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-co">Company</label><input id="f-co" name="company" type="text" autocomplete="organization"></div>
+        </div>
+        <div class="f2">
+          <div class="field"><label for="f-tel">Phone</label><input id="f-tel" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="f-type">Scope</label>
+            <select id="f-type" name="scope">
+              <option>Masonry</option>
+              <option>Restoration</option>
+              <option>Panel wall systems</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Project, location and dates</label><textarea id="f-msg" name="message" required></textarea></div>
+        <button class="btn btn-p" type="submit">Send it over</button>
+        <p class="sent" id="sent" hidden></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <a class="brand" href="#top" aria-label="KMI Construction, back to top">
+          <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" fill="#14171a"/>
+            <rect class="b1" x="3" y="6" width="12" height="7" fill="#b8452c"/>
+            <rect class="b2" x="17" y="6" width="12" height="7" fill="#8c3a2a"/>
+            <rect x="3" y="16" width="26" height="3" fill="#c9bda6"/>
+            <rect class="b2" x="3" y="22" width="12" height="7" fill="#8c3a2a"/>
+            <rect class="b1" x="17" y="22" width="12" height="7" fill="#b8452c"/>
+          </svg>
+          <span class="nm">KMI Construction<small>Family owned since 1992</small></span>
+        </a>
+        <p style="margin-top:20px">Commercial masonry, historic restoration and panel wall systems. New Berlin, Wisconsin.</p>
+      </div>
+      <nav class="fnav" aria-label="Footer">
+        <a href="#premise">The joint</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#faq">FAQ</a>
+        <a href="#bid">Request a bid</a>
+        <a href="tel:+12625480632">(262) 548-0632</a>
+      </nav>
+    </div>
+    <div class="legal">
+      <span>&copy; <span id="yr">2026</span> KMI Construction</span>
+      <span>2880 S 171st St, New Berlin, WI 53151</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /.page -->
+
+<script>
+(function(){
+'use strict';
+
+/* seeded rng, so "random" is identical on every load */
+function rng(seed){var s=seed>>>0;return function(){s=(s*1664525+1013904223)>>>0;return s/4294967296;};}
+
+var clamp=function(v,lo,hi){return Math.min(hi,Math.max(lo,v));};
+var smoothstep=function(p,e0,e1){var t=clamp((p-e0)/(e1-e0),0,1);return t*t*(3-2*t);};
+
+/* ============================================================
+   1. Split the hero headlines once, at load
+   ============================================================ */
+var bandEls=[].slice.call(document.querySelectorAll('.band'));
+var rand=rng(19920512);
+
+function wrapWords(text,cb){
+  var parts=text.split(/(\s+)/), frag=document.createDocumentFragment(), wi=0;
+  parts.forEach(function(part){
+    if(!part) return;
+    if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
+    var w=document.createElement('span'); w.className='w'; w.textContent=part;
+    cb(w,wi++,part); frag.appendChild(w);
+  });
+  return frag;
+}
+
+bandEls.forEach(function(band){
+  var line=band.querySelector('.line'); if(!line) return;
+  var mode=line.getAttribute('data-split'); if(!mode) return;
+  var text=line.textContent.trim();
+  var em=band.getAttribute('data-em');
+  var spread=parseFloat(band.getAttribute('data-spread'))||0.34;
+
+  /* screen readers get the real sentence, once */
+  var sr=document.createElement('span'); sr.className='sr'; sr.textContent=text;
+
+  if(mode==='blur'){
+    var soft=document.createElement('span'); soft.className='soft'; soft.setAttribute('aria-hidden','true'); soft.textContent=text;
+    var sharp=document.createElement('span'); sharp.className='sharp'; sharp.setAttribute('aria-hidden','true'); sharp.textContent=text;
+    line.textContent=''; line.appendChild(sr); line.appendChild(soft); line.appendChild(sharp);
+    return;
+  }
+
+  var vis=document.createElement('span'); vis.setAttribute('aria-hidden','true');
+
+  if(mode==='word'){
+    vis.appendChild(wrapWords(text,function(w,i,part){
+      w.style.setProperty('--th',(i*0.055+rand()*0.05).toFixed(3));
+      if(em&&part===em) w.classList.add('em');
+    }));
+  } else {
+    var total=text.replace(/\s/g,'').length, ci=0;
+    vis.appendChild(wrapWords(text,function(w){
+      var chars=w.textContent, f=document.createDocumentFragment();
+      for(var i=0;i<chars.length;i++){
+        var c=document.createElement('span'); c.className='c'; c.textContent=chars[i];
+        c.style.setProperty('--th',((ci/total)*spread+rand()*0.06).toFixed(3));
+        c.style.setProperty('--jx',((rand()-0.5)*70).toFixed(1)+'px');
+        c.style.setProperty('--jy',((rand()-0.5)*80).toFixed(1)+'px');
+        c.style.setProperty('--jr',((rand()-0.5)*34).toFixed(1)+'deg');
+        f.appendChild(c); ci++;
+      }
+      w.textContent=''; w.appendChild(f);
+    }));
+  }
+  line.textContent=''; line.appendChild(sr); line.appendChild(vis);
+});
+
+/* cache each band's range and its last written values */
+var bands=bandEls.map(function(el){
+  return {el:el,
+    a:parseFloat(el.getAttribute('data-a')),
+    b:parseFloat(el.getAttribute('data-b')),
+    ramp:parseFloat(el.getAttribute('data-ramp'))||0,
+    op:-1,k:-1};
+});
+var firstBand=bands[0], lastBand=bands[bands.length-1];
+
+/* ============================================================
+   2. Dust motes, seeded and modest
+   ============================================================ */
+var dust=document.getElementById('dust');
+if(dust){
+  var dr=rng(4482), html='';
+  for(var i=0;i<26;i++){
+    var sz=(dr()*2.4+1).toFixed(1);
+    html+='<b style="left:'+(dr()*100).toFixed(1)+'%;top:'+(dr()*100).toFixed(1)+'%;'
+        +'width:'+sz+'px;height:'+sz+'px;'
+        +'animation-duration:'+(dr()*9+8).toFixed(1)+'s;'
+        +'animation-delay:-'+(dr()*14).toFixed(1)+'s"></b>';
+  }
+  dust.innerHTML=html;
+}
+
+/* ============================================================
+   3. The scrub drive
+   ============================================================ */
+var hero=document.getElementById('hero');
+var stage=document.getElementById('stage');
+var target=0, shown=0, rafId=null, lastTick=0, heroOnScreen=true;
+var lastP=-1, movedSet=false, loadK=0, loadStart=0;
+
+function heroProgress(){
+  if(!hero) return 0;
+  var range=hero.offsetHeight-window.innerHeight;
+  if(range<=0) return 0;
+  return clamp((window.pageYOffset-hero.offsetTop)/range,0,1);
+}
+
+function updateCaptions(p){
+  for(var i=0;i<bands.length;i++){
+    var b=bands[i], f=Math.min(0.02,(b.b-b.a)/3);
+    var op;
+    if(p<b.a||p>b.b){ op=0; }
+    else{
+      op=(b===firstBand?1:smoothstep(p,b.a,b.a+f))
+       * (b===lastBand?1:(1-smoothstep(p,b.b-f,b.b)));
+    }
+    var ramp=b.ramp||Math.min(0.025,(b.b-b.a)*0.35);
+    var k=clamp((p-b.a)/ramp,0,1);
+    if(b===firstBand) k=Math.max(k,loadK);
+    if(Math.abs(op-b.op)>0.004){ b.op=op; b.el.style.opacity=op.toFixed(3); }
+    if(Math.abs(k-b.k)>0.008){ b.k=k; b.el.style.setProperty('--k',k.toFixed(3)); }
+  }
+}
+
+function applyScene(p){
+  if(Math.abs(p-lastP)>0.0004){
+    lastP=p;
+    stage.style.setProperty('--p',p.toFixed(4));
+  }
+  var moved=p>0.012;
+  if(moved!==movedSet){ movedSet=moved; stage.classList.toggle('moved',moved); }
+}
+
+function tick(now){
+  var dt=Math.min(100,now-(lastTick||now)); lastTick=now;
+  var k=0.16;
+  shown+=(target-shown)*(1-Math.pow(1-k,dt/16.667));
+  if(Math.abs(target-shown)<0.0005){ shown=target; rafId=null; lastTick=0; }
+  else { rafId=requestAnimationFrame(tick); }
+  applyScene(shown);
+  updateCaptions(shown);
+}
+
+function onScroll(){
+  target=heroProgress();
+  if(rafId===null&&heroOnScreen){ rafId=requestAnimationFrame(tick); }
+}
+
+/* band one opens settled: a one-time load ramp that hands over to scroll */
+function loadRamp(now){
+  if(!loadStart) loadStart=now;
+  loadK=clamp((now-loadStart)/900,0,1);
+  updateCaptions(shown);
+  if(loadK<1) requestAnimationFrame(loadRamp);
+}
+
+/* ============================================================
+   4. The five static-hero gates, decided live in both directions
+   ============================================================ */
+var GATES=[
+  '(max-width: 720px)',
+  '(orientation: portrait) and (max-width: 1024px)',
+  '(orientation: portrait) and (pointer: coarse)',
+  '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)',
+  '(prefers-reduced-motion: reduce)'
+];
+var scrubOn=false, heroInit=false;
+
+function initHeroOnce(){
+  if(heroInit) return; heroInit=true;
+  requestAnimationFrame(loadRamp);
+}
+function enableScrub(){
+  if(scrubOn||!stage) return; scrubOn=true;
+  initHeroOnce();
+  window.addEventListener('scroll',onScroll,{passive:true});
+  bands.forEach(function(b){b.op=-1;b.k=-1;});
+  lastP=-1;
+  unpinFinalStates();
+  target=shown=heroProgress();
+  applyScene(shown);
+  updateCaptions(shown);
+  onScroll();
+}
+function disableScrub(){
+  if(!scrubOn) return; scrubOn=false;
+  window.removeEventListener('scroll',onScroll);
+  if(rafId!==null){ cancelAnimationFrame(rafId); rafId=null; }
+}
+function applyHeroMode(){
+  if(GATES.some(function(q){return matchMedia(q).matches;})) disableScrub();
+  else enableScrub();
+}
+var MQLS=GATES.map(function(q){return matchMedia(q);});
+MQLS.forEach(function(m){
+  if(m.addEventListener) m.addEventListener('change',applyHeroMode);
+  else if(m.addListener) m.addListener(applyHeroMode);
+});
+
+if(hero&&'IntersectionObserver' in window){
+  new IntersectionObserver(function(es){
+    heroOnScreen=es[0].isIntersecting;
+    if(heroOnScreen&&rafId===null&&scrubOn) onScroll();
+  },{rootMargin:'10px'}).observe(hero);
+}
+
+/* ============================================================
+   5. Section entrances
+   ============================================================ */
+var obsEls=[].slice.call(document.querySelectorAll('.obs'));
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+      setTimeout(function(){ e.target.classList.add('done-stagger'); },1600);
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  obsEls.forEach(function(s){io.observe(s);});
+} else {
+  obsEls.forEach(function(s){s.classList.add('in','done-stagger');});
+}
+
+/* pause every animation on a hidden tab */
+document.addEventListener('visibilitychange',function(){
+  document.body.classList.toggle('paused',document.hidden);
+});
+
+/* ============================================================
+   6. The header state
+   ============================================================ */
+var hdr=document.getElementById('hdr'), hdrSolid=false;
+function onHdr(){
+  var s=window.pageYOffset>window.innerHeight*0.6;
+  if(s!==hdrSolid){ hdrSolid=s; hdr.classList.toggle('solid',s); }
+}
+window.addEventListener('scroll',onHdr,{passive:true});
+onHdr();
+
+/* ============================================================
+   7. The one interactive moment: strike a joint
+   ============================================================ */
+var rig=document.getElementById('rig'), hold=document.getElementById('hold');
+var hint=document.getElementById('holdhint'), strike=document.getElementById('strike');
+var h=0, holding=false, hRaf=null, hLast=0, solved=false;
+var HOLD_MS=2000;
+
+function prefersReduced(){ return matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+function hTick(now){
+  var dt=Math.min(100,now-(hLast||now)); hLast=now;
+  if(holding) h=Math.min(1,h+dt/HOLD_MS);
+  else if(!solved) h=Math.max(0,h-dt/(HOLD_MS*0.5));   /* a struck joint stays struck */
+  rig.style.setProperty('--h',h.toFixed(3));
+  hold.style.setProperty('--h',h.toFixed(3));
+  if(h>=1&&!solved){
+    solved=true; rig.classList.add('done'); strike.classList.add('solved');
+    hint.textContent='Struck'; hold.setAttribute('aria-pressed','true');
+  }
+  if(!solved&&((holding&&h<1)||(!holding&&h>0))){ hRaf=requestAnimationFrame(hTick); }
+  else { hRaf=null; hLast=0; }
+}
+function startHold(e){
+  if(solved||prefersReduced()) return;
+  if(e&&e.type==='keydown'&&e.key!==' '&&e.key!=='Enter') return;
+  if(e&&e.type==='keydown'&&e.repeat) return;
+  if(e&&e.cancelable) e.preventDefault();
+  holding=true; hint.textContent='Hold to finish';
+  if(hRaf===null){ hLast=0; hRaf=requestAnimationFrame(hTick); }
+}
+function endHold(e){
+  if(e&&e.type==='keyup'&&e.key!==' '&&e.key!=='Enter') return;
+  holding=false;
+  if(!solved) hint.textContent='Press and hold';
+  if(hRaf===null&&h>0){ hLast=0; hRaf=requestAnimationFrame(hTick); }
+}
+if(rig&&hold){
+  hold.addEventListener('pointerdown',startHold);
+  hold.addEventListener('pointerup',endHold);
+  hold.addEventListener('pointercancel',endHold);
+  hold.addEventListener('pointerleave',endHold);
+  hold.addEventListener('keydown',startHold);
+  hold.addEventListener('keyup',endHold);
+  hold.addEventListener('blur',endHold);
+  hold.addEventListener('contextmenu',function(e){e.preventDefault();});
+}
+
+/* ============================================================
+   8. The form (static site: the visitor's own email app)
+   ============================================================ */
+var TO='info@kmi-construction.com'; /* CONFIRM THIS ADDRESS BEFORE LAUNCH */
+var form=document.getElementById('bidform'), sent=document.getElementById('sent');
+if(form){
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d=new FormData(form);
+    var name=(d.get('name')||'').toString().trim();
+    var msg=(d.get('message')||'').toString().trim();
+    if(!name||!msg){
+      sent.hidden=false;
+      sent.textContent='Add your name and a line about the project, then send it again.';
+      return;
+    }
+    var body='Name: '+name+'\n'
+      +'Company: '+(d.get('company')||'')+'\n'
+      +'Phone: '+(d.get('phone')||'')+'\n'
+      +'Scope: '+(d.get('scope')||'')+'\n\n'
+      +msg+'\n';
+    window.location.href='mailto:'+TO
+      +'?subject='+encodeURIComponent('Bid request from '+name)
+      +'&body='+encodeURIComponent(body);
+    sent.hidden=false;
+    sent.textContent='Your email app should be open with the message ready. If it did not open, call (262) 548-0632 and ask for the estimating desk.';
+  });
+}
+
+/* ============================================================
+   9. Reduced motion, honored live, in both directions
+   ============================================================ */
+function pinToFinalStates(){
+  document.body.classList.add('pinned');
+  obsEls.forEach(function(s){ s.classList.add('in','done-stagger'); });
+  if(rig&&hold){
+    h=1; solved=true;
+    rig.style.setProperty('--h','1'); hold.style.setProperty('--h','1');
+    rig.classList.add('done'); strike.classList.add('solved'); hint.textContent='Struck';
+  }
+  if(hRaf!==null){ cancelAnimationFrame(hRaf); hRaf=null; }
+}
+function unpinFinalStates(){
+  document.body.classList.remove('pinned');
+  if(rig&&hold&&!solved){
+    h=0; rig.style.setProperty('--h','0'); hold.style.setProperty('--h','0');
+  }
+}
+var rmq=matchMedia('(prefers-reduced-motion: reduce)');
+if(rmq.addEventListener){
+  rmq.addEventListener('change',function(e){
+    if(e.matches) pinToFinalStates(); else applyHeroMode();
+  });
+}
+if(prefersReduced()) pinToFinalStates();
+
+/* ---------- go ---------- */
+applyHeroMode();
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* a little state for the self-test harness */
+window.__kmi={bands:bands,heroProgress:heroProgress,gates:GATES,
+  scrubOn:function(){return scrubOn;}};
+})();
+</script>
 </body>
 </html>
