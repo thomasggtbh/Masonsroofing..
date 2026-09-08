@@ -46,9 +46,13 @@ p{margin:0}
 .hdr{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .hdr .wrap{display:flex;align-items:center;gap:28px;padding-top:14px;padding-bottom:14px}
 .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.03em;font-size:1.16rem}
-.mark{width:38px;height:38px;border-radius:9px;background:var(--brand);display:grid;place-items:center;flex:none;
-  color:#fff;font-size:.95rem;font-weight:800;letter-spacing:-.04em;box-shadow:0 4px 12px rgba(226,87,13,.3)}
-.brand small{display:block;font-size:.63rem;font-weight:600;color:var(--mute);letter-spacing:.1em;text-transform:uppercase}
+.mark{width:40px;height:40px;flex:none;overflow:visible}
+.mark path{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.brand:hover .mark path:first-child{transform:translateY(-1.5px)}
+.wm{font-family:inherit;font-weight:800;font-size:1.24rem;letter-spacing:-.035em;line-height:1.04}
+.wm i{font-style:normal;color:var(--brand);margin:0 .02em}
+.brand small{display:block;font-size:.6rem;font-weight:700;color:var(--mute);letter-spacing:.19em;
+  text-transform:uppercase;margin-top:3px}
 nav{margin-left:auto;display:flex;gap:28px;font-size:.94rem;font-weight:550;color:var(--slate)}
 nav a:hover{color:var(--brand)}
 .hdr .btn{padding:11px 20px;font-size:.94rem}
@@ -415,7 +419,11 @@ html:not(.js) .cap{position:relative;opacity:1;transform:none;margin-bottom:40px
 </div></div>
 
 <header class="hdr"><div class="wrap">
-  <a class="brand" href="#top"><span class="mark">BR</span><span>Built-Rite<small>Construction &amp; Sons</small></span></a>
+  <a class="brand" href="#top"><svg class="mark" viewBox="0 0 46 46" aria-hidden="true">
+      <path d="M4.5 24 L23 7.5 L41.5 24" fill="none" stroke="var(--brand)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M11 31 H35" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round"/>
+      <path d="M18.5 38.5 H27.5" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" opacity=".38"/>
+    </svg><span class="wm">Built<i>-</i>Rite<small>Construction &amp; Sons</small></span></a>
   <nav><a href="#services">Services</a><a href="#why">Why us</a><a href="#work">Our work</a><a href="#reviews">Reviews</a><a href="#process">Process</a></nav>
   <a class="btn btn-p" href="tel:5550184400">(555) 018-4400</a>
 </div></header>
@@ -562,7 +570,11 @@ html:not(.js) .cap{position:relative;opacity:1;transform:none;margin-bottom:40px
 
 <footer><div class="wrap">
   <div>
-    <a class="brand" href="#top" style="color:#fff"><span class="mark">BR</span><span>Built-Rite<small style="color:#6d7c88">Construction &amp; Sons</small></span></a>
+    <a class="brand" href="#top" style="color:#fff"><svg class="mark" viewBox="0 0 46 46" aria-hidden="true">
+      <path d="M4.5 24 L23 7.5 L41.5 24" fill="none" stroke="var(--brand)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M11 31 H35" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round"/>
+      <path d="M18.5 38.5 H27.5" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" opacity=".38"/>
+    </svg><span class="wm">Built<i>-</i>Rite<small style="color:#6d7c88">Construction &amp; Sons</small></span></a>
     <p style="margin-top:16px;max-width:34ch">Family owned general contractor serving the tri-county area since 1987. Licensed, bonded and insured.</p>
   </div>
   <div><h4>Services</h4><ul><li><a href="#services">Roofing</a></li><li><a href="#services">Kitchens &amp; baths</a></li><li><a href="#services">Additions</a></li><li><a href="#services">Decks</a></li><li><a href="#services">Excavation</a></li></ul></div>
