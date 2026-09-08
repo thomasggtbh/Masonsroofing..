@@ -198,6 +198,14 @@ html.js .reveal.d3{transition-delay:.24s}html.js .reveal.d4{transition-delay:.32
   transform:scale(calc(1.18 - var(--p)*.18)) translate3d(0,calc(var(--p) * -3vh),0);
   transition:transform .12s linear;will-change:transform}
 .film .photo{width:100%;height:100%}
+#scrub{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
+  transition:opacity .6s ease}
+#scrub.ready{opacity:1}
+.loading{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:5}
+.loading i{display:block;width:26px;height:26px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.25);border-top-color:var(--brand);
+  animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 .herofall{background:
   radial-gradient(80% 60% at 22% 18%,rgba(226,87,13,.20),transparent 60%),
   radial-gradient(70% 70% at 88% 82%,rgba(38,74,110,.55),transparent 62%),
@@ -349,8 +357,10 @@ html:not(.js) .cap{position:relative;opacity:1;transform:none;margin-bottom:40px
 <!-- scrubbed hero -->
 <div class="stage" id="stage"><div class="pin">
   <div class="film" id="film">
-    <div class="photo herofall"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_123546_c496e481-9c44-47e5-8fe2-15d28f09629d.png" alt="" onerror="this.style.display='none'"></div>
+    <div class="photo herofall"><img id="poster" src="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_123546_c496e481-9c44-47e5-8fe2-15d28f09629d.png" alt="" onerror="this.style.display='none'"></div>
+    <video id="scrub" muted playsinline preload="auto" crossorigin="anonymous" aria-hidden="true"></video>
   </div>
+  <div class="loading" id="loading" hidden><i></i></div>
   <div class="veil"></div>
   <div class="caps"><div class="capwrap">
     <div class="cap on" data-cap="0">
@@ -500,11 +510,47 @@ function frame(){
   var r=stage.getBoundingClientRect(),span=stage.offsetHeight-window.innerHeight;
   var p=Math.min(1,Math.max(0,-r.top/span));
   film.style.setProperty('--p',p.toFixed(4));
+  target=p;
   var i=p<.36?0:(p<.72?1:2);
   caps.forEach(function(c,n){c.classList.toggle('on',n===i)});
   for(var n=0;n<rail.length;n++)rail[n].className=(n===i?'on':'');
 }
-addEventListener('scroll',function(){if(!tick)tick=requestAnimationFrame(frame)},{passive:true});
+/* ---- scroll-scrubbed hero video ---- */
+var VID="https://d8j0ntlcm91z4.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/hf_20260908_125407_0b172007-2539-49e4-8545-dea6643c4e7d.mp4";
+var v=document.getElementById('scrub'),poster=document.getElementById('poster'),
+    loading=document.getElementById('loading'),
+    target=0,shown=-1,seeking=false,vready=false,raf=0;
+var small=matchMedia('(max-width:900px)').matches;
+function seek(){
+  raf=0;
+  if(!vready||seeking)return;
+  shown+=(target-shown)*0.16;                    /* ease toward the scroll position */
+  if(Math.abs(target-shown)<0.0015)shown=target;
+  var t=Math.min(v.duration-0.05,Math.max(0,shown*v.duration));
+  if(Math.abs(v.currentTime-t)>0.02){
+    seeking=true;
+    try{v.currentTime=t}catch(e){seeking=false}
+  }
+  if(shown!==target&&!raf)raf=requestAnimationFrame(seek);
+}
+if(v){
+  v.addEventListener('seeked',function(){seeking=false;if(!raf)raf=requestAnimationFrame(seek)});
+  v.addEventListener('loadedmetadata',function(){
+    vready=true;shown=target;loading.hidden=true;v.classList.add('ready');
+    if(!raf)raf=requestAnimationFrame(seek);
+  });
+  v.addEventListener('error',function(){loading.hidden=true});
+}
+/* the five gates: no video on small screens, reduced motion, no JS, a failed load, or no URL yet */
+if(v&&VID.indexOf('http')===0&&!R&&!small){
+  loading.hidden=false;
+  /* Blob first so seeking is instant; fall back to streaming straight from the URL */
+  fetch(VID,{mode:'cors'})
+    .then(function(r){if(!r.ok)throw 0;return r.blob()})
+    .then(function(b){v.src=URL.createObjectURL(b)})
+    .catch(function(){v.src=VID});
+}
+addEventListener('scroll',function(){if(!tick)tick=requestAnimationFrame(frame);if(vready&&!raf)raf=requestAnimationFrame(seek)},{passive:true});
 addEventListener('resize',frame);frame();
 </script>
 </body>
