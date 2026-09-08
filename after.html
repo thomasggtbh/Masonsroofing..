@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Built-Rite Construction &amp; Sons | General Contractor in Millfield</title>
+<meta name="description" content="Family-owned general contractor serving the tri-county area since 1987. Roofing, remodels, additions and repairs. Licensed, bonded and insured. Free written estimates.">
+<style>
+:root{
+  --ink:#0e1417; --slate:#5a6873; --mute:#8593a0; --line:#e4e9ed;
+  --bg:#fff; --soft:#f6f8f9; --deep:#111a1f;
+  --brand:#e2570d; --brand-dk:#b8430a; --ok:#1f7a4d;
+  --r:14px; --shadow:0 1px 2px rgba(14,20,23,.05), 0 8px 24px rgba(14,20,23,.06);
+  --wrap:1160px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Liberation Sans",Arial,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{margin:0;line-height:1.15;letter-spacing:-.02em;font-weight:700}
+h2{font-size:clamp(1.7rem,3.4vw,2.5rem)}
+h3{font-size:1.12rem;letter-spacing:-.01em}
+p{margin:0}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
+.lede{color:var(--slate);font-size:1.06rem}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 26px;border-radius:10px;font-weight:650;font-size:1rem;
+  border:1px solid transparent;cursor:pointer;transition:.15s;white-space:nowrap}
+.btn-p{background:var(--brand);color:#fff;box-shadow:0 6px 18px rgba(226,87,13,.28)}
+.btn-p:hover{background:var(--brand-dk)}
+.btn-g{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.34);backdrop-filter:blur(6px)}
+.btn-g:hover{background:rgba(255,255,255,.16)}
+.btn-o{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-o:hover{border-color:var(--ink)}
+
+/* header */
+.util{background:var(--deep);color:#9fb0bc;font-size:.8rem}
+.util .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+.util b{color:#dbe4ea;font-weight:600}
+.hdr{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;gap:28px;padding-top:14px;padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.03em;font-size:1.16rem}
+.mark{width:38px;height:38px;border-radius:9px;background:var(--brand);display:grid;place-items:center;flex:none;
+  color:#fff;font-size:.95rem;font-weight:800;letter-spacing:-.04em;box-shadow:0 4px 12px rgba(226,87,13,.3)}
+.brand small{display:block;font-size:.63rem;font-weight:600;color:var(--mute);letter-spacing:.1em;text-transform:uppercase}
+nav{margin-left:auto;display:flex;gap:28px;font-size:.94rem;font-weight:550;color:var(--slate)}
+nav a:hover{color:var(--brand)}
+.hdr .btn{padding:11px 20px;font-size:.94rem}
+
+/* hero */
+.hero{position:relative;background:var(--deep);color:#fff;overflow:hidden}
+.hero .bg{position:absolute;inset:0}
+.hero .bg .photo{width:100%;height:100%}
+.hero .bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(105deg,rgba(10,15,18,.94) 0%,rgba(10,15,18,.82) 46%,rgba(10,15,18,.42) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-top:clamp(72px,10vw,120px);padding-bottom:clamp(72px,10vw,120px)}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.7rem);max-width:15ch;margin:16px 0 0}
+.hero p{color:#c3d0d9;font-size:clamp(1rem,1.6vw,1.16rem);max-width:52ch;margin:20px 0 0}
+.hero .cta{display:flex;gap:13px;margin-top:34px;flex-wrap:wrap}
+.chips{display:flex;gap:26px;margin-top:42px;padding-top:26px;flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,.14);font-size:.86rem;color:#a9bac6}
+.chips b{display:block;color:#fff;font-size:1.5rem;font-weight:700;letter-spacing:-.03em}
+
+/* trust strip */
+.trust{background:var(--soft);border-bottom:1px solid var(--line)}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-top:22px;padding-bottom:22px}
+.trust div{display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--slate)}
+.tick{width:21px;height:21px;border-radius:50%;background:rgba(31,122,77,.12);color:var(--ok);
+  display:grid;place-items:center;font-size:.7rem;flex:none}
+
+/* sections */
+section{padding:clamp(60px,8vw,96px) 0}
+.head{max-width:60ch;margin-bottom:44px}
+.head h2{margin-top:12px}
+.head p{margin-top:14px}
+
+/* services */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff;
+  transition:.18s;display:flex;flex-direction:column}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:#d2dae0}
+.card .photo{width:100%;height:172px}
+.card .in{padding:20px 22px 24px}
+.card p{color:var(--slate);font-size:.94rem;margin-top:8px}
+.more{margin-top:14px;font-size:.88rem;font-weight:700;color:var(--brand)}
+
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,68px);align-items:center}
+.split .photo{width:100%;height:420px;border-radius:var(--r)}
+ul.checks{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:15px}
+ul.checks li{display:flex;gap:13px;font-size:.98rem;color:var(--slate)}
+ul.checks b{color:var(--ink);display:block;font-size:1rem}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gal .photo{width:100%;height:200px;border-radius:11px}
+.gal a:first-child{grid-column:span 2}
+.gal a:first-child .photo{height:414px}
+
+/* testimonials */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.q{border:1px solid var(--line);border-radius:var(--r);padding:26px;background:#fff}
+.st{color:#e8a317;letter-spacing:2px;font-size:.9rem}
+.q p{margin-top:13px;font-size:.98rem;color:var(--slate)}
+.q .by{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:.85rem;color:var(--mute)}
+.q .by b{display:block;color:var(--ink);font-size:.94rem}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
+.step{counter-increment:s}
+.step::before{content:counter(s,decimal-leading-zero);display:block;font-size:.82rem;font-weight:800;
+  color:var(--brand);letter-spacing:.1em;margin-bottom:12px}
+.step h3{margin-bottom:7px}
+.step p{font-size:.92rem;color:var(--slate)}
+
+/* cta band */
+.band{background:var(--deep);color:#fff}
+.band .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center;
+  padding-top:clamp(56px,7vw,84px);padding-bottom:clamp(56px,7vw,84px)}
+.band p{color:#b6c4ce;margin-top:16px}
+.form{background:#fff;border-radius:var(--r);padding:28px;display:grid;gap:13px}
+.form label{font-size:.8rem;font-weight:700;color:var(--slate);letter-spacing:.02em}
+.form input,.form select,.form textarea{width:100%;padding:13px 14px;border:1px solid var(--line);
+  border-radius:9px;font:inherit;font-size:.96rem;color:var(--ink);background:#fff}
+.form input:focus,.form select:focus,.form textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:transparent}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.form .btn{width:100%;margin-top:5px}
+.fine{font-size:.78rem;color:var(--mute);text-align:center}
+
+/* footer */
+footer{background:#080d10;color:#8b9aa6;font-size:.9rem}
+footer .wrap{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;
+  padding-top:60px;padding-bottom:36px}
+footer h4{margin:0 0 14px;color:#fff;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+footer a:hover{color:var(--brand)}
+footer li{list-style:none;margin-bottom:9px}
+footer ul{margin:0;padding:0}
+.legal{border-top:1px solid rgba(255,255,255,.09)}
+.legal .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding-top:20px;padding-bottom:20px;font-size:.82rem;color:#6d7c88}
+
+/* photos */
+.photo{position:relative;overflow:hidden;background:#dfe6ea}
+.photo svg,.photo img{width:100%;height:100%;object-fit:cover}
+.photo img{position:absolute;inset:0}
+
+/* mobile call bar */
+.callbar{display:none}
+
+@media(max-width:980px){
+  nav{display:none}
+  .trust .wrap{grid-template-columns:repeat(2,1fr)}
+  .grid3,.quotes{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr}
+  .split .photo{height:300px}
+  .band .wrap{grid-template-columns:1fr}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .gal a:first-child{grid-column:span 2}
+  .gal a:first-child .photo{height:240px}
+  footer .wrap{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  body{font-size:16px}
+  .util{display:none}
+  .hdr .btn{display:none}
+  .grid3,.quotes,.steps,.gal{grid-template-columns:1fr}
+  .gal a:first-child{grid-column:span 1}
+  .gal .photo,.gal a:first-child .photo{height:210px}
+  .trust .wrap{grid-template-columns:1fr}
+  .form .row{grid-template-columns:1fr}
+  footer .wrap{grid-template-columns:1fr}
+  body{padding-bottom:70px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:80;gap:10px;padding:10px 14px;
+    background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .callbar .btn{flex:1;padding:14px}
+}
+</style>
+<style>
+/* scroll engine */
+html{scroll-behavior:smooth}
+.reveal{opacity:1;transform:none;transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+html.js .reveal{opacity:0;transform:translateY(22px)}
+html.js .reveal.in{opacity:1;transform:none}
+html.js .reveal.d1{transition-delay:.08s}html.js .reveal.d2{transition-delay:.16s}
+html.js .reveal.d3{transition-delay:.24s}html.js .reveal.d4{transition-delay:.32s}
+
+/* scrubbed hero film */
+.stage{position:relative;height:320vh;background:var(--deep)}
+.pin{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center}
+.film{position:absolute;inset:-6%;--p:0;
+  transform:scale(calc(1.18 - var(--p)*.18)) translate3d(0,calc(var(--p) * -3vh),0);
+  transition:transform .12s linear;will-change:transform}
+.film .photo{width:100%;height:100%}
+.herofall{background:
+  radial-gradient(80% 60% at 22% 18%,rgba(226,87,13,.20),transparent 60%),
+  radial-gradient(70% 70% at 88% 82%,rgba(38,74,110,.55),transparent 62%),
+  linear-gradient(160deg,#16202a 0%,#0d151b 55%,#080d11 100%)}
+.veil{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(8,12,15,.78) 0%,rgba(8,12,15,.55) 40%,rgba(8,12,15,.88) 100%)}
+.caps{position:relative;z-index:3;width:100%;max-width:var(--wrap);padding:0 24px;color:#fff}
+.cap{position:absolute;left:24px;right:24px;top:50%;transform:translateY(-50%);
+  opacity:0;transition:opacity .4s,transform .5s;pointer-events:none}
+html:not(.js) .cap{position:relative;opacity:1;transform:none;margin-bottom:40px;top:auto}
+.cap.on{opacity:1;transform:translateY(-50%);pointer-events:auto}
+.capwrap{position:relative;height:60vh}
+.cap h1{font-size:clamp(2.2rem,6vw,4.4rem);max-width:16ch}
+.cap p{color:#c9d6df;margin-top:18px;max-width:46ch;font-size:1.1rem}
+.cap .cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.rail{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;
+  display:flex;gap:8px}
+.rail i{width:34px;height:3px;border-radius:3px;background:rgba(255,255,255,.26)}
+.rail i.on{background:var(--brand)}
+.prog{position:fixed;left:0;top:0;height:3px;background:var(--brand);z-index:90;width:0}
+@media(prefers-reduced-motion:reduce){
+  html.js .reveal{opacity:1;transform:none}
+  .stage{height:auto}.pin{position:relative;height:auto;padding:80px 0}
+  .cap{position:relative;opacity:1;transform:none;top:auto;left:auto;right:auto;margin-bottom:36px}
+  .capwrap{height:auto}
+  .rail{display:none}
+  .film{position:absolute;inset:0;transform:none}
+}
+</style>
+
+</head>
+<body>
+<!-- fallback artwork so the photos still show if the picture links stop working -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+
+  <symbol id="ph-worker" viewBox="0 0 400 260" preserveAspectRatio="none">
+    <rect width="400" height="260" fill="#8fc4e8"/>
+    <rect y="180" width="400" height="80" fill="#c8a97a"/>
+    <rect y="176" width="400" height="8" fill="#a98b60"/>
+    <g stroke="#5c6570" stroke-width="5" fill="none"><path d="M320 175V45h60"/><path d="M330 60l40-14"/><path d="M378 46v30"/></g>
+    <rect x="300" y="96" width="70" height="80" fill="#b9c2cc"/>
+    <g fill="#9aa5b1"><rect x="308" y="104" width="22" height="22"/><rect x="340" y="104" width="22" height="22"/><rect x="308" y="136" width="22" height="22"/><rect x="340" y="136" width="22" height="22"/></g>
+    <ellipse cx="150" cy="238" rx="70" ry="12" fill="#00000022"/>
+    <rect x="120" y="130" width="62" height="105" rx="6" fill="#f57c00"/>
+    <rect x="132" y="130" width="38" height="70" fill="#ffd54f"/>
+    <g fill="#e0e0e0"><rect x="120" y="152" width="62" height="9"/><rect x="120" y="176" width="62" height="9"/></g>
+    <rect x="88" y="140" width="34" height="16" rx="8" fill="#f57c00"/>
+    <rect x="180" y="120" width="16" height="42" rx="8" fill="#f57c00"/>
+    <circle cx="188" cy="112" r="15" fill="#e8b98d"/>
+    <rect x="182" y="98" width="12" height="18" rx="5" fill="#e8b98d"/>
+    <circle cx="151" cy="98" r="27" fill="#e8b98d"/>
+    <path d="M120 96a31 31 0 0 1 62 0z" fill="#ffc107"/>
+    <rect x="112" y="94" width="78" height="9" rx="4" fill="#ffca28"/>
+    <g fill="#3e2723"><circle cx="142" cy="102" r="3"/><circle cx="160" cy="102" r="3"/></g>
+    <path d="M141 114q10 8 20 0" stroke="#3e2723" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <rect x="126" y="232" width="26" height="12" rx="4" fill="#4e342e"/>
+    <rect x="152" y="232" width="26" height="12" rx="4" fill="#4e342e"/>
+  </symbol>
+
+  <symbol id="ph-excavator" viewBox="0 0 400 260" preserveAspectRatio="none">
+    <rect width="400" height="260" fill="#a8d4ef"/>
+    <path d="M0 190h400v70H0z" fill="#b08d5f"/>
+    <path d="M0 190q60-40 120-18t150-30 130 22v36H0z" fill="#c9a877"/>
+    <rect x="60" y="196" width="150" height="34" rx="17" fill="#37474f"/>
+    <g fill="#78909c"><circle cx="82" cy="213" r="11"/><circle cx="135" cy="213" r="13"/><circle cx="188" cy="213" r="11"/></g>
+    <rect x="70" y="150" width="120" height="50" rx="8" fill="#fdd835"/>
+    <rect x="86" y="112" width="66" height="44" rx="7" fill="#fdd835"/>
+    <rect x="94" y="120" width="50" height="26" rx="3" fill="#81d4fa"/>
+    <g stroke="#fbc02d" stroke-width="16" fill="none" stroke-linecap="round"><path d="M180 160l58-62"/><path d="M238 98l52 54"/></g>
+    <path d="M282 146l34 10-8 34-40-20z" fill="#546e7a"/>
+    <g fill="#37474f"><path d="M272 174l6 12M286 180l5 12M300 186l4 12"/></g>
+    <rect x="152" y="152" width="12" height="14" fill="#f9a825"/>
+  </symbol>
+
+  <symbol id="ph-house" viewBox="0 0 400 260" preserveAspectRatio="none">
+    <rect width="400" height="260" fill="#9fd0ee"/>
+    <circle cx="330" cy="48" r="24" fill="#fff59d"/>
+    <rect y="212" width="400" height="48" fill="#7cb342"/>
+    <path d="M60 108l110-64 110 64z" fill="#a52a2a"/>
+    <path d="M60 108l110-64 110 64" fill="none" stroke="#7f1d1d" stroke-width="5"/>
+    <rect x="82" y="108" width="176" height="106" fill="#f5f0e1"/>
+    <rect x="82" y="108" width="176" height="106" fill="none" stroke="#bdb59a" stroke-width="3"/>
+    <rect x="152" y="150" width="36" height="64" fill="#6d4c41"/>
+    <circle cx="181" cy="184" r="3" fill="#ffd54f"/>
+    <g fill="#81d4fa" stroke="#fff" stroke-width="4"><rect x="102" y="132" width="38" height="38"/><rect x="204" y="132" width="38" height="38"/></g>
+    <g stroke="#cfa15a" stroke-width="6" fill="none"><path d="M266 214V96h74v118"/><path d="M266 140h74M266 178h74"/><path d="M266 96l74 44M340 96l-74 44"/></g>
+    <rect x="196" y="60" width="14" height="14" fill="#ff5252"/>
+  </symbol>
+
+  <symbol id="ph-handshake" viewBox="0 0 400 260" preserveAspectRatio="none">
+    <rect width="400" height="260" fill="#eceff1"/>
+    <rect y="0" width="400" height="96" fill="#cfd8dc"/>
+    <g fill="#b0bec5"><rect x="24" y="20" width="60" height="58"/><rect x="312" y="20" width="60" height="58"/></g>
+    <rect y="200" width="400" height="60" fill="#d7ccc8"/>
+    <rect x="10" y="150" width="130" height="42" rx="10" fill="#1565c0"/>
+    <rect x="260" y="150" width="130" height="42" rx="10" fill="#37474f"/>
+    <rect x="124" y="152" width="34" height="38" rx="6" fill="#fff"/>
+    <rect x="244" y="152" width="34" height="38" rx="6" fill="#fff"/>
+    <path d="M150 158h110v30H150z" fill="#e8b98d"/>
+    <g fill="#d9a877"><rect x="168" y="150" width="66" height="10" rx="5"/><rect x="168" y="188" width="66" height="10" rx="5"/></g>
+    <circle cx="152" cy="173" r="16" fill="#e8b98d"/>
+    <circle cx="258" cy="173" r="16" fill="#e8b98d"/>
+    <path d="M186 148l14 12-14 12" fill="none" stroke="#c99a6b" stroke-width="3"/>
+  </symbol>
+
+  <symbol id="ph-roof" viewBox="0 0 400 260" preserveAspectRatio="none">
+    <rect width="400" height="260" fill="#87ceeb"/>
+    <g fill="#cfd8dc" opacity=".85"><ellipse cx="70" cy="44" rx="42" ry="18"/><ellipse cx="300" cy="34" rx="52" ry="20"/></g>
+    <path d="M0 260L200 76l200 184z" fill="#6d4c41"/>
+    <g fill="#4e342e">
+      <path d="M200 76l-26 24h52zM148 124h104l-14-14H162zM122 152h156l-14-14H136zM96 180h208l-14-14H110zM70 208h260l-14-14H84zM44 236h312l-14-14H58z"/>
+    </g>
+    <rect x="252" y="104" width="42" height="60" fill="#b71c1c"/>
+    <rect x="246" y="96" width="54" height="12" fill="#8d6e63"/>
+    <rect x="120" y="150" width="60" height="8" fill="#ffd54f"/>
+  </symbol>
+
+  <symbol id="ph-kitchen" viewBox="0 0 400 260" preserveAspectRatio="none">
+    <rect width="400" height="260" fill="#efebe9"/>
+    <rect y="150" width="400" height="110" fill="#d7ccc8"/>
+    <rect x="0" y="140" width="400" height="16" fill="#455a64"/>
+    <g fill="#8d6e63" stroke="#5d4037" stroke-width="3">
+      <rect x="8" y="156" width="86" height="94"/><rect x="98" y="156" width="86" height="94"/>
+      <rect x="216" y="156" width="86" height="94"/><rect x="306" y="156" width="86" height="94"/>
+    </g>
+    <g fill="#cfd8dc"><rect x="40" y="176" width="22" height="6" rx="3"/><rect x="130" y="176" width="22" height="6" rx="3"/><rect x="248" y="176" width="22" height="6" rx="3"/><rect x="338" y="176" width="22" height="6" rx="3"/></g>
+    <rect x="188" y="150" width="26" height="100" fill="#b0bec5"/>
+    <g fill="#8d6e63" stroke="#5d4037" stroke-width="3"><rect x="8" y="26" width="104" height="76"/><rect x="288" y="26" width="104" height="76"/></g>
+    <rect x="150" y="30" width="110" height="76" fill="#81d4fa" stroke="#fff" stroke-width="6"/>
+    <path d="M150 68h110M205 30v76" stroke="#fff" stroke-width="6"/>
+    <path d="M196 108v32" stroke="#90a4ae" stroke-width="7" fill="none"/>
+    <path d="M196 108q0-18 18-18" stroke="#90a4ae" stroke-width="7" fill="none"/>
+  </symbol>
+
+</defs></svg>
+<div class="prog" id="prog"></div>
+
+<div class="util"><div class="wrap">
+  <span><b>Licensed, bonded &amp; insured</b> &middot; Lic. #CGC-0041872</span>
+  <span>Mon&ndash;Fri 7:00am&ndash;4:30pm &middot; Serving the tri-county area</span>
+</div></div>
+
+<header class="hdr"><div class="wrap">
+  <a class="brand" href="#top"><span class="mark">BR</span><span>Built-Rite<small>Construction &amp; Sons</small></span></a>
+  <nav><a href="#services">Services</a><a href="#why">Why us</a><a href="#work">Our work</a><a href="#reviews">Reviews</a><a href="#process">Process</a></nav>
+  <a class="btn btn-p" href="tel:5550184400">(555) 018-4400</a>
+</div></header>
+
+<!-- scrubbed hero -->
+<div class="stage" id="stage"><div class="pin">
+  <div class="film" id="film">
+    <div class="photo herofall"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600" alt="" onerror="this.style.display='none'"></div>
+  </div>
+  <div class="veil"></div>
+  <div class="caps"><div class="capwrap">
+    <div class="cap on" data-cap="0">
+      <div class="eyebrow">Family owned since 1987</div>
+      <h1>Built right the first time.</h1>
+      <p>Three generations of tradesmen doing roofing, remodels and additions across the tri-county area. Same crew from estimate to final walkthrough.</p>
+      <div class="cta"><a class="btn btn-p" href="#estimate">Get a free estimate</a><a class="btn btn-g" href="#work">See our work</a></div>
+    </div>
+    <div class="cap" data-cap="1">
+      <div class="eyebrow">What that means</div>
+      <h1>No subs. No surprises.</h1>
+      <p>Dave, Dave Jr. and Mike are on your job themselves. You get a written scope, a fixed price, and a phone number that a human answers.</p>
+    </div>
+    <div class="cap" data-cap="2">
+      <div class="eyebrow">Backed in writing</div>
+      <h1>Guaranteed work.</h1>
+      <p>Every job carries a written workmanship warranty on top of the manufacturer's material coverage. Twenty years in, we are still fixing our own rare mistakes for free.</p>
+      <div class="cta"><a class="btn btn-p" href="#estimate">Start your estimate</a></div>
+    </div>
+  </div></div>
+  <div class="rail" id="rail"><i class="on"></i><i></i><i></i></div>
+</div></div>
+
+<div class="trust"><div class="wrap">
+  <div><span class="tick">&#10003;</span>Licensed, bonded &amp; insured</div>
+  <div><span class="tick">&#10003;</span>Written workmanship warranty</div>
+  <div><span class="tick">&#10003;</span>Free written estimates</div>
+  <div><span class="tick">&#10003;</span>38 years, one family</div>
+</div></div>
+
+<section id="services"><div class="wrap">
+  <div class="head reveal"><div class="eyebrow">What we do</div><h2>Six trades, one crew</h2>
+    <p class="lede">Most contractors hand you off to subcontractors. We self-perform the work below, which is why our schedules hold.</p></div>
+  <div class="grid3">
+    <a class="card reveal" href="#estimate"><div class="photo"><svg><use href="#ph-roof"/></svg><img src="https://images.unsplash.com/photo-1635424710928-0544e8512eae?w=700" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Roofing</h3><p>Shingle and standing-seam metal, full tear-offs, leak repair, and storm or insurance claims handled start to finish.</p><div class="more">Get a roof quote &rarr;</div></div></a>
+    <a class="card reveal d1" href="#estimate"><div class="photo"><svg><use href="#ph-kitchen"/></svg><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Kitchens &amp; baths</h3><p>Full gut remodels with custom cabinetry, stone counters and tile. One crew, one schedule, one point of contact.</p><div class="more">Plan a remodel &rarr;</div></div></a>
+    <a class="card reveal d2" href="#estimate"><div class="photo"><svg><use href="#ph-house"/></svg><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=700" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Additions</h3><p>Sunrooms, garages, second stories and in-law suites. We handle permits, engineering and inspections.</p><div class="more">Discuss an addition &rarr;</div></div></a>
+    <a class="card reveal" href="#estimate"><div class="photo"><svg><use href="#ph-excavator"/></svg><img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=700" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Excavation &amp; site work</h3><p>Grading, drainage, hauling and septic. Our own machines, so site prep never waits on someone else's calendar.</p><div class="more">Book site work &rarr;</div></div></a>
+    <a class="card reveal d1" href="#estimate"><div class="photo"><svg><use href="#ph-house"/></svg><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=700" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Decks &amp; porches</h3><p>Pressure-treated and composite decking, railings, screen rooms and covered porches built to last outdoors.</p><div class="more">Design a deck &rarr;</div></div></a>
+    <a class="card reveal d2" href="#estimate"><div class="photo"><svg><use href="#ph-handshake"/></svg><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700" alt="" onerror="this.style.display='none'"></div><div class="in"><h3>Repairs &amp; maintenance</h3><p>Drywall, siding, concrete, windows, doors and gutters. Small jobs still get a real estimate and a real date.</p><div class="more">Ask about a repair &rarr;</div></div></a>
+  </div>
+</div></section>
+
+<section id="why" style="background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="split">
+    <div class="reveal"><div class="photo"><svg><use href="#ph-handshake"/></svg><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900" alt="" onerror="this.style.display='none'"></div></div>
+    <div class="reveal d1">
+      <div class="eyebrow">Why Built-Rite</div>
+      <h2 style="margin-top:12px">The boring things other contractors get wrong</h2>
+      <ul class="checks">
+        <li><span class="tick">&#10003;</span><span><b>We show up on the day we said.</b>Scheduling is the number one complaint about contractors. It is the thing we protect hardest.</span></li>
+        <li><span class="tick">&#10003;</span><span><b>Fixed written price before work starts.</b>Change orders only happen when you ask for a change, and you approve them in writing first.</span></li>
+        <li><span class="tick">&#10003;</span><span><b>The owner is on your job.</b>Not a salesman who disappears after the deposit. Dave is on site.</span></li>
+        <li><span class="tick">&#10003;</span><span><b>Clean site, every evening.</b>Dumpster on day one, magnet sweep for nails before we pull off your driveway.</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <div class="head reveal"><div class="eyebrow">Recent work</div><h2>Jobs from this year</h2>
+    <p class="lede">Every photo below is a job our own crew completed in the tri-county area.</p></div>
+  <div class="gal">
+    <a href="#" class="reveal"><div class="photo"><svg><use href="#ph-house"/></svg><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1000" alt="" onerror="this.style.display='none'"></div></a>
+    <a href="#" class="reveal d1"><div class="photo"><svg><use href="#ph-kitchen"/></svg><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700" alt="" onerror="this.style.display='none'"></div></a>
+    <a href="#" class="reveal d2"><div class="photo"><svg><use href="#ph-roof"/></svg><img src="https://images.unsplash.com/photo-1635424710928-0544e8512eae?w=700" alt="" onerror="this.style.display='none'"></div></a>
+    <a href="#" class="reveal d1"><div class="photo"><svg><use href="#ph-excavator"/></svg><img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=700" alt="" onerror="this.style.display='none'"></div></a>
+    <a href="#" class="reveal d2"><div class="photo"><svg><use href="#ph-worker"/></svg><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700" alt="" onerror="this.style.display='none'"></div></a>
+  </div>
+</div></section>
+
+<section id="reviews" style="background:var(--soft);border-top:1px solid var(--line)"><div class="wrap">
+  <div class="head reveal"><div class="eyebrow">Reviews</div><h2>What neighbors say</h2></div>
+  <div class="quotes">
+    <div class="q reveal"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Dave and his crew tore off and replaced our roof in three days, cleaned up every night, and the price matched the estimate exactly. No games.</p><div class="by"><b>Karen T.</b>Roof replacement &middot; Millfield</div></div>
+    <div class="q reveal d1"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>I called four contractors. Built-Rite was the only one who called back, and the only one who showed up with a written scope instead of a napkin number.</p><div class="by"><b>Bob &amp; Linda S.</b>Kitchen remodel &middot; Ashford</div></div>
+    <div class="q reveal d2"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>They built our back deck two summers ago. Went back after the first winter to re-check the footings without us even asking. That is rare.</p><div class="by"><b>Marcus D.</b>Composite deck &middot; Millfield</div></div>
+  </div>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <div class="head reveal"><div class="eyebrow">How it works</div><h2>Four steps, no mystery</h2></div>
+  <div class="steps">
+    <div class="step reveal"><h3>We walk the job</h3><p>Usually within 48 hours. We measure, photograph and talk through what you actually want.</p></div>
+    <div class="step reveal d1"><h3>You get it in writing</h3><p>A line-item scope and a fixed price. Nothing verbal, nothing vague.</p></div>
+    <div class="step reveal d2"><h3>We build it</h3><p>A start date you can plan around, daily cleanup, and one number to call with questions.</p></div>
+    <div class="step reveal d3"><h3>We walk it again</h3><p>A punch list you sign off on, then the written warranty. We come back if anything moves.</p></div>
+  </div>
+</div></section>
+
+<div class="band" id="estimate"><div class="wrap">
+  <div class="reveal">
+    <div class="eyebrow">Free estimate</div>
+    <h2 style="color:#fff;margin-top:12px">Tell us about the job</h2>
+    <p>We answer every request within one business day. If we are not the right crew for your project, we will tell you that too, and point you at someone who is.</p>
+    <p style="margin-top:26px;font-size:1.5rem;color:#fff;font-weight:700;letter-spacing:-.02em">(555) 018-4400</p>
+    <p style="margin-top:4px;font-size:.94rem">4417 Old Mill Road, Suite B, Millfield &middot; Mon&ndash;Fri 7:00am&ndash;4:30pm</p>
+  </div>
+  <form class="form reveal d1" onsubmit="this.querySelector('.btn').textContent='Thanks — we will call you';return false">
+    <div class="row"><div><label for="n">Name</label><input id="n" required></div><div><label for="p">Phone</label><input id="p" type="tel" required></div></div>
+    <div><label for="e">Email</label><input id="e" type="email"></div>
+    <div><label for="t">Type of work</label><select id="t"><option>Roofing</option><option>Kitchen or bath</option><option>Addition</option><option>Deck or porch</option><option>Excavation</option><option>Repair</option></select></div>
+    <div><label for="d">Details</label><textarea id="d" rows="3" placeholder="Roughly what needs doing, and any timing that matters."></textarea></div>
+    <button class="btn btn-p" type="submit">Request my estimate</button>
+    <div class="fine">No obligation. We never share your details.</div>
+  </form>
+</div></div>
+
+<footer><div class="wrap">
+  <div>
+    <a class="brand" href="#top" style="color:#fff"><span class="mark">BR</span><span>Built-Rite<small style="color:#6d7c88">Construction &amp; Sons</small></span></a>
+    <p style="margin-top:16px;max-width:34ch">Family owned general contractor serving the tri-county area since 1987. Licensed, bonded and insured.</p>
+  </div>
+  <div><h4>Services</h4><ul><li><a href="#services">Roofing</a></li><li><a href="#services">Kitchens &amp; baths</a></li><li><a href="#services">Additions</a></li><li><a href="#services">Decks</a></li><li><a href="#services">Excavation</a></li></ul></div>
+  <div><h4>Company</h4><ul><li><a href="#why">Why Built-Rite</a></li><li><a href="#work">Our work</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#process">Process</a></li></ul></div>
+  <div><h4>Contact</h4><ul><li><a href="tel:5550184400">(555) 018-4400</a></li><li><a href="mailto:info@builtriteconstruction.com">info@builtriteconstruction.com</a></li><li>4417 Old Mill Road<br>Suite B, Millfield</li></ul></div>
+</div>
+<div class="legal"><div class="wrap">
+  <span>&copy; 2026 Built-Rite Construction &amp; Sons LLC &middot; Lic. #CGC-0041872</span>
+  <span>Built-Rite is a fictional company created for design demonstration.</span>
+</div></div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-o" href="#estimate">Free estimate</a>
+  <a class="btn btn-p" href="tel:5550184400">Call now</a>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+var R=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var els=[].slice.call(document.querySelectorAll('.reveal'));
+function showAll(){els.forEach(function(e){e.classList.add('in')})}
+if(R||!('IntersectionObserver'in window)){showAll()}else{
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  els.forEach(function(e){io.observe(e)});
+  setTimeout(showAll,2500); /* safety: never leave content hidden */
+}
+var stage=document.getElementById('stage'),film=document.getElementById('film'),
+    caps=[].slice.call(document.querySelectorAll('.cap')),rail=document.getElementById('rail').children,
+    prog=document.getElementById('prog'),tick=0;
+function frame(){
+  tick=0;
+  var d=document.documentElement;
+  prog.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
+  if(R||!stage)return;
+  var r=stage.getBoundingClientRect(),span=stage.offsetHeight-window.innerHeight;
+  var p=Math.min(1,Math.max(0,-r.top/span));
+  film.style.setProperty('--p',p.toFixed(4));
+  var i=p<.36?0:(p<.72?1:2);
+  caps.forEach(function(c,n){c.classList.toggle('on',n===i)});
+  for(var n=0;n<rail.length;n++)rail[n].className=(n===i?'on':'');
+}
+addEventListener('scroll',function(){if(!tick)tick=requestAnimationFrame(frame)},{passive:true});
+addEventListener('resize',frame);frame();
+</script>
+</body>
+</html>
