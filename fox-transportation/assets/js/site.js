@@ -101,7 +101,7 @@
   const finalMap = mp => { setRoads(mp, 1); setRing(mp, 1); setPin(mp, 1); setOuts(mp, 1); };
 
   /* Non-hero maps: draw once when seen */
-  mapParts.filter(mp => !mp.root.hasAttribute('data-hero-map')).forEach(mp => {
+  mapParts.forEach(mp => {
     if (reduced || !('IntersectionObserver' in window)) { finalMap(mp); return; }
     setRoads(mp, 0); setRing(mp, 0); setPin(mp, 0); setOuts(mp, 0);
     const o = new IntersectionObserver(([en]) => {
@@ -119,73 +119,188 @@
     o.observe(mp.root);
   });
 
-  /* ---------- Hero: scroll-driven route ---------- */
-  const hero = document.querySelector('[data-hero]');
-  if (hero) {
-    const mp = mapParts.find(m => m.root.hasAttribute('data-hero-map'));
-    const beats = [...hero.querySelectorAll('[data-beat]')];
-    const progs = [...hero.querySelectorAll('[data-prog]')];
-    const progLabel = hero.querySelector('[data-prog-label]');
-    const cue = hero.querySelector('[data-cue]');
-    const labels = ['Terminal', '45-mile ring', 'Beyond'];
-    let intro = 0, target = 0, shown = -1, lastBeat = -1, rafId = 0, running = false, isStatic = false;
+  /* ---------- Hero: scroll-scrubbed video (10K engineering standard) ---------- */
+  const scrub = document.querySelector('[data-scrub]');
+  if (scrub) {
+    // These five strings match the CSS @media list in site.css exactly.
+    const STATIC_GATES = [
+      '(max-width: 720px)',
+      '(orientation: portrait) and (max-width: 1024px)',
+      '(orientation: portrait) and (pointer: coarse)',
+      '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)',
+      '(prefers-reduced-motion: reduce)'
+    ];
+    const MQLS = STATIC_GATES.map(q => matchMedia(q));
+    const video = scrub.querySelector('[data-video]');
+    const still = scrub.querySelector('[data-still]');
+    const ring = scrub.querySelector('[data-ring-load]');
+    const cue = scrub.querySelector('[data-cue]');
+    const VIDEO_URL = scrub.dataset.video;
+    const POSTER_URL = scrub.dataset.poster;
+    const ENDING_URL = scrub.dataset.ending;
+    const VIDEO_BYTES = +scrub.dataset.bytes || 7000000;
+    const smoothstep = (p, e0, e1) => { const t = clamp((p - e0) / (e1 - e0)); return t * t * (3 - 2 * t); };
 
-    const staticGate = () => reduced || innerWidth < 900 || innerHeight < 600 || matchMedia('(pointer: coarse)').matches;
+    // Split titles into word spans once, with seeded thresholds (identical every load).
+    const rng = seed => { let s = seed >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; };
+    scrub.querySelectorAll('[data-split]').forEach((el, n) => {
+      const r = rng(17 + n);
+      const label = el.textContent.replace(/\s+/g, ' ').trim();
+      const words = [];
+      const walk = (node, into) => {
+        node.childNodes.forEach(c => {
+          if (c.nodeType === 3) {
+            c.textContent.split(/(\s+)/).forEach(part => {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { into.appendChild(document.createTextNode(' ')); return; }
+              const w = document.createElement('span'); w.className = 'w'; w.textContent = part;
+              into.appendChild(w); words.push(w);
+            });
+          } else if (c.nodeType === 1) {
+            const clone = c.cloneNode(false); into.appendChild(clone); walk(c, clone);
+          }
+        });
+      };
+      const vis = document.createElement('span'); vis.setAttribute('aria-hidden', 'true');
+      walk(el, vis);
+      words.forEach((w, i) => w.style.setProperty('--th', (i / words.length * 0.4 + r() * 0.05).toFixed(3)));
+      const sr = document.createElement('span'); sr.className = 'sr-only'; sr.textContent = label;
+      el.textContent = ''; el.append(sr, vis);
+    });
 
-    const render = p => {
-      // p: 0..1 across the pinned hero. Roads come from the intro; scroll owns the rest.
-      setRoads(mp, intro);
-      setPin(mp, clamp(intro * 1.4 - 0.4));
-      setRing(mp, clamp((p - 0.18) / 0.3));
-      setOuts(mp, clamp((p - 0.55) / 0.35));
-      const b = p < 0.3 ? 0 : p < 0.62 ? 1 : 2;
-      if (b !== lastBeat) {
-        beats.forEach((el, i) => el.classList.toggle('is-on', i === b));
-        progLabel.textContent = labels[b];
-        lastBeat = b;
-      }
-      progs.forEach((el, i) => el.style.setProperty('--p', clamp(p * 3 - i).toFixed(3)));
-      cue.style.opacity = p > 0.04 ? '0' : '1';
-    };
+    const bands = [...scrub.querySelectorAll('[data-band]')].map((el, i, all) => ({
+      el, a: +el.dataset.a, b: +el.dataset.b, ramp: +el.dataset.ramp || 0,
+      first: i === 0, last: i === all.length - 1, op: -1, k: -1, on: null
+    }));
 
-    const measure = () => {
-      const r = hero.getBoundingClientRect();
-      const span = hero.offsetHeight - innerHeight;
+    let scrubOn = false, heroOnScreen = true, inited = false;
+    let target = 0, shown = 0, rafId = null, lastTick = 0, loadK = 0, loadStart = 0;
+    let seekBusy = false, pendingTime = null;
+
+    const heroProgress = () => {
+      const r = scrub.getBoundingClientRect();
+      const span = scrub.offsetHeight - (innerHeight - (nav ? nav.offsetHeight : 0));
       return span > 0 ? clamp(-r.top / span) : 0;
     };
 
-    const loop = () => {
-      const diff = target - shown;
-      if (Math.abs(diff) < 0.0005 && intro >= 1) { shown = target; render(shown); running = false; return; }
-      shown += diff * 0.14;
-      if (intro < 1) intro = Math.min(1, intro + 0.012);
-      render(shown);
-      rafId = requestAnimationFrame(loop);
-    };
-    const kick = () => { if (!running && !isStatic) { running = true; rafId = requestAnimationFrame(loop); } };
-    const onScroll = () => { if (isStatic) return; target = measure(); kick(); };
+    function requestSeek(t) {
+      if (!video.duration || !isFinite(t)) return;
+      if (seekBusy) { pendingTime = t; return; }
+      seekBusy = true;
+      video.currentTime = Math.min(t, video.duration - 0.001);
+    }
+    video.addEventListener('seeked', () => {
+      seekBusy = false;
+      if (pendingTime !== null) { const t = pendingTime; pendingTime = null; requestSeek(t); }
+    });
+    video.addEventListener('error', () => { seekBusy = false; pendingTime = null; failVideo(); });
 
-    const setMode = () => {
-      const s = staticGate();
-      if (s === isStatic && shown !== -1) return;
-      isStatic = s;
-      hero.classList.toggle('is-static', s);
-      cancelAnimationFrame(rafId); running = false;
-      if (s) {
-        beats.forEach(el => el.classList.add('is-on'));
-        finalMap(mp);
-        shown = 1;
-      } else {
-        lastBeat = -1;
-        target = measure();
-        shown = target;
-        kick();
+    function updateCaptions(p) {
+      bands.forEach(b => {
+        const f = Math.min(0.02, (b.b - b.a) / 3);
+        const inO = b.first ? 1 : smoothstep(p, b.a, b.a + f);
+        const outO = b.last ? 1 : 1 - smoothstep(p, b.b - f, b.b);
+        const op = p < b.a - 0.0001 && !b.first ? 0 : (p > b.b && !b.last ? 0 : inO * outO);
+        const rampLen = b.ramp || Math.min(0.025, (b.b - b.a) * 0.35);
+        let k = clamp((p - b.a) / rampLen);
+        if (b.first) k = Math.max(k, loadK);
+        if (Math.abs(op - b.op) > 0.004) { b.el.style.opacity = op.toFixed(3); b.op = op; }
+        if (Math.abs(k - b.k) > 0.008 || (k === 1 && b.k !== 1)) { b.el.style.setProperty('--k', k.toFixed(3)); b.k = k; }
+        const on = op > 0.5;
+        if (on !== b.on) { b.el.classList.toggle('is-active', on); b.on = on; }
+      });
+      if (cue) { const o = p > 0.03 ? '0' : '1'; if (cue.style.opacity !== o) cue.style.opacity = o; }
+    }
+
+    function tick(now) {
+      const dt = Math.min(100, now - (lastTick || now));
+      lastTick = now;
+      if (loadK < 1) loadK = ease(clamp((now - loadStart) / 1400));
+      shown += (target - shown) * (1 - Math.pow(1 - 0.16, dt / 16.667));
+      const settled = Math.abs(target - shown) < 0.0005 && loadK >= 1;
+      if (settled) shown = target;
+      requestSeek(shown * (video.duration || 0));
+      updateCaptions(shown);
+      if (settled || !heroOnScreen) { rafId = null; lastTick = 0; }
+      else rafId = requestAnimationFrame(tick);
+    }
+    const kick = () => { if (rafId === null && scrubOn) rafId = requestAnimationFrame(tick); };
+    function onScroll() { target = heroProgress(); if (heroOnScreen) kick(); }
+
+    function failVideo() {
+      scrub.classList.add('video-failed');
+      if (ENDING_URL) still.style.backgroundImage = `url("${ENDING_URL}")`;
+    }
+
+    let fetchStarted = false;
+    async function loadHeroBlob() {
+      const ctrl = new AbortController();
+      let watchdog = setTimeout(() => ctrl.abort(), 20000);
+      const res = await fetch(VIDEO_URL, { priority: 'low', signal: ctrl.signal, mode: 'cors' });
+      if (!res.ok || !res.body) throw new Error('video ' + res.status);
+      const total = Number(res.headers.get('Content-Length')) || VIDEO_BYTES;
+      const reader = res.body.getReader();
+      const chunks = [];
+      let got = 0, lastRing = 0;
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        clearTimeout(watchdog);
+        watchdog = setTimeout(() => ctrl.abort(), 20000);
+        chunks.push(value);
+        got += value.length;
+        const frac = Math.min(1, got / total);
+        const t = performance.now();
+        if (t - lastRing > 100 || frac === 1) { lastRing = t; ring.style.setProperty('--ld', Math.round(126 * (1 - frac))); }
       }
-    };
-    setMode();
-    addEventListener('scroll', onScroll, { passive: true });
-    addEventListener('resize', setMode);
-    rmQuery.addEventListener('change', e => { reduced = e.matches; setMode(); });
+      clearTimeout(watchdog);
+      ring.style.setProperty('--ld', 0);
+      video.src = URL.createObjectURL(new Blob(chunks, { type: 'video/mp4' }));
+      video.load();
+      video.addEventListener('canplay', () => {
+        requestSeek(heroProgress() * video.duration);
+        scrub.classList.add('video-ready');
+      }, { once: true });
+    }
+    function startBlobFetch() {
+      if (fetchStarted || !VIDEO_URL) return;
+      fetchStarted = true;
+      loadHeroBlob().catch(failVideo);
+    }
+    function initHeroOnce() {
+      if (inited) return;
+      inited = true;
+      loadStart = performance.now();
+      if (POSTER_URL) {
+        still.style.backgroundImage = `url("${POSTER_URL}")`;
+        const img = new Image();
+        img.onload = startBlobFetch; img.onerror = startBlobFetch; img.src = POSTER_URL;
+        setTimeout(startBlobFetch, 4000);
+      } else startBlobFetch();
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(([en]) => { heroOnScreen = en.isIntersecting; if (heroOnScreen) onScroll(); }).observe(scrub);
+      }
+    }
+
+    function enableScrub() {
+      if (scrubOn) return;
+      scrubOn = true;
+      initHeroOnce();
+      addEventListener('scroll', onScroll, { passive: true });
+      bands.forEach(b => { b.op = -1; b.k = -1; b.on = null; b.el.style.removeProperty('opacity'); b.el.style.removeProperty('--k'); });
+      target = shown = heroProgress();
+      onScroll(); kick();
+    }
+    function disableScrub() {
+      if (scrubOn) { scrubOn = false; removeEventListener('scroll', onScroll); if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; } }
+      // Static hero: the ending frame, with band one composed over it.
+      bands.forEach(b => { b.el.style.removeProperty('opacity'); b.el.style.removeProperty('--k'); b.el.classList.remove('is-active'); b.op = b.k = -1; b.on = null; });
+      if (ENDING_URL) still.style.backgroundImage = `url("${ENDING_URL}")`;
+    }
+    const applyHeroMode = () => (MQLS.some(m => m.matches) ? disableScrub() : enableScrub());
+    MQLS.forEach(m => m.addEventListener('change', applyHeroMode));
+    addEventListener('resize', () => { if (scrubOn) onScroll(); });
+    applyHeroMode();
   }
 
   /* ---------- Equipment configurator ---------- */
@@ -231,7 +346,8 @@
     // 'terminal.jpg', 'yard.jpg', 'trailer-53.jpg', 'trailer-48.jpg', 'straight-truck.jpg',
   ];
   document.querySelectorAll('[data-photo]').forEach(fig => {
-    if (!PHOTOS.includes(fig.dataset.photo.split('/').pop())) return;
+    const src = fig.dataset.photo;
+    if (!/^https?:/.test(src) && !PHOTOS.includes(src.split('/').pop())) return;
     const img = new Image();
     img.decoding = 'async';
     img.loading = 'lazy';
