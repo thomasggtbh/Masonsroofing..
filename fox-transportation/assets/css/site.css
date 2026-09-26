@@ -601,14 +601,14 @@ a.line:hover { border-color: var(--ink); transform: translateX(6px); }
 .scrub.video-ready video { opacity: 1; }
 .scrub__scrim { position: absolute; inset: 0; pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(9,13,17,.78) 0%, rgba(9,13,17,.55) 34%, rgba(9,13,17,.12) 62%, rgba(9,13,17,0) 75%),
+    linear-gradient(90deg, rgba(9,13,17,.84) 0%, rgba(9,13,17,.76) 36%, rgba(9,13,17,.5) 54%, rgba(9,13,17,.12) 72%, rgba(9,13,17,0) 84%),
     radial-gradient(ellipse 120% 90% at 60% 45%, rgba(9,13,17,0) 45%, rgba(9,13,17,.45) 100%); }
 .scrub__bands { position: relative; height: 100%; }
 .band { position: absolute; left: 0; top: 50%; translate: 0 -50%; width: min(640px, 100%); opacity: 0; pointer-events: none; text-shadow: var(--tshadow); isolation: isolate; }
 .band.is-active { pointer-events: auto; }
 .band::before { content: ""; position: absolute; inset: -18% -22% -18% -30%; z-index: -1; pointer-events: none;
   opacity: calc(.25 + .75 * var(--k, 1));
-  background: radial-gradient(ellipse 74% 62% at 40% 50%, rgba(5,8,12,.62) 0%, rgba(5,8,12,.4) 46%, rgba(5,8,12,0) 76%); }
+  background: radial-gradient(ellipse 74% 62% at 40% 50%, rgba(5,8,12,.7) 0%, rgba(5,8,12,.5) 46%, rgba(5,8,12,0) 76%); }
 .band .kicker { color: #d9e0e5; }
 .band__tag { font: 500 .78rem/1 var(--f-mono); letter-spacing: .18em; text-transform: uppercase; color: var(--fox-bright); margin: 0 0 1rem; }
 .band__title { font-size: clamp(2.4rem, min(5vw, 8.2vh), 4.6rem); font-weight: 900; letter-spacing: -0.035em; line-height: .98; margin-bottom: 1.2rem; }
