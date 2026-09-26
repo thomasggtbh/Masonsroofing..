@@ -60,3 +60,7 @@ Confirm the phone numbers and authority numbers before launch. foxtrans.net give
 - Phones, short screens and touch devices get a static composed hero instead of the pinned scroll.
 - Fonts (Overpass, SIL Open Font License) are self-hosted as Latin-only woff2, with the two main weights preloaded.
 - The page is complete without any image or video: the hero falls back to a composed still, and all artwork is inline SVG. Third-party requests are limited to the media CDN above.
+
+## Live site
+
+Published on Floot at https://fox-transportation.floot.app (project f09e81ba-29f7-4f3a-98ac-43a6d0e1fec7). The Floot pages render this same markup and CSS; the shared nav and footer live in `helpers/foxChrome`, and `assets/js/site.js` runs as `helpers/foxSiteScript`.

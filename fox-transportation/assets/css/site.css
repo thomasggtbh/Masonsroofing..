@@ -675,3 +675,4 @@ html:not(.js) .band--1 { opacity: 1; --k: 1; }
 /* ---------- Carrier equipment tags ---------- */
 .tags { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .tags li { padding: 10px 16px 8px; border-radius: 999px; border: 1.5px solid var(--line-strong); background: #fff; font: 700 .9rem/1 var(--f-display); }
+.person__initials { display: grid; place-items: center; width: 100%; height: 100%; background: var(--ink); color: var(--paper); font: 900 2rem/1 var(--f-display); letter-spacing: .04em; }

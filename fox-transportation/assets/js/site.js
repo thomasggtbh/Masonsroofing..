@@ -358,6 +358,18 @@
     fig.prepend(img);
   });
 
+  /* ---------- Portraits: initials badge if a photo cannot load ---------- */
+  document.querySelectorAll('.person__photo img').forEach(img => {
+    const swap = () => {
+      const name = (img.alt || '').replace(/^Portrait of /, '');
+      const initials = name.split(/\s+/).filter(w => /^[A-Z]/.test(w)).map(w => w[0]).slice(0, 2).join('');
+      const badge = document.createElement('span');
+      badge.className = 'person__initials'; badge.setAttribute('aria-hidden', 'true'); badge.textContent = initials;
+      img.replaceWith(badge);
+    };
+    if (img.complete && img.naturalWidth === 0) swap(); else img.addEventListener('error', swap, { once: true });
+  });
+
   /* ---------- Parallax on terminal photos + timeline fill ---------- */
   const para = [...document.querySelectorAll('.terminal .photo')];
   const timeline = document.querySelector('[data-timeline]');
