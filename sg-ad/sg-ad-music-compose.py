@@ -4,7 +4,7 @@ Every sound is synthesized here from oscillators, noise and plucked-string
 models; nothing is sampled. The arrangement is locked to the video's edit:
 
   0.0 - 2.9   PRECISION       ticking clock hats, muted plucked arpeggio, sub drone, swell
-  2.9 - 6.9   CRAFTSMANSHIP   kick + pulsing bass enter, rim clicks, accents on 4.25 / 5.6 cuts
+  2.9 - 6.9   CRAFTSMANSHIP   kick + pulsing bass enter, rim clicks, clean rim clicks
   6.9 - 10.9  TRANSFORMATION  pads open up, brighter arpeggio, clap layer, riser + tom fill
   10.9 - 15.0 CONFIDENCE      impact, warm major-leaning chords, settles and rings out
 
@@ -70,8 +70,7 @@ def hat(open_=False, level=1.0):
     d = 0.22 if open_ else 0.05
     t = tvec(d)
     x = hp(rng.standard_normal(len(t)), 7500, 4)
-    # a little metallic ring from square partials
-    ring = sum(np.sign(np.sin(2 * np.pi * f * t)) for f in (5250, 6980, 8130)) * 0.08
+    ring = np.zeros(len(t))                 # no metallic partials: keeps hats airy, not clinky
     env = np.exp(-t * (14 if open_ else 90))
     y = lp(x + hp(ring, 6000), 12500, 2) * env * level
     a = int(0.0015 * SR)
@@ -80,9 +79,8 @@ def hat(open_=False, level=1.0):
 
 def rim(level=1.0):
     t = tvec(0.09)
-    tone = np.sin(2 * np.pi * 1650 * t) * np.exp(-t * 90) * 0.6
     n = bp(rng.standard_normal(len(t)), 1800, 5200) * np.exp(-t * 110)
-    return (tone + n) * level
+    return n * level * 0.8                   # dry click, no pitched ring
 
 def clap(level=1.0):
     t = tvec(0.28)
@@ -199,7 +197,6 @@ for i, m in enumerate(arpA):
     place(plucks, pluck(m, 0.7, bright=0.35 + 0.03 * i), 0.4 + i * 0.25, 0.32, pan=-0.3 + 0.06 * i)
 place(pads, pad(Dm9, 2.5, np.linspace(0.1, 0.35, 8), 0.45, attack=1.4), 0.4, 1.0)
 place(fx, riser(1.0, 0.11), 1.9)
-place(fx, tick(0.9), 2.9)                                                # cut: framing -> flooring
 
 # ---------------------------------------------------------------- B: CRAFTSMANSHIP (2.9 - 6.9)
 chordsB = [(bar(1), Bb9 if False else Dm9), (bar(2), Bb9)]
@@ -223,12 +220,9 @@ for i in range(16):
     t = bar(1) + i * 0.25
     notes = arpB if t < bar(2) else [58, 65, 70, 65, 62, 65, 60, 65]
     place(plucks, pluck(notes[i % 8], 0.6, bright=0.45), t, 0.33, pan=0.35 if i % 2 else -0.35)
-place(fx, tick(1.0), 4.25)                                               # cut: flooring -> carpentry
-place(fx, tick(1.0), 5.6)                                                # cut: carpentry -> painting
 place(fx, riser(0.9, 0.08), 6.0)
 
 # ---------------------------------------------------------------- C: TRANSFORMATION (6.9 - 10.9)
-place(fx, tick(0.8), 6.9)
 place(drums, kick(1.0), bar(3))
 place(pads, pad(F9, 2.0, np.linspace(0.35, 0.8, 10), 1.0, attack=0.05, release=0.5), bar(3))
 place(pads, pad(Csus, 2.0, np.linspace(0.8, 1.0, 10), 1.15, attack=0.05, release=0.5), bar(4))
