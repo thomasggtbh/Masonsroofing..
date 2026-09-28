@@ -202,18 +202,8 @@ section{position:relative}
 .about h2 .soft{color:#7a8396}
 .about .lede{font-size:clamp(18px,1.4vw,21px);color:#2d3850;max-width:44ch}
 .about .lede + .lede{margin-top:18px}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(64px,8vw,110px);border-top:1px solid var(--line-ink)}
-.fact{padding:28px 24px 8px 0;position:relative}
-.fact + .fact{padding-left:24px;border-left:1px solid var(--line-ink)}
-.fact b{display:block;font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(40px,4.6vw,66px);line-height:1;letter-spacing:-.03em;color:var(--ink)}
-.fact b sup{font-size:.45em;color:var(--accent);vertical-align:.9em;margin-left:2px}
-.fact > span{display:block;margin-top:12px;color:var(--ink-2);font-size:15px;max-width:22ch}
-.fact .ico{width:54px;height:54px;color:var(--ink)}
 @media (max-width:900px){
   .about-grid{grid-template-columns:1fr;align-items:start}
-  .facts{grid-template-columns:1fr 1fr}
-  .fact:nth-child(3){padding-left:0;border-left:0}
-  .fact:nth-child(n+3){border-top:1px solid var(--line-ink)}
 }
 
 /* ---------- services (interactive) ---------- */
@@ -310,7 +300,7 @@ section{position:relative}
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(56px,7vw,96px)}
 .pillar{border:1px solid var(--line);border-radius:10px;padding:32px 28px 34px;background:rgba(14,23,38,.35);position:relative;overflow:hidden;transition:border-color .8s var(--ease),background-color .8s var(--ease)}
 .pillar .pn{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--steel)}
-.pillar h3{font-size:clamp(28px,2.6vw,40px);margin:46px 0 14px;color:var(--text-2);transition:color .8s var(--ease)}
+.pillar h3{font-size:clamp(28px,2.6vw,40px);margin:46px 0 0;color:var(--text-2);transition:color .8s var(--ease)}
 .pillar p{color:var(--text-2);font-size:16px}
 .pillar::before{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease)}
 .pillars.lit .pillar{border-color:var(--line-strong);background:rgba(14,23,38,.6)}
@@ -340,6 +330,20 @@ section{position:relative}
 .step p{color:#34405a;max-width:32ch}
 .process h2{font-size:clamp(40px,5.6vw,88px);color:var(--ink);margin-bottom:clamp(48px,6vw,84px);max-width:14ch}
 @media (max-width:900px){.steps{grid-template-columns:1fr;gap:44px}.step + .step{padding-left:0;border-left:0;border-top:1px solid var(--line-ink);padding-top:36px}}
+
+.gallery-note{margin-top:22px;color:var(--ink-2)}
+.callbar{margin-top:clamp(56px,7vw,96px);display:flex;align-items:center;justify-content:space-between;gap:28px 40px;flex-wrap:wrap;padding:clamp(26px,3.4vw,44px);border-radius:12px;background:var(--ink);color:var(--plaster);position:relative;overflow:hidden}
+.callbar::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
+.callbar .mono{color:var(--steel)}
+.cb-h{font-family:var(--display);font-stretch:118%;font-weight:800;font-size:clamp(28px,3.2vw,46px);line-height:1;letter-spacing:-.02em;margin-top:12px}
+.cb-actions{display:flex;flex-wrap:wrap;gap:10px}
+.cb-main{font-size:18px;padding:17px 26px}
+.cb-main svg{width:20px;height:20px}
+.callbar .btn-ink{background:#1f2d47;color:var(--plaster)}
+.callbar .btn-ink:hover{background:#2a3b5a}
+.btn-line{border-color:rgba(238,236,230,.4);color:var(--plaster)}
+.btn-line:hover{border-color:var(--plaster)}
+@media (max-width:640px){.cb-actions{width:100%;flex-direction:column}.cb-actions .btn{width:100%}}
 
 /* ---------- contact ---------- */
 .contact{background:var(--canvas)}
@@ -445,7 +449,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       <div class="band rise live" data-a="0" data-b="0.27" data-first>
         <div class="kicker mono"><i></i>Licensed &amp; Insured · PA, NJ &amp; more</div>
         <h1 data-split="w">Built with precision.</h1>
-        <p class="sub stagefade">A full service contractor for homes and businesses, indoor and outdoor.</p>
+        <p class="sub stagefade">A full service contractor for home improvement and remodeling, indoor and outdoor.</p>
       </div>
       <div class="band drift" data-a="0.31" data-b="0.56">
         <h2 class="sm" data-split="w">Remodeling. Flooring. Carpentry. Painting.</h2>
@@ -516,12 +520,6 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         <p class="lede rv d2">We pride ourselves on top quality service and customer satisfaction. Reach out with any questions. We look forward to hearing from you.</p>
       </div>
     </div>
-    <div class="facts">
-      <div class="fact rv"><b><span class="count" data-to="18">18</span><sup>+</sup></b><span>Years of experience</span></div>
-      <div class="fact rv d1"><b>2</b><span>Sectors served: public and private</span></div>
-      <div class="fact rv d2"><b>PA<sup>·</sup>NJ</b><span>And more. Ask about your area.</span></div>
-      <div class="fact rv d3"><svg class="ico" viewBox="0 0 54 54" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M27 4 L46 11 V26 C46 38 37 46 27 50 C17 46 8 38 8 26 V11 Z"/><path d="M18 27 L24.5 33.5 L37 21" stroke="#f06a35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Licensed and insured</span></div>
-    </div>
   </div>
 </section>
 
@@ -531,29 +529,29 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     <div class="dim" aria-hidden="true"><span class="mono">02 / Services</span><svg viewBox="0 0 260 14" preserveAspectRatio="none"><line class="tk" x1="1" y1="1" x2="1" y2="13" stroke="#9aa7ba"/><line class="dl" pathLength="1" x1="1" y1="7" x2="259" y2="7" stroke="#9aa7ba"/><line class="tk" x1="259" y1="1" x2="259" y2="13" stroke="#9aa7ba"/></svg></div>
     <div class="svc-head">
       <h2 id="svc-h" class="rv">What we do.</h2>
-      <p class="rv d1">Home improvement and remodeling, indoor and outdoor. Pick a service to see more.</p>
+      <p class="rv d1">Remodeling, flooring, carpentry, painting and much more. Pick a service to see more.</p>
     </div>
     <div class="svc">
       <ul class="svc-list" id="svcList">
         <li class="svc-item on" data-img="remodel">
           <button class="svc-btn" aria-expanded="true"><span class="n">01</span><span class="t">Remodeling</span><svg class="plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></button>
-          <div class="svc-body"><div><img class="m-img" src="assets/kitchen-sm.jpg" alt="" loading="lazy"><p>Update the rooms you live and work in. Kitchens, bathrooms and living spaces, handled by one contractor from start to finish.</p></div></div>
+          <div class="svc-body"><div><img class="m-img" src="assets/kitchen-sm.jpg" alt="" loading="lazy"><p>Home improvement and remodeling, indoor and outdoor. Tell us what you have in mind and we will work to bring it to life.</p></div></div>
         </li>
         <li class="svc-item" data-img="floor">
           <button class="svc-btn" aria-expanded="false"><span class="n">02</span><span class="t">Flooring</span><svg class="plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></button>
-          <div class="svc-body"><div><img class="m-img" src="assets/flooring-sm.jpg" alt="" loading="lazy"><p>New floors, laid straight and tight. The surface you walk on every day, installed with care.</p></div></div>
+          <div class="svc-body"><div><img class="m-img" src="assets/flooring-sm.jpg" alt="" loading="lazy"><p>Flooring for the spaces you live and work in. Contact us to receive a free estimate.</p></div></div>
         </li>
         <li class="svc-item" data-img="carp">
           <button class="svc-btn" aria-expanded="false"><span class="n">03</span><span class="t">Carpentry</span><svg class="plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></button>
-          <div class="svc-body"><div><img class="m-img" src="assets/carpentry-sm.jpg" alt="" loading="lazy"><p>Trim, stairs, framing and built work. The details that make a room feel finished.</p></div></div>
+          <div class="svc-body"><div><img class="m-img" src="assets/carpentry-sm.jpg" alt="" loading="lazy"><p>Carpentry for your home improvement project, big or small. Reach out with any questions.</p></div></div>
         </li>
         <li class="svc-item" data-img="paint">
           <button class="svc-btn" aria-expanded="false"><span class="n">04</span><span class="t">Painting</span><svg class="plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></button>
-          <div class="svc-body"><div><img class="m-img" src="assets/painting-sm.jpg" alt="" loading="lazy"><p>Clean lines and even coats, inside and out. Surfaces prepped properly so the finish lasts.</p></div></div>
+          <div class="svc-body"><div><img class="m-img" src="assets/painting-sm.jpg" alt="" loading="lazy"><p>Painting, indoor and outdoor. Contact us to receive a free estimate.</p></div></div>
         </li>
         <li class="svc-item" data-img="more">
           <button class="svc-btn" aria-expanded="false"><span class="n">05</span><span class="t">And much more</span><svg class="plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></button>
-          <div class="svc-body"><div><img class="m-img" src="assets/deck-sm.jpg" alt="" loading="lazy"><p>Indoor and outdoor, residential and commercial. Whatever you have in mind, tell us about it and we will tell you how we can help.</p></div></div>
+          <div class="svc-body"><div><img class="m-img" src="assets/deck-sm.jpg" alt="" loading="lazy"><p>A wide range of services for all your needs, serving both the public and private sector. Whatever you have in mind, tell us about it.</p></div></div>
         </li>
       </ul>
       <div class="svc-view" aria-hidden="true" id="svcView">
@@ -579,18 +577,18 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         <button class="chip-f" aria-pressed="true" data-f="all">All</button>
         <button class="chip-f" aria-pressed="false" data-f="indoor">Indoor</button>
         <button class="chip-f" aria-pressed="false" data-f="outdoor">Outdoor</button>
-        <button class="chip-f" aria-pressed="false" data-f="commercial">Commercial</button>
-      </div>
+              </div>
     </div>
     <div class="grid" id="grid">
-      <figure class="tile t1 rv" data-cat="indoor" tabindex="0" role="button" aria-label="View larger: Kitchen remodeling"><img src="assets/kitchen.jpg" alt="Remodeled kitchen with navy cabinets, white counters and oak floors" loading="lazy"><figcaption><b>Kitchen remodeling</b><span>Remodeling</span></figcaption></figure>
-      <figure class="tile t2 rv d1" data-cat="indoor" tabindex="0" role="button" aria-label="View larger: Bathroom remodeling"><img src="assets/bath-sm.jpg" data-full="assets/bath.jpg" alt="Remodeled bathroom with glass shower and navy vanity" loading="lazy"><figcaption><b>Bathroom remodeling</b><span>Remodeling</span></figcaption></figure>
-      <figure class="tile t3 rv d2" data-cat="indoor" tabindex="0" role="button" aria-label="View larger: Hardwood flooring"><img src="assets/flooring-sm.jpg" data-full="assets/flooring.jpg" alt="Wide-plank oak flooring being installed" loading="lazy"><figcaption><b>Hardwood flooring</b><span>Flooring</span></figcaption></figure>
-      <figure class="tile t4 rv" data-cat="indoor" tabindex="0" role="button" aria-label="View larger: Stairs and trim"><img src="assets/carpentry-sm.jpg" data-full="assets/carpentry.jpg" alt="Staircase with oak treads and white painted trim" loading="lazy"><figcaption><b>Stairs and trim</b><span>Carpentry</span></figcaption></figure>
-      <figure class="tile t5 rv d1" data-cat="indoor" tabindex="0" role="button" aria-label="View larger: Interior painting"><img src="assets/painting-sm.jpg" data-full="assets/painting.jpg" alt="Wall being painted navy with a sharp taped edge" loading="lazy"><figcaption><b>Interior painting</b><span>Painting</span></figcaption></figure>
-      <figure class="tile t6 rv d2" data-cat="commercial" tabindex="0" role="button" aria-label="View larger: Commercial interiors"><img src="assets/commercial-sm.jpg" data-full="assets/commercial.jpg" alt="Renovated commercial lobby with oak counter" loading="lazy"><figcaption><b>Commercial interiors</b><span>Public &amp; private</span></figcaption></figure>
-      <figure class="tile t7 rv" data-cat="outdoor" tabindex="0" role="button" aria-label="View larger: Decks and outdoor work"><img src="assets/deck.jpg" alt="New backyard deck with white railings" loading="lazy"><figcaption><b>Decks and outdoor work</b><span>Outdoor</span></figcaption></figure>
+      <figure class="tile t1 rv" data-cat="indoor" tabindex="0" role="button" aria-label="View larger: Remodeling, kitchen"><img src="assets/kitchen.jpg" alt="Remodeled kitchen with navy cabinets, white counters and oak floors" loading="lazy"><figcaption><b>Remodeling</b><span>Indoor</span></figcaption></figure>
+      <figure class="tile t2 rv d1" data-cat="indoor" tabindex="0" role="button" aria-label="View larger: Remodeling, bathroom"><img src="assets/bath-sm.jpg" data-full="assets/bath.jpg" alt="Remodeled bathroom with glass shower and navy vanity" loading="lazy"><figcaption><b>Remodeling</b><span>Indoor</span></figcaption></figure>
+      <figure class="tile t3 rv d2" data-cat="indoor" tabindex="0" role="button" aria-label="View larger: Flooring"><img src="assets/flooring-sm.jpg" data-full="assets/flooring.jpg" alt="Wide-plank oak flooring being installed" loading="lazy"><figcaption><b>Flooring</b><span>Indoor</span></figcaption></figure>
+      <figure class="tile t4 rv" data-cat="indoor" tabindex="0" role="button" aria-label="View larger: Carpentry"><img src="assets/carpentry-sm.jpg" data-full="assets/carpentry.jpg" alt="Staircase with oak treads and white painted trim" loading="lazy"><figcaption><b>Carpentry</b><span>Indoor</span></figcaption></figure>
+      <figure class="tile t5 rv d1" data-cat="indoor" tabindex="0" role="button" aria-label="View larger: Painting"><img src="assets/painting-sm.jpg" data-full="assets/painting.jpg" alt="Wall being painted navy with a sharp taped edge" loading="lazy"><figcaption><b>Painting</b><span>Indoor</span></figcaption></figure>
+      <figure class="tile t6 rv d2" data-cat="indoor" tabindex="0" role="button" aria-label="View larger: Public and private sector"><img src="assets/commercial-sm.jpg" data-full="assets/commercial.jpg" alt="Renovated interior with an oak counter and navy accent wall" loading="lazy"><figcaption><b>Public &amp; private sector</b><span>Indoor</span></figcaption></figure>
+      <figure class="tile t7 rv" data-cat="outdoor" tabindex="0" role="button" aria-label="View larger: Outdoor work"><img src="assets/deck.jpg" alt="New backyard deck with white railings" loading="lazy"><figcaption><b>Outdoor work</b><span>Outdoor</span></figcaption></figure>
     </div>
+    <p class="mono gallery-note">Photography shown is illustrative of the services offered.</p>
   </div>
 </section>
 
@@ -602,7 +600,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     <div class="top">
       <div>
         <h2 id="why-h" class="rv">Three words we work by.</h2>
-        <p class="lede rv d1">S-G General Contracting LLC has been recognized as a dependable contractor. Everything we do comes back to the same standard.</p>
+        <p class="lede rv d1">S-G General Contracting LLC has been recognized as a dependable contractor. Our motto says it all.</p>
       </div>
       <div class="level-box rv d2" id="levelBox">
         <div class="mono"><span>Set it true</span><span id="lvlRead">7.0°</span></div>
@@ -615,9 +613,9 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       </div>
     </div>
     <div class="pillars" id="pillars">
-      <article class="pillar"><span class="pn">01</span><h3>Precision.</h3><p>Top quality work, done right, down to the last line and the last coat.</p></article>
-      <article class="pillar"><span class="pn">02</span><h3>Punctuality.</h3><p>We show up when we say we will, and we respect your time and your space.</p></article>
-      <article class="pillar"><span class="pn">03</span><h3>Professionalism.</h3><p>Customer satisfaction comes first. Questions are always welcome.</p></article>
+      <article class="pillar"><span class="pn">01</span><h3>Precision.</h3></article>
+      <article class="pillar"><span class="pn">02</span><h3>Punctuality.</h3></article>
+      <article class="pillar"><span class="pn">03</span><h3>Professionalism.</h3></article>
     </div>
     <ul class="checks">
       <li class="rv"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8.5 6 12.5 14 3.5"/></svg>Licensed and insured</li>
@@ -636,9 +634,20 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     <div class="dim" aria-hidden="true"><span class="mono">05 / Getting started</span><svg viewBox="0 0 260 14" preserveAspectRatio="none"><line class="tk" x1="1" y1="1" x2="1" y2="13" stroke="#101a2b" stroke-opacity=".5"/><line class="dl" pathLength="1" x1="1" y1="7" x2="259" y2="7" stroke="#101a2b" stroke-opacity=".5"/><line class="tk" x1="259" y1="1" x2="259" y2="13" stroke="#101a2b" stroke-opacity=".5"/></svg></div>
     <h2 id="proc-h" class="rv">Your project starts with one call.</h2>
     <div class="steps">
-      <div class="step rv"><div class="num">01</div><h3>Tell us your plans</h3><p>Call, email or send the form. Tell us what you have in mind, big or small.</p></div>
-      <div class="step rv d1"><div class="num">02</div><h3>Get a free estimate</h3><p>We look at the job and give you a free estimate, with no pressure.</p></div>
-      <div class="step rv d2"><div class="num">03</div><h3>We get to work</h3><p>Our team builds it with precision, on time, and treats your place with respect.</p></div>
+      <div class="step rv"><div class="num">01</div><h3>Reach out</h3><p>Call, email or send the form below. Tell us what you have in mind.</p></div>
+      <div class="step rv d1"><div class="num">02</div><h3>Get a free estimate</h3><p>Contact us to receive a free estimate for your project.</p></div>
+      <div class="step rv d2"><div class="num">03</div><h3>We get to work</h3><p>Precision. Punctuality. Professionalism. From start to finish.</p></div>
+    </div>
+    <div class="callbar rv">
+      <div class="cb-copy">
+        <span class="mono">Free estimates · Licensed &amp; insured · PA, NJ &amp; more</span>
+        <p class="cb-h">Call S-G General Contracting today.</p>
+      </div>
+      <div class="cb-actions">
+        <a class="btn btn-accent cb-main" href="tel:+16092009523"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Cell: 609-200-9523</a>
+        <a class="btn btn-ink" href="tel:+12153078011">Office: 215-307-8011</a>
+        <a class="btn btn-line" href="mailto:sggeneralc@gmail.com">sggeneralc@gmail.com</a>
+      </div>
     </div>
   </div>
 </section>
@@ -655,7 +664,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         <a class="card rv d2" href="tel:+12153078011"><span><span class="mono">Office</span><b>215-307-8011</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="card rv d3" href="mailto:sggeneralc@gmail.com"><span><span class="mono">Email</span><b>sggeneralc@gmail.com</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <p class="area rv d3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Serving Pennsylvania, New Jersey and more</p>
+      <p class="area rv d3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Serving the area of PA, NJ and more</p>
     </div>
     <form id="quote" class="rv d1" novalidate>
       <div class="fh"><b>Request a free estimate</b><span class="mono">Takes a minute</span></div>
@@ -682,7 +691,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       <div class="ok" role="status" aria-live="polite">
         <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="28" cy="28" r="26" stroke-opacity=".35"/><path d="M17 29 L25 37 L40 20" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <b>Your request is ready.</b>
-        <p>Your email app should now be open with your details filled in. Press send and we will be in touch. Prefer to talk? Call 609-200-9523.</p>
+        <p>Your email app should now be open with your details filled in. Press send to deliver it to S-G General Contracting. Prefer to talk? Call 609-200-9523.</p>
         <button type="button" class="btn btn-ink" id="again" style="margin-top:26px;align-self:flex-start">Edit my request</button>
       </div>
     </form>
@@ -929,19 +938,6 @@ const idleIO = new IntersectionObserver(es => es.forEach(e => e.target.classList
 $$('.marquee,.why,.stage').forEach(el => idleIO.observe(el));
 document.addEventListener('visibilitychange', () => document.body.classList.toggle('paused', document.hidden));
 
-/* counter */
-$$('.count').forEach(el => {
-  const to = +el.dataset.to;
-  const c = new IntersectionObserver(es => {
-    if (!es[0].isIntersecting) return; c.disconnect();
-    if (RM.matches) { el.textContent = to; return; }
-    const t0 = performance.now();
-    const step = now => { const t = clamp((now - t0) / 1600, 0, 1); const e = 1 - Math.pow(1 - t, 3); el.textContent = Math.round(to * e); if (t < 1) requestAnimationFrame(step); };
-    el.textContent = '0'; requestAnimationFrame(step);
-  }, { threshold: .6 });
-  c.observe(el);
-});
-
 /* ---------- services ---------- */
 const svcItems = $$('.svc-item'), svcImgs = $$('#svcView img'), svcTag = $('#svcTag');
 function openSvc(item) {
@@ -989,7 +985,7 @@ function finishLevel() {
   leveled = true; lv = 1; paintLevel();
   box.classList.add('done'); pillars.classList.add('lit');
   holdTxt.textContent = 'Level. Every time.';
-  status.textContent = 'That is the standard we hold every job to.';
+  status.textContent = 'Precision. Punctuality. Professionalism.';
 }
 function lvTick(now) {
   const dt = Math.min(64, now - (lvLast || now)); lvLast = now;
@@ -1021,7 +1017,6 @@ for (let i = 0; i < 26; i++) {
 function pinToFinalStates() {
   if (!leveled) finishLevel();
   $$('.rv,.dim,.io').forEach(el => el.classList.add('in', 'done'));
-  $$('.count').forEach(el => el.textContent = el.dataset.to);
 }
 RM.addEventListener('change', e => { if (e.matches) pinToFinalStates(); else applyHeroMode(); });
 
