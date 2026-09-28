@@ -73,7 +73,10 @@ def hat(open_=False, level=1.0):
     # a little metallic ring from square partials
     ring = sum(np.sign(np.sin(2 * np.pi * f * t)) for f in (5250, 6980, 8130)) * 0.08
     env = np.exp(-t * (14 if open_ else 90))
-    return (x + hp(ring, 6000)) * env * level
+    y = lp(x + hp(ring, 6000), 12500, 2) * env * level
+    a = int(0.0015 * SR)
+    y[:a] *= np.linspace(0, 1, a)          # tiny attack ramp, no digital click
+    return y * (0.55 if open_ else 0.8)
 
 def rim(level=1.0):
     t = tvec(0.09)
@@ -301,7 +304,8 @@ music = reverb(music, 2.0, 5000, 0.18) + reverb(0.6 * pads + 0.5 * plucks, 3.0, 
 
 # master: tame lows, soft clip, fade out by 15.0
 music = hp(music, 32, 2)
-music = music - 0.5 * lp(music, 90, 2) + 0.35 * bp(music, 2200, 7000, 2) + 0.15 * hp(music, 9000, 2)
+music = music - 0.5 * lp(music, 90, 2) + 0.35 * bp(music, 2200, 7000, 2) + 0.05 * hp(music, 9000, 2)
+music = lp(music, 16500, 2)
 music = np.tanh(music * 1.2) / 1.2
 t = np.arange(N) / SR
 music *= np.clip((DUR - t) / 1.4, 0, 1) ** 1.5                            # tail rings out, silent at 15.0
