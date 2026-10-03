@@ -36,7 +36,7 @@
   --radius: 4px;
   --ease: cubic-bezier(.2, .7, .1, 1);
   --ease-io: cubic-bezier(.65, 0, .35, 1);
-  --nav-h: 72px;
+  --nav-h: 88px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -148,10 +148,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .nav.is-scrolled { border-bottom-color: var(--line); }
 .nav__in { height: 100%; display: flex; align-items: center; gap: 24px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
-.brand__mark { width: 40px; height: 40px; flex: none; }
-.brand__word { display: grid; line-height: 1; }
-.brand__word b { font: 900 1.35rem/1 var(--f-display); letter-spacing: .02em; }
-.brand__word span { font: 500 .62rem/1 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--ink-3); margin-top: 4px; }
+.brand__logo { height: 72px; width: auto; flex: none; }
+@media (max-width: 900px) { .brand__logo { height: 64px; } }
 .nav__links { display: flex; gap: 4px; margin-left: auto; list-style: none; padding: 0; margin-block: 0; }
 .nav__links a {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px;
@@ -401,9 +399,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* ---------- Footer ---------- */
 .foot { background: var(--asphalt); color: var(--on-dark-2); padding-block: 72px 36px; font-size: .95rem; }
 .foot__grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 40px; }
-.foot .brand { color: var(--on-dark); }
-.foot .brand__mark rect { fill: #24313c; }
-.foot .brand__word span { color: var(--on-dark-2); }
+.foot .brand { background: var(--paper); padding: 14px 18px; border-radius: 8px; }
+.foot .brand__logo { height: 128px; }
 .foot h2 { font: 500 .72rem/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--on-dark); margin-bottom: 18px; }
 .foot ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
 .foot a { text-decoration: none; display: inline-flex; min-height: 32px; align-items: center; }

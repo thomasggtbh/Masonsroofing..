@@ -17,8 +17,7 @@ ICO_PHONE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5
 ICO_MAIL = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 7 9 6 9-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>'
 ICO_PIN = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></svg>'
 
-MARK = '''<svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="6" fill="#111820"/><path d="M12 30V10h16" fill="none" stroke="#f5f6f3" stroke-width="4.5" stroke-linecap="square"/><path d="M12 20h10" fill="none" stroke="#f07a3e" stroke-width="4.5" stroke-linecap="square"/></svg>'''
-FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='6' fill='%23111820'/%3E%3Cpath d='M12 30V10h16' fill='none' stroke='%23f5f6f3' stroke-width='4.5'/%3E%3Cpath d='M12 20h10' fill='none' stroke='%23f07a3e' stroke-width='4.5'/%3E%3C/svg%3E"
+LOGO = '<img class="brand__logo" src="assets/img/fox-logo.webp" alt="Fox Transportation Services Inc, home" width="280" height="293">'
 
 CUR = ' aria-current="page"'
 CDN = "https://d2ol7oe51mr4n9.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/"
@@ -241,7 +240,8 @@ def head(title, desc, page):
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <meta name="theme-color" content="#e9ece9">
-<link rel="icon" href="{FAVICON}">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/fox-icon-32.png">
+<link rel="apple-touch-icon" href="assets/img/fox-icon-180.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
@@ -265,7 +265,7 @@ def nav(page):
         f'<li><a href="{h}"{CUR if h == page else ""}>{t}</a></li>' for h, t in NAV)
     return f'''<header class="nav" data-nav>
 <div class="wrap nav__in">
-<a class="brand" href="index.html" aria-label="Fox Transportation, home">{MARK}<span class="brand__word"><b>FOX</b><span>Transportation</span></span></a>
+<a class="brand" href="index.html">{LOGO}</a>
 <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-panel" data-nav-toggle><span></span><span></span><span></span><b class="sr-only">Menu</b></button>
 <div class="nav__panel" id="nav-panel" data-nav-panel>
 <nav aria-label="Main"><ul class="nav__links">{links}</ul></nav>
@@ -282,7 +282,7 @@ def foot():
 <div class="wrap">
 <div class="foot__grid">
 <div>
-<a class="brand" href="index.html" aria-label="Fox Transportation, home">{MARK}<span class="brand__word"><b>FOX</b><span>Transportation</span></span></a>
+<a class="brand" href="index.html">{LOGO}</a>
 <p style="margin-top:20px;max-width:34ch">Local truckload and LTL across Chicagoland. Truckload and rail beyond it. Out of Lombard since 1991.</p>
 </div>
 <div><h2>Company</h2><ul>
