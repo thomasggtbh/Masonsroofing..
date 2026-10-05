@@ -29,7 +29,7 @@ Overpass (display 800/900, body 400/600/700), Overpass Mono 500 for labels. Over
 | Band | Range (starting point) | Footage moment | Copy | Entrance |
 |---|---|---|---|---|
 | 1 | 0.00 to 0.30 | Wide on the lot, truck idling right of frame | Kicker "Lombard, Illinois · Since 1991". H1 "Our trucks in Chicagoland. The right carrier beyond it." Lede "Truckload and limited LTL on Fox trucks inside 45 miles of Chicago. Single or team drivers, more than 5,000 contracted carriers and rail for everything farther." | Word rise, load ramp |
-| 2 | 0.34 to 0.64 | Camera pushing in, chrome filling frame | Tag "Dispatch". H2 "Someone picks up by the second ring." Body "Every shipment is tracked and traced, and you hear how it is going the way you prefer: phone, text, email or fax." | Approach from depth (echoes the push) |
+| 2 | 0.34 to 0.64 | Camera pushing in, chrome filling frame | Tag "Dispatch". H2 "Someone picks up by the second ring." Body "Every shipment is tracked and traced, and you hear how it is going the way you prefer: phone, text or email." | Approach from depth (echoes the push) |
 | 3 | 0.68 to 1.00 | Low hero angle on the grille, at rest | Tag "Quotes". H2 "Send the lane. Hear back within the hour." Body "Email a quote request and dispatch replies within the hour. Or call 630-261-0800." CTA "Request a quote" | Word rise into staged settle |
 
 ## 5. Static hero (phones, portrait tablets, coarse portrait, landscape phones, reduced motion)

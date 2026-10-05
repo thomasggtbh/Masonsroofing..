@@ -415,7 +415,7 @@ home += f'''
 <div class="band band--2" data-band data-a="0.34" data-b="0.64" data-ramp="0.05">
 <p class="band__tag">Dispatch</p>
 <h2 class="band__title" data-split>Someone picks up by the second ring.</h2>
-<p class="band__lede band__late">Every shipment is tracked and traced, and you hear how it is going the way you prefer: phone, text, email or fax.</p>
+<p class="band__lede band__late">Every shipment is tracked and traced, and you hear how it is going the way you prefer: phone, text or email.</p>
 </div>
 <div class="band band--3" data-band data-a="0.68" data-b="1">
 <p class="band__tag">Quotes</p>
@@ -506,7 +506,7 @@ home += f'''
 </div>
 <ol>
 <li class="reason" data-reveal><div><h3>Drivers cleared for hazmat</h3><p>Every Fox Brothers driver holds hazardous materials certification, so a regulated load does not mean hunting for a qualified driver.</p></div></li>
-<li class="reason" data-reveal><div><h3>A person on the line</h3><p>Someone answers your call within two rings, every shipment is tracked and traced, and updates come the way you want them: phone, text, email or fax.</p></div></li>
+<li class="reason" data-reveal><div><h3>A person on the line</h3><p>Someone answers your call within two rings, every shipment is tracked and traced, and updates come the way you want them: phone, text or email.</p></div></li>
 <li class="reason" data-reveal><div><h3>Covered on every Fox truck</h3><p>Fox Brothers carries high value insurance, so your freight is covered while it rides with us.</p></div></li>
 <li class="reason" data-reveal><div><h3>Carriers we are willing to sign for</h3><p>Every carrier under contract has its own operating authority, a record of consistent service and sound finances, plus $1,000,000 liability and $100,000 cargo coverage.</p></div></li>
 <li class="reason" data-reveal><div><h3>Chicagoland since 1991</h3><p>More than three decades working out of the same Lombard terminal: the docks, the expressways and the timing of a Chicago day are familiar ground.</p></div></li>
@@ -539,7 +539,7 @@ blocks = [
      [("Area", "Within 45 miles of Chicago"), ("Service", "Truckload · limited LTL"), ("Trailers", "48' and 53', swing or roll doors"), ("Also", "Straight trucks with lift gates"), ("Insurance", "High value coverage")], False),
     ("02", "Truckload beyond Chicagoland", "Fox Transportation Services, Inc.",
      ["When freight leaves the local ring, dispatch researches the lane and presents the best carrier at a fair and reasonable price, drawn from more than 5,000 truckload and LTL carriers under contract.",
-      "Loads that need to keep rolling can run with team drivers. Every shipment is tracked and traced, and you hear about it by phone, text, email or fax, whichever you prefer."],
+      "Loads that need to keep rolling can run with team drivers. Every shipment is tracked and traced, and you hear about it by phone, text or email, whichever you prefer."],
      [("Drivers", "Single or team"), ("Network", "5,000+ truckload and LTL carriers"), ("Tracking", "Every shipment, traced"), ("Standard", "Own authority, consistent service, sound finances"), ("Coverage", "$1M liability · $100K cargo")], True),
     ("03", "Rail", "Fox Transportation Services, Inc.",
      ["Rail service to major metro areas, for freight that suits a rail move better than a long highway run."],

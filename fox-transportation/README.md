@@ -46,7 +46,7 @@ Every photo slot shows a to-scale line drawing until a real photo exists. To use
   5,000+ contracted carriers (authority, track record, financially strong). USDOT 2238384, MC 592002. 630-261-0800.
 - 10 E Progress Road, Lombard, IL 60148 · dispatch@foxtrans.net
 - Carrier requirements: MC#, $100,000 cargo insurance, $1,000,000 liability insurance, W-9.
-- From foxtrans.net: calls answered within 2 rings; high value insurance; every shipment tracked and traced; updates by fax, email, text or phone; emailed quote requests answered within the hour; 5,000+ truckload and LTL carriers; carriers paid same day on invoice and POD with no quick pay deductions; hundreds of shipments coordinated each week.
+- From foxtrans.net: calls answered within 2 rings; high value insurance; every shipment tracked and traced; updates by email, text or phone (fax removed at the owner's request); emailed quote requests answered within the hour; 5,000+ truckload and LTL carriers; carriers paid same day on invoice and POD with no quick pay deductions; hundreds of shipments coordinated each week.
 - Management team: Thomas W. Fox, Ramon G. Fox, Richard Nisivaco (bios reworded from foxtrans.net/about).
 
 Confirm the phone numbers and authority numbers before launch. foxtrans.net gives both 1991 (Fox Brothers page) and 1992 (About page) for the start of Fox Brothers Transfer; the site uses 1991.
