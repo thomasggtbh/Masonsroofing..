@@ -157,100 +157,10 @@
 </div>
 </section>
 
-<section class="rig on-dark" aria-labelledby="rig-h">
-<div class="wrap">
-<div class="rig__head">
-<div><p class="kicker" data-reveal>Equipment</p><h2 id="rig-h" class="h-lg" data-reveal>Pick the unit. See what shows up at your dock.</h2></div>
-<p class="lede" data-reveal style="--d:.15s">Fox Brothers Transfer runs 48' and 53' trailers with swing or roll doors, and straight trucks with lift gates for stops without a dock.</p>
-</div>
-<form class="rig__controls" data-rig aria-label="Equipment options" onsubmit="return false">
-<fieldset class="seg"><legend>Unit</legend><div class="seg__opts">
-<input type="radio" name="unit" id="rig-h-u1" value="tractor" checked><label for="rig-h-u1">Tractor-trailer</label>
-<input type="radio" name="unit" id="rig-h-u2" value="straight"><label for="rig-h-u2">Straight truck</label></div></fieldset>
-<fieldset class="seg" data-for="tractor"><legend>Trailer length</legend><div class="seg__opts">
-<input type="radio" name="len" id="rig-h-l1" value="53" checked><label for="rig-h-l1">53 ft</label>
-<input type="radio" name="len" id="rig-h-l2" value="48"><label for="rig-h-l2">48 ft</label></div></fieldset>
-<fieldset class="seg" data-for="tractor"><legend>Rear doors</legend><div class="seg__opts">
-<input type="radio" name="door" id="rig-h-d1" value="swing" checked><label for="rig-h-d1">Swing</label>
-<input type="radio" name="door" id="rig-h-d2" value="roll"><label for="rig-h-d2">Roll</label></div></fieldset>
-</form>
-<div class="rig__stage" data-reveal>
-<div><svg class="truck rig__side" viewBox="0 0 780 240" aria-hidden="true" data-truck>
-<defs><pattern id="rig-h-t-ribs" x="180" y="0" width="40" height="10" patternUnits="userSpaceOnUse"><line x1="20" y1="0" x2="20" y2="10" class="rib"/></pattern></defs>
-<line class="ground" x1="0" y1="224" x2="780" y2="224"/>
-<g class="fade" data-unit="tractor">
-<rect class="body" x="24" y="196" width="270" height="10"/>
-<g transform="translate(0 0)">
-<path class="body" d="M24 204 L24 150 Q26 134 42 132 L96 128 L102 74 Q104 60 118 60 L168 60 Q178 60 178 70 L178 204 Z"/>
-<path class="glass" d="M108 76 L146 74 L146 108 L104 112 Z"/>
-<path class="detail" d="M150 70 L150 196 M24 170 L96 168"/>
-<rect class="body" x="16" y="186" width="14" height="18" rx="2"/>
-</g>
-<rect class="box" data-box x="180" y="46" height="132" style="width:530px"/>
-<rect data-box x="184" y="50" height="124" fill="url(#rig-h-t-ribs)" style="width:522px" class="box-ribs"/>
-<rect class="accent-stripe" data-box x="180" y="150" height="6" style="width:530px"/>
-<path class="detail" d="M300 178 L300 212 M292 212 L308 212"/>
-<circle class="tire" cx="70" cy="202" r="20"/><circle class="hub" cx="70" cy="202" r="7.0"/><circle class="tire" cx="214" cy="202" r="20"/><circle class="hub" cx="214" cy="202" r="7.0"/><circle class="tire" cx="258" cy="202" r="20"/><circle class="hub" cx="258" cy="202" r="7.0"/>
-<g class="move" data-move style="transform:translateX(0px)">
-<rect class="body" x="596" y="178" width="120" height="10"/>
-<circle class="tire" cx="626" cy="202" r="20"/><circle class="hub" cx="626" cy="202" r="7.0"/><circle class="tire" cx="668" cy="202" r="20"/><circle class="hub" cx="668" cy="202" r="7.0"/>
-<path class="detail" d="M708 46 L708 178 M700 206 L716 206 M708 188 L708 206"/>
-</g>
-<g class="dim-g">
-<line class="dim" x1="180" y1="18" x2="180" y2="34"/>
-<rect class="dim-line" data-box x="180" y="25.4" height="1.2" style="width:530px" fill="currentColor"/>
-<line class="dim move" data-move style="transform:translateX(0px)" x1="710" y1="18" x2="710" y2="34"/>
-<g class="move" data-half style="transform:translateX(0.0px)"><rect x="385" y="12" width="120" height="28" fill="#121a21"/>
-<text class="dim-label" x="445" y="31" text-anchor="middle" data-len>53 ft trailer</text></g>
-</g>
-</g><g class="fade" data-unit="straight" style="opacity:0">
-<rect class="body" x="24" y="196" width="440" height="10"/>
-<g transform="translate(0 0)">
-<path class="body" d="M24 204 L24 150 Q26 134 42 132 L96 128 L102 74 Q104 60 118 60 L168 60 Q178 60 178 70 L178 204 Z"/>
-<path class="glass" d="M108 76 L146 74 L146 108 L104 112 Z"/>
-<path class="detail" d="M150 70 L150 196 M24 170 L96 168"/>
-<rect class="body" x="16" y="186" width="14" height="18" rx="2"/>
-</g>
-<rect class="box" x="184" y="62" width="280" height="122"/>
-<rect x="188" y="66" width="272" height="114" fill="url(#rig-h-t-ribs)"/>
-<rect class="accent-stripe" x="184" y="156" width="280" height="6"/>
-<rect class="liftgate" x="464" y="170" width="8" height="40" rx="1"/>
-<path class="detail" d="M472 176 L490 176 M472 204 L490 204"/>
-<circle class="tire" cx="70" cy="202" r="20"/><circle class="hub" cx="70" cy="202" r="7.0"/><circle class="tire" cx="392" cy="202" r="20"/><circle class="hub" cx="392" cy="202" r="7.0"/>
-<line class="dim" x1="184" y1="30" x2="184" y2="46"/><line class="dim" x1="464" y1="30" x2="464" y2="46"/>
-<line class="dim" x1="184" y1="38" x2="464" y2="38"/>
-<rect x="244" y="24" width="160" height="28" fill="#121a21"/>
-<text class="dim-label" x="324" y="43" text-anchor="middle">Straight truck</text>
-<text class="dim-label" x="500" y="196" style="font-size:12px;fill:#f07a3e">LIFT GATE</text>
-</g>
-</svg></div>
-<figure class="rig__rear-wrap" style="margin:0"><svg class="rear rig__rear" viewBox="0 0 120 170" aria-hidden="true">
-<rect class="frame" x="4" y="4" width="112" height="128" rx="2"/>
-<g class="layer" data-door="swing">
-<line class="door-line" x1="60" y1="10" x2="60" y2="128"/>
-<line class="rod" x1="24" y1="14" x2="24" y2="124"/><line class="rod" x1="44" y1="14" x2="44" y2="124"/>
-<line class="rod" x1="76" y1="14" x2="76" y2="124"/><line class="rod" x1="96" y1="14" x2="96" y2="124"/>
-<rect class="handle" x="40" y="80" width="10" height="4"/><rect class="handle" x="72" y="80" width="10" height="4"/>
-<path class="door-line" d="M8 24h6M8 64h6M8 104h6M106 24h6M106 64h6M106 104h6"/>
-</g><g class="layer" data-door="roll" style="opacity:0"><line class="slat" x1="12" y1="18" x2="108" y2="18"/><line class="slat" x1="12" y1="27" x2="108" y2="27"/><line class="slat" x1="12" y1="36" x2="108" y2="36"/><line class="slat" x1="12" y1="45" x2="108" y2="45"/><line class="slat" x1="12" y1="54" x2="108" y2="54"/><line class="slat" x1="12" y1="63" x2="108" y2="63"/><line class="slat" x1="12" y1="72" x2="108" y2="72"/><line class="slat" x1="12" y1="81" x2="108" y2="81"/><line class="slat" x1="12" y1="90" x2="108" y2="90"/><line class="slat" x1="12" y1="99" x2="108" y2="99"/><line class="slat" x1="12" y1="108" x2="108" y2="108"/><line class="slat" x1="12" y1="117" x2="108" y2="117"/><rect class="handle" x="50" y="118" width="20" height="5" rx="1"/></g><g class="layer" data-door="lift" style="opacity:0">
-<line class="slat" x1="12" y1="30" x2="108" y2="30"/><line class="slat" x1="12" y1="60" x2="108" y2="60"/><line class="slat" x1="12" y1="90" x2="108" y2="90"/>
-<rect class="handle" x="4" y="132" width="112" height="10" rx="1"/>
-</g>
-<rect x="8" y="136" width="104" height="6" fill="#56646f"/>
-<circle class="tire" cx="26" cy="154" r="12"/><circle class="tire" cx="94" cy="154" r="12"/>
-</svg><figcaption data-rear-cap>Rear view · swing doors</figcaption></figure>
-</div>
-<dl class="rig__readout" aria-live="polite" data-readout>
-<div><dt>Unit</dt><dd data-r-unit>53 ft trailer</dd></div>
-<div><dt>Rear</dt><dd data-r-rear>Swing doors, full-width opening</dd></div>
-<div><dt>Best for</dt><dd data-r-use>Full truckloads to a dock</dd></div>
-</dl>
-</div>
-</section>
 
 <section class="terminal" aria-labelledby="term-h">
 <div class="wrap terminal__grid">
-<div data-reveal="scale"><figure class="photo" data-photo="https://d2ol7oe51mr4n9.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/07925f55-8ef4-4996-af77-9e76d96d77b0.png" data-alt="A row of Fox Brothers Transfer tractors parked at the Lombard terminal" style="--pos:50% 40%">
+<div data-reveal="scale"><figure class="photo" data-photo="https://fox-transportation.floot.app/_cdn/static/eaaa88b3-57d3-4c0c-8811-96cab24a5355-fox-brothers-fleet.jpg" data-alt="Fox Brothers Transfer tractors lined up at the Lombard terminal" style="--pos:58% 45%">
 <div class="photo__fallback" aria-hidden="true"><svg class="truck " viewBox="0 0 780 240" aria-hidden="true" data-truck>
 <defs><pattern id="ph1-ribs" x="180" y="0" width="40" height="10" patternUnits="userSpaceOnUse"><line x1="20" y1="0" x2="20" y2="10" class="rib"/></pattern></defs>
 <line class="ground" x1="0" y1="224" x2="780" y2="224"/>
@@ -281,7 +191,6 @@
 </g>
 </g>
 </svg></div>
-<figcaption>The Fox Brothers fleet · Lombard, IL</figcaption>
 </figure></div>
 <div>
 <p class="kicker" data-reveal>Home base</p>

@@ -21,7 +21,7 @@ LOGO = '<img class="brand__logo" src="assets/img/fox-logo.webp" alt="Fox Transpo
 
 CUR = ' aria-current="page"'
 CDN = "https://d2ol7oe51mr4n9.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/"
-IMG_FLEET = CDN + "07925f55-8ef4-4996-af77-9e76d96d77b0.png"
+IMG_FLEET = "https://fox-transportation.floot.app/_cdn/static/eaaa88b3-57d3-4c0c-8811-96cab24a5355-fox-brothers-fleet.jpg"  # Fox Brothers fleet photo from foxtrans.net
 TEAM = [
     ("Thomas W. Fox", "Transportation management", CDN + "3b7be492-89e2-4a21-8581-4a2c9b8ad8d8.png",
      "Thomas has worked in transportation management since he was about 19, and he learned it from the ground up: driving tractor-trailers, working the docks, hand-loading trailers and putting in more overtime than anyone could count. He still loses sleep over freight, which is exactly the kind of person you want watching yours."),
@@ -226,8 +226,7 @@ def rear_svg(door="swing", configurable=False):
 def photo(src, alt, caption, fallback, pos="50% 50%"):
     return f'''<figure class="photo" data-photo="{src}" data-alt="{alt}" style="--pos:{pos}">
 <div class="photo__fallback" aria-hidden="true">{fallback}</div>
-<figcaption>{caption}</figcaption>
-</figure>'''
+{f'<figcaption>{caption}</figcaption>' + chr(10) if caption else ''}</figure>'''
 
 
 # ---------------------------------------------------------------- shell
@@ -484,11 +483,10 @@ home += f'''
 </div>
 </section>
 
-{rig_section()}
 
 <section class="terminal" aria-labelledby="term-h">
 <div class="wrap terminal__grid">
-<div data-reveal="scale">{photo(IMG_FLEET, "A row of Fox Brothers Transfer tractors parked at the Lombard terminal", "The Fox Brothers fleet · Lombard, IL", truck_svg("ph1", 53, "tractor").replace('rig__side', ''), "50% 40%")}</div>
+<div data-reveal="scale">{photo(IMG_FLEET, "Fox Brothers Transfer tractors lined up at the Lombard terminal", "", truck_svg("ph1", 53, "tractor").replace('rig__side', ''), "58% 45%")}</div>
 <div>
 <p class="kicker" data-reveal>Home base</p>
 <h2 id="term-h" class="h-lg" data-reveal-lines><span class="split-line"><span>Off I-355,</span></span><span class="split-line"><span style="--d:.08s">in Lombard.</span></span></h2>
