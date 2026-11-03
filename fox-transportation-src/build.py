@@ -748,7 +748,7 @@ write("quote.html", qt)
 # ================================================================ CONTACT
 ct = head("Contact | Fox Transportation", "Fox Transportation, 10 E Progress Road, Lombard, IL 60148. Dispatch 630-261-0800, dispatch@foxtrans.net.", "contact.html")
 ct += page_head("Contact", "Reach dispatch", ["Call, email", "or stop by."],
-                "One terminal in Lombard, near I-355 and North Avenue. For a price, the quote form is the quickest route.")
+                "One terminal in Lombard, near I-355 and North Avenue.")
 ct += f'''<section class="contact" aria-label="Contact details">
 <div class="wrap contact__grid">
 <div class="lines">
