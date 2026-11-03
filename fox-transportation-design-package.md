@@ -40,7 +40,7 @@ Ending frame as the image. Band 1 copy with both buttons.
 
 Mile markers (1991, 45 mi, 5,000+, 2 rings) · Two ways we move freight · The 45-mile ring map (draws itself on view) · Equipment configurator (the one interactive moment) · Lombard terminal with the real fleet photo · Why shippers call Fox · Management team · Carrier band · Quote CTA.
 
-Founders section copy, "A Tribute To our Founders" (from foxtrans.net/about, reworded, nothing added):
+Founders section copy, "A Tribute To our Founder" (from foxtrans.net/about, reworded, nothing added):
 
 - **Thomas W. Fox**, Transportation management. "Thomas has worked in transportation management since he was about 19, and he learned it from the ground up: driving tractor-trailers, working the docks, hand-loading trailers and putting in more overtime than anyone could count. He still loses sleep over freight, which is exactly the kind of person you want watching yours."Form: mailto to dispatch@foxtrans.net, success state says so honestly.
 

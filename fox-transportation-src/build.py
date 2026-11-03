@@ -365,7 +365,7 @@ def rig_section(heading_tag="h2", title="Pick the unit. See what shows up at you
 </section>'''
 
 
-def team_section(heading="A Tribute To our Founders", kicker="Who runs Fox", sid="team-h", section_id=""):
+def team_section(heading="A Tribute To our Founder", kicker="Who runs Fox", sid="team-h", section_id=""):
     cards = ""
     for i, (name, role, img, bio) in enumerate(TEAM):
         cards += f'''<article class="person" data-reveal style="--d:{i*0.1:.1f}s">
