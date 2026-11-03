@@ -367,7 +367,7 @@ def rig_section(heading_tag="h2", title="Pick the unit. See what shows up at you
 </section>'''
 
 
-def team_section(heading="Management team", kicker="Who runs Fox", sid="team-h"):
+def team_section(heading="A Tribute To our Founders", kicker="Who runs Fox", sid="team-h"):
     cards = ""
     for i, (name, role, img, bio) in enumerate(TEAM):
         cards += f'''<article class="person" data-reveal style="--d:{i*0.1:.1f}s">
@@ -376,7 +376,7 @@ def team_section(heading="Management team", kicker="Who runs Fox", sid="team-h")
 </article>'''
     return f'''<section class="team" aria-labelledby="{sid}">
 <div class="wrap">
-<div class="team__head"><div><p class="kicker" data-reveal>{kicker}</p><h2 id="{sid}" class="h-lg" data-reveal>{heading}</h2></div>
+<div class="team__head"><div><p class="kicker" data-reveal>{kicker}</p><h2 id="{sid}" class="h-lg h-founders" data-reveal>{heading}</h2></div>
 <p class="lede" data-reveal style="--d:.15s">Decades of Chicagoland freight between them, from the cab, the dock and the sales desk.</p></div>
 <div class="team__grid">{cards}</div>
 </div>
@@ -630,7 +630,7 @@ ab += f'''<section class="companies" aria-label="Fox companies">
 </article>
 </div>
 </section>
-{team_section("Management team", "Who runs Fox", "about-team-h")}
+{team_section(sid="about-team-h")}
 <section class="timeline on-dark" aria-labelledby="tl-h">
 <div class="wrap">
 <p class="kicker" data-reveal>Timeline</p>
