@@ -24,7 +24,7 @@
     addEventListener('keydown', e => {
       if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setMenu(false); toggle.focus(); }
     });
-    matchMedia('(min-width: 901px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+    matchMedia('(min-width: 1001px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
   }
 
   /* ---------- Reveals ---------- */

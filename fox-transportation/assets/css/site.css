@@ -151,7 +151,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .nav__in { height: 100%; display: flex; align-items: center; gap: 24px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
 .brand__logo { height: 72px; width: auto; flex: none; }
-@media (max-width: 900px) { .brand__logo { height: 64px; } }
+@media (max-width: 1000px) { .brand__logo { height: 64px; } }
 .nav__links { display: flex; gap: 4px; margin-left: auto; list-style: none; padding: 0; margin-block: 0; }
 .nav__links a {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px;
@@ -178,7 +178,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 .nav__links a, .nav__cta { white-space: nowrap; }
 @media (max-width: 1240px) { .nav__phone { display: none; } }
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .nav__toggle { display: block; }
   .nav__cta { display: none; }
   .nav__panel {
@@ -195,7 +195,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .nav__panel .nav__phone { display: inline-flex; font-size: 1.1rem; }
   .nav__panel .btn { display: flex; }
 }
-@media (min-width: 901px) { .nav__panel { display: contents; } .nav__panel-extra { display: none; } }
+@media (min-width: 1001px) { .nav__panel { display: contents; } .nav__panel-extra { display: none; } }
 
 /* ---------- Reveal system ---------- */
 .js [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0s); }
