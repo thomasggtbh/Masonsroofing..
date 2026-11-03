@@ -176,7 +176,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .nav__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-@media (max-width: 1080px) { .nav__phone { display: none; } }
+.nav__links a, .nav__cta { white-space: nowrap; }
+@media (max-width: 1240px) { .nav__phone { display: none; } }
 @media (max-width: 900px) {
   .nav__toggle { display: block; }
   .nav__cta { display: none; }
