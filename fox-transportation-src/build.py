@@ -33,7 +33,7 @@ try:
 except Exception:
     pass
 NAV = [("index.html", "Home"), ("services.html", "Services"), ("equipment.html", "Equipment"),
-       ("about.html", "About"), ("about.html#founders", "Our Founders"), ("staff.html", "Our Staff"),
+       ("about.html", "About"), ("about.html#founders", "Our Founder"), ("staff.html", "Our Staff"),
        ("carriers.html", "Carriers"),
        ("contact.html", "Contact")]
 
