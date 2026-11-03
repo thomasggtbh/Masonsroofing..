@@ -47,7 +47,7 @@ Every photo slot shows a to-scale line drawing until a real photo exists. To use
 - 10 E Progress Road, Lombard, IL 60148 · dispatch@foxtrans.net
 - Carrier requirements: MC#, $100,000 cargo insurance, $1,000,000 liability insurance, W-9.
 - From foxtrans.net: calls answered within 2 rings; high value insurance; every shipment tracked and traced; updates by email, text or phone (fax removed at the owner's request); emailed quote requests answered within the hour; 5,000+ truckload and LTL carriers; carriers paid same day on invoice and POD with no quick pay deductions; hundreds of shipments coordinated each week.
-- Founders section: Thomas W. Fox and Ramon G. Fox (bios reworded from foxtrans.net/about).
+- Founders section: Thomas W. Fox (bio reworded from foxtrans.net/about).
 
 Confirm the phone numbers and authority numbers before launch. foxtrans.net gives both 1991 (Fox Brothers page) and 1992 (About page) for the start of Fox Brothers Transfer; the site uses 1991.
 

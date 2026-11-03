@@ -25,8 +25,6 @@ IMG_FLEET = "https://fox-transportation.floot.app/_cdn/static/eaaa88b3-57d3-4c0c
 TEAM = [
     ("Thomas W. Fox", "Transportation management", CDN + "3b7be492-89e2-4a21-8581-4a2c9b8ad8d8.png",
      "Thomas has worked in transportation management since he was about 19, and he learned it from the ground up: driving tractor-trailers, working the docks, hand-loading trailers and putting in more overtime than anyone could count. He still loses sleep over freight, which is exactly the kind of person you want watching yours."),
-    ("Ramon G. Fox", "Fleet and drivers", CDN + "91c44d27-a000-4b6e-a9d5-c44dd5dee256.png",
-     "Ramon has spent his whole life in trucking. He can back a tractor-trailer faster and straighter than most drivers can pull one forward, and when freight has to move overnight, he is the one up moving it. He runs the Fox tractor-trailer drivers with a firm, fair hand."),
 ]
 HERO = {"video": "", "poster": "", "ending": "", "bytes": 0}
 try:
@@ -377,7 +375,7 @@ def team_section(heading="A Tribute To our Founders", kicker="Who runs Fox", sid
     return f'''<section class="team"{id_attr} aria-labelledby="{sid}">
 <div class="wrap">
 <div class="team__head"><div><p class="kicker" data-reveal>{kicker}</p><h2 id="{sid}" class="h-lg h-founders" data-reveal>{heading}</h2></div>
-<p class="lede" data-reveal style="--d:.15s">Decades of Chicagoland freight between them, from the cab to the dock.</p></div>
+<p class="lede" data-reveal style="--d:.15s">Decades of Chicagoland freight, from the cab to the dock.</p></div>
 <div class="team__grid">{cards}</div>
 </div>
 </section>'''

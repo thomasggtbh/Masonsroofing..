@@ -42,9 +42,7 @@ Mile markers (1991, 45 mi, 5,000+, 2 rings) · Two ways we move freight · The 4
 
 Founders section copy, "A Tribute To our Founders" (from foxtrans.net/about, reworded, nothing added):
 
-- **Thomas W. Fox**, Transportation management. "Thomas has worked in transportation management since he was about 19, and he learned it from the ground up: driving tractor-trailers, working the docks, hand-loading trailers and putting in more overtime than anyone could count. He still loses sleep over freight, which is exactly the kind of person you want watching yours."
-- **Ramon G. Fox**, Fleet and drivers. "Ramon has spent his whole life in trucking. He can back a tractor-trailer faster and straighter than most drivers can pull one forward, and when freight has to move overnight, he is the one up moving it. He runs the Fox tractor-trailer drivers with a firm, fair hand."
-Form: mailto to dispatch@foxtrans.net, success state says so honestly.
+- **Thomas W. Fox**, Transportation management. "Thomas has worked in transportation management since he was about 19, and he learned it from the ground up: driving tractor-trailers, working the docks, hand-loading trailers and putting in more overtime than anyone could count. He still loses sleep over freight, which is exactly the kind of person you want watching yours."Form: mailto to dispatch@foxtrans.net, success state says so honestly.
 
 ## 7. Vector layer
 
