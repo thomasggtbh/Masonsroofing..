@@ -775,7 +775,7 @@ STAFF = [
     ("1d1f7652-7bb9-4284-bc47-6af9e38913e2-staff-5.webp", "Mario Spadavecchia", "Terminal Manager"),
     ("dd4491dc-1e56-4d96-b42e-cff091e0425c-staff-6.webp", "Patrick Feltz", "Billing Specialist"),
     ("90b0a73f-388b-459c-8b26-bea1ebbdf20f-staff-7.webp", "Richard Nisivaco", "President"),
-    ("14fcdd79-b69a-4570-8568-973bd51c8b95-staff-8.webp", "", ""),
+    ("14fcdd79-b69a-4570-8568-973bd51c8b95-staff-8.webp", "Scott Simunjak", "Logistics Manager"),
 ]
 st = head("Our Staff | Fox Transportation", "The staff of Fox Transportation in Lombard, IL.", "staff.html")
 st += '''<section class="page-head">
