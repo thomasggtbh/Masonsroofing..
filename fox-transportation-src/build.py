@@ -765,14 +765,17 @@ ct += foot()
 write("contact.html", ct)
 
 # ---------------------------------------------------------------- staff
-# Photos only, no names for now.
+# (photo, name, title); leave name and title empty until provided.
 STAFF_CDN = "https://fox-transportation.floot.app/_cdn/static/"
 STAFF = [
-    ("dac81e77-d88f-4d82-984b-251ab531cf0c-staff-1.webp", ""),
-    ("dac5ea80-7362-4e1c-bb25-0cdb838cb6c6-staff-2.webp", ""),
-    ("4b6d4229-eb35-4ff8-a285-1693563719e5-staff-3.webp", ""),
-    ("f567faa0-ea07-4ddb-bd37-fa74dd950bd8-staff-4.webp", ""),
-    ("1d1f7652-7bb9-4284-bc47-6af9e38913e2-staff-5.webp", ""),
+    ("72cead89-3adb-417c-a3e7-ca19bc7f1dd7-staff-1b.webp", "Adis Redzic", "Dispatcher"),
+    ("dac5ea80-7362-4e1c-bb25-0cdb838cb6c6-staff-2.webp", "Beata Nowak", "Office Manager"),
+    ("4b6d4229-eb35-4ff8-a285-1693563719e5-staff-3.webp", "Julius Cacho", "Freight Slayer"),
+    ("f567faa0-ea07-4ddb-bd37-fa74dd950bd8-staff-4.webp", "Dan Fox", "Vice President"),
+    ("1d1f7652-7bb9-4284-bc47-6af9e38913e2-staff-5.webp", "Mario Spadavecchia", "Terminal Manager"),
+    ("dd4491dc-1e56-4d96-b42e-cff091e0425c-staff-6.webp", "Patrick Feltz", "Billing Specialist"),
+    ("90b0a73f-388b-459c-8b26-bea1ebbdf20f-staff-7.webp", "Richard Nisivaco", "President"),
+    ("14fcdd79-b69a-4570-8568-973bd51c8b95-staff-8.webp", "", ""),
 ]
 st = head("Our Staff | Fox Transportation", "The staff of Fox Transportation in Lombard, IL.", "staff.html")
 st += '''<section class="page-head">
@@ -784,10 +787,10 @@ st += '''<section class="page-head">
 </section>
 <section class="staff" aria-label="Our staff">
 <div class="wrap"><ul class="staff__grid">'''
-for i, (img, name) in enumerate(STAFF):
+for i, (img, name, title) in enumerate(STAFF):
     alt = name or "Fox Transportation staff member"
-    label = f'<p class="staff__name">{name}</p>' if name else ""
-    st += f'''<li class="staff__card" data-reveal style="--d:{i*0.06:.2f}s"><div class="staff__photo"><img src="{STAFF_CDN}{img}" alt="{alt}" width="640" height="800" loading="lazy" decoding="async"></div>{label}</li>'''
+    label = (f'<h2 class="staff__name">{name}</h2>' if name else "") + (f'<p class="staff__role">{title}</p>' if title else "")
+    st += f'''<li class="staff__card" data-reveal style="--d:{(i % 4)*0.06:.2f}s"><div class="staff__photo"><img src="{STAFF_CDN}{img}" alt="{alt}" width="640" height="800" loading="lazy" decoding="async"></div>{label}</li>'''
 st += '''</ul></div>
 </section>'''
 st += foot()
