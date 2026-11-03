@@ -40,12 +40,10 @@ Ending frame as the image. Band 1 copy with both buttons.
 
 Mile markers (1991, 45 mi, 5,000+, 2 rings) · Two ways we move freight · The 45-mile ring map (draws itself on view) · Equipment configurator (the one interactive moment) · Lombard terminal with the real fleet photo · Why shippers call Fox · Management team · Carrier band · Quote CTA.
 
-Management team copy (from foxtrans.net/about, reworded, nothing added):
+Founders section copy, "A Tribute To our Founders" (from foxtrans.net/about, reworded, nothing added):
 
 - **Thomas W. Fox**, Transportation management. "Thomas has worked in transportation management since he was about 19, and he learned it from the ground up: driving tractor-trailers, working the docks, hand-loading trailers and putting in more overtime than anyone could count. He still loses sleep over freight, which is exactly the kind of person you want watching yours."
 - **Ramon G. Fox**, Fleet and drivers. "Ramon has spent his whole life in trucking. He can back a tractor-trailer faster and straighter than most drivers can pull one forward, and when freight has to move overnight, he is the one up moving it. He runs the Fox tractor-trailer drivers with a firm, fair hand."
-- **Richard Nisivaco**, Sales and customer accounts, owner. "Rich brings thirty years of sales experience and works side by side with operations to shape service around what each customer actually needs. He stays on the account after the sale to make sure the standard holds, and as an owner he can make the call on the spot. If Rich promised it, Fox delivers it, even when a single move costs the company money."
-
 Form: mailto to dispatch@foxtrans.net, success state says so honestly.
 
 ## 7. Vector layer

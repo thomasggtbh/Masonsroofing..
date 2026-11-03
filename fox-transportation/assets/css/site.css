@@ -660,7 +660,7 @@ html:not(.js) .band--1 { opacity: 1; --k: 1; }
 .team__head { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: end; margin-bottom: clamp(36px, 5vw, 64px); }
 .team__head .lede { margin: 0; }
 .h-founders { font-family: "Noto Serif Display", "Didot", "Bodoni 72", Georgia, serif; font-weight: 300; font-stretch: 82%; font-size: clamp(2.5rem, 5.6vw, 4.8rem); letter-spacing: 0; line-height: 1.02; }
-.team__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
+.team__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
 .person { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: clamp(22px, 2.6vw, 32px); display: grid; gap: 20px; align-content: start; transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .3s; }
 .person:hover { transform: translateY(-4px); border-color: var(--line-strong); box-shadow: 0 30px 50px -36px rgba(17,24,32,.5); }
 .person__photo { width: 124px; aspect-ratio: 15 / 13; border-radius: 6px; overflow: hidden; background: var(--line); box-shadow: 0 0 0 4px var(--canvas), 0 0 0 5px var(--line); }

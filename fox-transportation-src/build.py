@@ -27,8 +27,6 @@ TEAM = [
      "Thomas has worked in transportation management since he was about 19, and he learned it from the ground up: driving tractor-trailers, working the docks, hand-loading trailers and putting in more overtime than anyone could count. He still loses sleep over freight, which is exactly the kind of person you want watching yours."),
     ("Ramon G. Fox", "Fleet and drivers", CDN + "91c44d27-a000-4b6e-a9d5-c44dd5dee256.png",
      "Ramon has spent his whole life in trucking. He can back a tractor-trailer faster and straighter than most drivers can pull one forward, and when freight has to move overnight, he is the one up moving it. He runs the Fox tractor-trailer drivers with a firm, fair hand."),
-    ("Richard Nisivaco", "Sales and customer accounts · Owner", CDN + "38575cec-166b-48d7-9989-4bf7171ab499.png",
-     "Rich brings thirty years of sales experience and works side by side with operations to shape service around what each customer actually needs. He stays on the account after the sale to make sure the standard holds, and as an owner he can make the call on the spot. If Rich promised it, Fox delivers it, even when a single move costs the company money."),
 ]
 HERO = {"video": "", "poster": "", "ending": "", "bytes": 0}
 try:
@@ -377,7 +375,7 @@ def team_section(heading="A Tribute To our Founders", kicker="Who runs Fox", sid
     return f'''<section class="team" aria-labelledby="{sid}">
 <div class="wrap">
 <div class="team__head"><div><p class="kicker" data-reveal>{kicker}</p><h2 id="{sid}" class="h-lg h-founders" data-reveal>{heading}</h2></div>
-<p class="lede" data-reveal style="--d:.15s">Decades of Chicagoland freight between them, from the cab, the dock and the sales desk.</p></div>
+<p class="lede" data-reveal style="--d:.15s">Decades of Chicagoland freight between them, from the cab to the dock.</p></div>
 <div class="team__grid">{cards}</div>
 </div>
 </section>'''
