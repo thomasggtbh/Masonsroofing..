@@ -678,3 +678,11 @@ html:not(.js) .band--1 { opacity: 1; --k: 1; }
 .tags { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .tags li { padding: 10px 16px 8px; border-radius: 999px; border: 1.5px solid var(--line-strong); background: #fff; font: 700 .9rem/1 var(--f-display); }
 .person__initials { display: grid; place-items: center; width: 100%; height: 100%; background: var(--ink); color: var(--paper); font: 900 2rem/1 var(--f-display); letter-spacing: .04em; }
+
+/* ---------- Our Staff ---------- */
+.staff { padding-block: clamp(24px, 4vw, 48px) clamp(80px, 10vw, 140px); }
+.staff__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: clamp(16px, 2vw, 28px); }
+.staff__photo { aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; background: var(--line); box-shadow: 0 24px 40px -32px rgba(17, 24, 32, .55); }
+.staff__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.staff__card:hover .staff__photo img { transform: scale(1.03); }
+.staff__name { margin: 14px 0 0; font: 800 1.2rem/1.2 var(--f-display); }

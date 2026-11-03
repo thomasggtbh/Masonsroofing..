@@ -33,7 +33,8 @@ try:
 except Exception:
     pass
 NAV = [("index.html", "Home"), ("services.html", "Services"), ("equipment.html", "Equipment"),
-       ("about.html", "About"), ("about.html#founders", "Our Founders"), ("carriers.html", "Carriers"),
+       ("about.html", "About"), ("about.html#founders", "Our Founders"), ("staff.html", "Our Staff"),
+       ("carriers.html", "Carriers"),
        ("contact.html", "Contact")]
 
 
@@ -762,4 +763,33 @@ ct += f'''<section class="contact" aria-label="Contact details">
 </section>'''
 ct += foot()
 write("contact.html", ct)
+
+# ---------------------------------------------------------------- staff
+# Photos only, no names for now.
+STAFF_CDN = "https://fox-transportation.floot.app/_cdn/static/"
+STAFF = [
+    ("dac81e77-d88f-4d82-984b-251ab531cf0c-staff-1.webp", ""),
+    ("dac5ea80-7362-4e1c-bb25-0cdb838cb6c6-staff-2.webp", ""),
+    ("4b6d4229-eb35-4ff8-a285-1693563719e5-staff-3.webp", ""),
+    ("f567faa0-ea07-4ddb-bd37-fa74dd950bd8-staff-4.webp", ""),
+    ("1d1f7652-7bb9-4284-bc47-6af9e38913e2-staff-5.webp", ""),
+]
+st = head("Our Staff | Fox Transportation", "The staff of Fox Transportation in Lombard, IL.", "staff.html")
+st += '''<section class="page-head">
+<div class="wrap">
+<p class="crumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Our Staff</span></p>
+<h1 class="h-xl" data-reveal-lines><span class="split-line"><span>Our Staff</span></span></h1>
+<div class="page-head__rule" data-reveal-rule></div>
+</div>
+</section>
+<section class="staff" aria-label="Our staff">
+<div class="wrap"><ul class="staff__grid">'''
+for i, (img, name) in enumerate(STAFF):
+    alt = name or "Fox Transportation staff member"
+    label = f'<p class="staff__name">{name}</p>' if name else ""
+    st += f'''<li class="staff__card" data-reveal style="--d:{i*0.06:.2f}s"><div class="staff__photo"><img src="{STAFF_CDN}{img}" alt="{alt}" width="640" height="800" loading="lazy" decoding="async"></div>{label}</li>'''
+st += '''</ul></div>
+</section>'''
+st += foot()
+write("staff.html", st)
 print("ok")
