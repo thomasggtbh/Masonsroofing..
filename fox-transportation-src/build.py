@@ -770,7 +770,7 @@ STAFF_CDN = "https://fox-transportation.floot.app/_cdn/static/"
 STAFF = [
     ("72cead89-3adb-417c-a3e7-ca19bc7f1dd7-staff-1b.webp", "Adis Redzic", "Dispatcher"),
     ("dac5ea80-7362-4e1c-bb25-0cdb838cb6c6-staff-2.webp", "Beata Nowak", "Office Manager"),
-    ("4b6d4229-eb35-4ff8-a285-1693563719e5-staff-3.webp", "Julius Cacho", "Freight Slayer"),
+    ("4423773b-47ba-4cb9-8bd4-4e9bff2fb668-staff-3b.webp", "Julius Cacho", "Freight Slayer"),
     ("f567faa0-ea07-4ddb-bd37-fa74dd950bd8-staff-4.webp", "Dan Fox", "Vice President"),
     ("1d1f7652-7bb9-4284-bc47-6af9e38913e2-staff-5.webp", "Mario Spadavecchia", "Terminal Manager"),
     ("dd4491dc-1e56-4d96-b42e-cff091e0425c-staff-6.webp", "Patrick Feltz", "Billing Specialist"),
