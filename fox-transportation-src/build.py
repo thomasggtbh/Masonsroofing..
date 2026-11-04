@@ -788,6 +788,7 @@ st += '''<section class="page-head">
 </section>
 <section class="staff" aria-label="Our staff">
 <div class="wrap"><ul class="staff__grid">'''
+STAFF.sort(key=lambda s: s[1].split()[-1].lower())  # alphabetical by last name
 for i, (img, name, title) in enumerate(STAFF):
     alt = name or "Fox Transportation staff member"
     label = (f'<h2 class="staff__name">{name}</h2>' if name else "") + (f'<p class="staff__role">{title}</p>' if title else "")
