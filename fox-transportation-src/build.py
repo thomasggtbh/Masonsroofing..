@@ -769,7 +769,7 @@ write("contact.html", ct)
 STAFF_CDN = "https://fox-transportation.floot.app/_cdn/static/"
 STAFF = [
     ("72cead89-3adb-417c-a3e7-ca19bc7f1dd7-staff-1b.webp", "Adis Redzic", "Dispatcher"),
-    ("dac5ea80-7362-4e1c-bb25-0cdb838cb6c6-staff-2.webp", "Beata Nowak", "Office Manager"),
+    ("d3f0849a-6dd1-4435-8c78-f105ed2988b1-staff-2c.webp", "Beata Nowak", "Office Manager"),
     ("4423773b-47ba-4cb9-8bd4-4e9bff2fb668-staff-3b.webp", "Julius Cacho", "Freight Slayer"),
     ("f567faa0-ea07-4ddb-bd37-fa74dd950bd8-staff-4.webp", "Dan Fox", "Vice President"),
     ("1d1f7652-7bb9-4284-bc47-6af9e38913e2-staff-5.webp", "Mario Spadavecchia", "Terminal Manager"),
