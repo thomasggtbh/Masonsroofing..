@@ -23,7 +23,7 @@ CUR = ' aria-current="page"'
 CDN = "https://d2ol7oe51mr4n9.cloudfront.net/user_3InJjoRwe0fRAqbB5OrU49Jvmiy/"
 IMG_FLEET = "https://fox-transportation.floot.app/_cdn/static/eaaa88b3-57d3-4c0c-8811-96cab24a5355-fox-brothers-fleet.jpg"  # Fox Brothers fleet photo from foxtrans.net
 TEAM = [
-    ("Thomas W. Fox", "Transportation management", CDN + "3b7be492-89e2-4a21-8581-4a2c9b8ad8d8.png",
+    ("Thomas W. Fox", "Transportation management", "https://fox-transportation.floot.app/_cdn/static/7f535516-86eb-442d-9297-dbc9da1545b0-thomas-fox-2.jpg",
      "Thomas has worked in transportation management since he was about 19, and he learned it from the ground up: driving tractor-trailers, working the docks, hand-loading trailers and putting in more overtime than anyone could count. He still loses sleep over freight, which is exactly the kind of person you want watching yours."),
 ]
 HERO = {"video": "", "poster": "", "ending": "", "bytes": 0}
@@ -292,8 +292,7 @@ def foot():
 </div>
 <div class="foot__legal">
 <span>© <span data-year>2026</span> Fox Transportation Services, Inc. &amp; Fox Brothers Transfer, Inc.</span>
-<span>Fox Transportation Services: USDOT 2238384 · MC 592002</span>
-<span>Fox Brothers Transfer: USDOT 515265 · MC 259044</span>
+<span class="foot__auth"><span>Fox Transportation Services: <span class="nw">USDOT 2238384 · MC 592002</span></span><span>Fox Brothers Transfer: <span class="nw">USDOT 515265 · MC 259044</span></span></span>
 </div>
 </div>
 </footer>

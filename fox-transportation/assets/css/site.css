@@ -687,3 +687,8 @@ html:not(.js) .band--1 { opacity: 1; --k: 1; }
 .staff__card:hover .staff__photo img { transform: scale(1.03); }
 .staff__name { margin: 16px 0 0; font: 900 1.3rem/1.2 var(--f-display); }
 .staff__role { margin: 6px 0 0; font: 500 .74rem/1.4 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--fox); }
+
+/* ---------- Footer authority numbers ---------- */
+.foot__auth { display: grid; gap: 4px; }
+.nw { white-space: nowrap; }
+@media (min-width: 761px) { .foot__auth { justify-items: end; text-align: right; } }
