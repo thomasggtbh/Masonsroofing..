@@ -41,7 +41,7 @@ Every photo slot shows a to-scale line drawing until a real photo exists. To use
 
 - Fox Brothers Transfer, Inc.: trucking since 1991, terminal near I-355 & North Ave, Lombard. Truckload and
   limited LTL within 45 miles of Chicago. 48'/53' trailers, swing or roll doors, straight trucks with lift gates,
-  all drivers hazmat certified. USDOT 515265. 630-932-9040.
+  all drivers hazmat certified. USDOT 515265, MC 259044. 630-932-9040.
 - Fox Transportation Services, Inc.: formed late 2006. Truckload with single or team drivers, rail to major metros,
   5,000+ contracted carriers (authority, track record, financially strong). USDOT 2238384, MC 592002. 630-261-0800.
 - 10 E Progress Road, Lombard, IL 60148 · dispatch@foxtrans.net

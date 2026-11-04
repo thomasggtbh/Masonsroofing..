@@ -616,6 +616,7 @@ ab += f'''<section class="companies" aria-label="Fox companies">
 <h2>Fox Brothers Transfer, Inc.</h2>
 <p>Truckload and limited LTL within a forty-five mile radius of Chicago, from the terminal near I-355 and North Avenue. 48' and 53' trailers, straight trucks with lift gates, hazmat-certified drivers.</p>
 <dl class="specs"><div><dt>USDOT</dt><dd><a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&amp;query_type=queryCarrierSnapshot&amp;query_param=USDOT&amp;query_string=515265" rel="noopener">515265</a></dd></div>
+<div><dt>MC</dt><dd>259044</dd></div>
 <div><dt>Phone</dt><dd><a href="tel:{PHONE_FBT_TEL}">{PHONE_FBT}</a></dd></div></dl>
 </article>
 <article class="co" data-reveal style="--d:.1s">
